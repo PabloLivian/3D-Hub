@@ -1,0 +1,99 @@
+.navbar {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: var(--background-dark);
+    /* Default to white for header usually */
+}
+
+.navbar-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--header-height);
+}
+
+.navbar-logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--text-light);
+    text-decoration: none;
+}
+
+.logo-icon {
+    height: 2rem;
+    /* h-8 */
+    width: 2rem;
+    /* w-8 */
+    color: var(--primary);
+}
+
+.logo-text {
+    font-size: 1.25rem;
+    /* text-xl */
+    font-weight: 700;
+    /* font-bold */
+}
+
+.navbar-links {
+    display: none;
+    /* hidden on mobile by default */
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .navbar-links {
+        display: flex;
+    }
+}
+
+.nav-link {
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    color: var(--primary);
+}
+
+.navbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Button styles that might be reusable, but defined locally or globally?
+   Let's define basic button classes here or in index.css if they are used elsewhere.
+   For now, specific to navbar usage as mapped classes.
+*/
+
+.btn {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    /* text-sm */
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color 0.2s;
+    display: inline-block;
+}
+
+.btn-secondary {
+    background-color: var(--primary-bg);
+    color: var(--primary);
+}
+
+.btn-secondary:hover {
+    background-color: rgba(17, 115, 212, 0.2);
+}
+
+.btn-outline {
+    background-color: #e2e8f0;
+    /* slate-200 */
+    color: #1e293b;
+    /* slate-800 */
+}
+
+.btn-outline:hover {
+    background-color: #cbd5e1;
+    /* slate-300 */
+}

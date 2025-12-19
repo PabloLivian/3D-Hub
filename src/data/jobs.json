@@ -1,0 +1,152 @@
+[
+    {
+        "id": 1,
+        "title": "Ingeniero de Software",
+        "company": "Tech Solutions Inc.",
+        "location": "Remoto",
+        "description": "Buscamos un ingeniero de software con experiencia en desarrollo web y conocimientos en JavaScript, React y Node.js.",
+        "category": "Desarrollo de Software",
+        "contract": "Tiempo completo",
+        "experience": "Senior"
+    },
+    {
+        "id": 2,
+        "title": "Analista de Datos",
+        "company": "Data Driven Co.",
+        "location": "Ciudad de México",
+        "description": "Estamos buscando un analista de datos con experiencia en el manejo de grandes conjuntos de datos y herramientas de visualización (SQL, Python).",
+        "category": "Data Science",
+        "contract": "Tiempo completo",
+        "experience": "Mid-Level"
+    },
+    {
+        "id": 3,
+        "title": "Desarrollador Mobile iOS",
+        "company": "Mobile Apps Ltd.",
+        "location": "Guadalajara",
+        "description": "Buscamos un desarrollador de aplicaciones móviles con experiencia en iOS (Swift).",
+        "category": "Desarrollo Móvil",
+        "contract": "Híbrido",
+        "experience": "Junior"
+    },
+    {
+        "id": 4,
+        "title": "Ingeniero DevOps",
+        "company": "Cloud Services SA",
+        "location": "Remoto",
+        "description": "Ingeniero de DevOps con experiencia en AWS y automatización de procesos.",
+        "category": "DevOps",
+        "contract": "Contractor",
+        "experience": "Senior"
+    },
+    {
+        "id": 5,
+        "title": "Frontend Developer Vue.js",
+        "company": "Creative Agency",
+        "location": "Madrid",
+        "description": "Experto en Vue.js y CSS moderno para crear experiencias web interactivas.",
+        "category": "Desarrollo de Software",
+        "contract": "Tiempo completo",
+        "experience": "Mid-Level"
+    },
+    {
+        "id": 6,
+        "title": "Backend Developer Java",
+        "company": "Fintech Corp",
+        "location": "Barcelona",
+        "description": "Desarrollador Backend con sólida experiencia en Java Spring Boot y microservicios.",
+        "category": "Desarrollo de Software",
+        "contract": "Tiempo completo",
+        "experience": "Senior"
+    },
+    {
+        "id": 7,
+        "title": "Product Owner",
+        "company": "StartUp Fast",
+        "location": "Remoto",
+        "description": "Liderar la visión del producto y gestionar el backlog en un entorno ágil.",
+        "category": "Producto",
+        "contract": "Tiempo completo",
+        "experience": "Senior"
+    },
+    {
+        "id": 8,
+        "title": "UX/UI Designer",
+        "company": "Design Studio",
+        "location": "Valencia",
+        "description": "Diseñar interfaces intuitivas y centradas en el usuario para aplicaciones web y móviles.",
+        "category": "Diseño",
+        "contract": "Freelance",
+        "experience": "Mid-Level"
+    },
+    {
+        "id": 9,
+        "title": "QA Automation Engineer",
+        "company": "SoftQuality",
+        "location": "Remoto",
+        "description": "Creación de pruebas automatizadas con Selenium y Cypress.",
+        "category": "QA / Testing",
+        "contract": "Tiempo completo",
+        "experience": "Mid-Level"
+    },
+    {
+        "id": 10,
+        "title": "Full Stack Developer (MERN)",
+        "company": "E-commerce Giant",
+        "location": "Bogotá",
+        "description": "Desarrollador Full Stack para plataforma de comercio electrónico de alto tráfico.",
+        "category": "Desarrollo de Software",
+        "contract": "Tiempo completo",
+        "experience": "Senior"
+    },
+    {
+        "id": 11,
+        "title": "Machine Learning Engineer",
+        "company": "AI Innovations",
+        "location": "Remoto",
+        "description": "Implementar modelos de ML en producción usando TensorFlow y Python.",
+        "category": "Data Science",
+        "contract": "Tiempo completo",
+        "experience": "Senior"
+    },
+    {
+        "id": 12,
+        "title": "Scrum Master",
+        "company": "Agile Teams",
+        "location": "Buenos Aires",
+        "description": "Facilitar ceremonias ágiles y eliminar impedimentos para el equipo de desarrollo.",
+        "category": "Management",
+        "contract": "Tiempo completo",
+        "experience": "Mid-Level"
+    },
+    {
+        "id": 13,
+        "title": "Cybersecurity Analyst",
+        "company": "SecureNet",
+        "location": "Santiago",
+        "description": "Monitoreo y análisis de amenazas de seguridad, implementación de políticas de seguridad.",
+        "category": "Ciberseguridad",
+        "contract": "Tiempo completo",
+        "experience": "Junior"
+    },
+    {
+        "id": 14,
+        "title": "Technical Writer",
+        "company": "DocuTech",
+        "location": "Remoto",
+        "description": "Crear documentación técnica clara y concisa para APIs y guías de usuario.",
+        "category": "Otros",
+        "contract": "Part-time",
+        "experience": "Mid-Level"
+    },
+    {
+        "id": 15,
+        "title": "Cloud Architect",
+        "company": "SkyHigh Cloud",
+        "location": "Remoto",
+        "description": "Diseñar arquitecturas escalables y resilientes en Google Cloud Platform.",
+        "category": "DevOps",
+        "contract": "Contractor",
+        "experience": "Senior"
+    }
+]

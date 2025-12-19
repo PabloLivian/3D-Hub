@@ -1,0 +1,101 @@
+.hero {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    padding: 6rem 0;
+    /* py-24 */
+    background-image: linear-gradient(rgba(16, 25, 34, 0.7), rgba(16, 25, 34, 0.9)), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+    color: white;
+}
+
+@media (min-width: 768px) {
+    .hero {
+        padding: 10rem 0;
+        /* md:py-40 */
+    }
+}
+
+.hero-container {
+    text-align: center;
+}
+
+.hero-title {
+    font-size: 2.25rem;
+    /* text-4xl */
+    font-weight: 900;
+    margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+    .hero-title {
+        font-size: 3.75rem;
+        /* text-6xl */
+    }
+}
+
+.hero-subtitle {
+    font-size: 1.125rem;
+    /* text-lg */
+    color: #cbd5e1;
+    /* slate-300 */
+    margin-bottom: 2rem;
+    max-width: 48rem;
+    /* 3xl */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (min-width: 768px) {
+    .hero-subtitle {
+        font-size: 1.25rem;
+        /* text-xl */
+    }
+}
+
+.search-form-container {
+    max-width: 42rem;
+    /* 2xl */
+    margin: 0 auto;
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem;
+}
+
+.search-icon {
+    padding: 0 0.5rem 0 0.75rem;
+    color: var(--text-muted-dark);
+}
+
+.search-input {
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    padding: 0.5rem;
+    font-size: 1rem;
+    color: var(--text-dark);
+}
+
+.search-input:focus {
+    outline: none;
+}
+
+.search-button {
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    background-color: var(--primary);
+    color: white;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.search-button:hover {
+    background-color: var(--primary-hover);
+}

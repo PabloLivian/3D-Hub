@@ -1,0 +1,69 @@
+:root {
+  /* Colors */
+  --primary: #1173d4;
+  --primary-hover: #0e5a9e; /* Darker shade for hover */
+  --primary-bg: rgba(17, 115, 212, 0.1); /* primary/10 */
+  
+  --background-light: #f6f7f8;
+  --background-dark: #101922;
+  
+  --text-dark: #101922;
+  --text-light: #ffffff;
+  --text-muted: #64748b; /* slate-500 approx */
+  --text-muted-dark: #94a3b8; /* slate-400 approx */
+
+  /* Spacing */
+  --container-width: 1200px;
+  --header-height: 80px;
+
+  /* Fonts */
+  --font-display: 'Inter', system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-display);
+  background-color: var(--background-light);
+  color: var(--text-dark);
+  line-height: 1.5;
+}
+
+/* Utility classes for container */
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Flex utilities commonly used */
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.justify-center { justify-content: center; }
+.gap-4 { gap: 1rem; }
+.gap-8 { gap: 2rem; }
+
+/* Link resets */
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.2s;
+}
+
+/* Dark mode support logic can be added here if needed, 
+   currently mapping to defaults or relying on media queries */
+@media (prefers-color-scheme: dark) {
+  /* Commented out to stick to one theme initially unless user enforces system preference immediately,
+     but the variable structure supports it.
+  body {
+    background-color: var(--background-dark);
+    color: var(--text-light);
+  }
+  */
+}
