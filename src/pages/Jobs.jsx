@@ -1,5 +1,6 @@
 import React, { useMemo, useState, useEffect } from 'react';
 import JobCard from '../components/JobCard';
+import Pagination from '../components/Pagination';
 import jobsData from '../data/jobs.json';
 import './Jobs.css';
 
@@ -177,37 +178,11 @@ const Jobs = () => {
                     </div>
 
                     {/* Pagination */}
-                    {totalPages > 1 && (
-                        <div className="pagination">
-                            <nav className="pagination-nav">
-                                <button
-                                    className="pagination-btn icon"
-                                    onClick={() => handlePageChange(currentPage - 1)}
-                                    disabled={currentPage === 1}
-                                >
-                                    <span className="material-symbols-outlined">chevron_left</span>
-                                </button>
-
-                                {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
-                                    <button
-                                        key={page}
-                                        className={`pagination-btn ${currentPage === page ? 'active' : ''}`}
-                                        onClick={() => handlePageChange(page)}
-                                    >
-                                        {page}
-                                    </button>
-                                ))}
-
-                                <button
-                                    className="pagination-btn icon"
-                                    onClick={() => handlePageChange(currentPage + 1)}
-                                    disabled={currentPage === totalPages}
-                                >
-                                    <span className="material-symbols-outlined">chevron_right</span>
-                                </button>
-                            </nav>
-                        </div>
-                    )}
+                    <Pagination
+                        currentPage={currentPage}
+                        totalPages={totalPages}
+                        onPageChange={handlePageChange}
+                    />
 
                 </div>
 

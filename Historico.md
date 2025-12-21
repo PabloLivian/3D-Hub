@@ -1,5 +1,3 @@
-# Bitácora de Desarrollo - MiduJobs
-
 ## [2025-12-18] Inicialización y Refactorización del Home
 **Funcionalidad:**
 - Configuración inicial del proyecto y estructura de directorios.
@@ -77,3 +75,35 @@
 
 **Tecnologías/Librerías Nuevas:**
 - Hooks de React: `useState`, `useMemo`, `useEffect` (a fondo).
+
+---
+
+# Bitácora de Desarrollo - MiduJobs
+
+## [2025-12-21] Reset a la Versión Inicial
+**Funcionalidad:**
+- Reversión completa del proyecto al estado inicial.
+
+**Ejecución Técnica:**
+- Se ejecutó `git reset --hard 9b9b441` para descartar cambios en el router y paginación personalizada.
+- El proyecto vuelve a utilizar `react-router-dom` y la estructura original.
+
+**Tecnologías/Librerías Nuevas:**
+- Ninguna (reversión).
+
+---
+
+## [2025-12-21] Refactorización de Paginación
+**Funcionalidad:**
+- Extracción de la lógica de paginación a un componente reutilizable.
+
+**Ejecución Técnica:**
+- Se creó `src/components/Pagination.jsx` y `src/components/Pagination.css`.
+- Se refactorizó `Jobs.jsx` para utilizar el nuevo componente, eliminando código duplicado.
+- Se mantuvieron los estilos originales pero ahora encapsulados.
+
+**Tecnologías/Librerías Nuevas:**
+- Ninguna.
+
+---
+
