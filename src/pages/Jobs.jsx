@@ -21,9 +21,10 @@ const Jobs = () => {
     const [searchQuery, setSearchQuery] = useState(initialQuery);
 
     // Sync URL 'q' changes back to local state (e.g. navigation)
+    const currentUrlQ = searchParams.get('q') || '';
     useEffect(() => {
-        setSearchQuery(searchParams.get('q') || '');
-    }, [searchParams]);
+        setSearchQuery(currentUrlQ);
+    }, [currentUrlQ]);
 
     const ITEMS_PER_PAGE = 5;
 
@@ -204,6 +205,7 @@ const Jobs = () => {
                             currentJobs.map(job => (
                                 <JobCard
                                     key={job.id}
+                                    id={job.id}
                                     title={job.title}
                                     company={job.company}
                                     location={job.location}

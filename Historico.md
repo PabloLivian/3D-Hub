@@ -93,6 +93,19 @@
 
 ---
 
+## [2025-12-21] Implementación de Página de Detalles de Oferta
+**Funcionalidad:**
+- Página dinámica `/jobs/:id` que muestra la información completa de una vacante.
+- Navegación fluida: Clic en cualquier oferta del listado lleva a sus detalles.
+- Manejo de erroes: Página "Oferta no encontrada" para IDs inválidos.
+
+**Ejecución Técnica:**
+- Creación de ruta dinámica utilizando `React Router`.
+- Nuevo componente `JobDetails.jsx` con estilos modulares.
+- Actualización de `JobCard` para envolver el contenido en un `Link` evitando conflictos con el botón "Aplicar".
+
+---
+
 ## [2025-12-21] Sincronización de Estado y URL en Jobs
 **Funcionalidad:**
 - Persistencia total de filtros, paginación y búsqueda en la URL.
