@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import './JobCard.css';
+import styles from './JobCard.module.css';
 
-const JobCard = ({ title, company, location, description }) => {
+const JobCard = ({ title, company, location, description, className }) => {
     const [isApplied, setIsApplied] = useState(false);
 
     const handleApply = () => {
@@ -9,16 +9,16 @@ const JobCard = ({ title, company, location, description }) => {
     };
 
     return (
-        <div className="job-card">
-            <div className="job-card-content">
-                <div className="job-info">
-                    <h3 className="job-title">{title}</h3>
-                    <p className="job-meta">{company} | {location}</p>
-                    <p className="job-description">{description}</p>
+        <div className={`${styles.jobCard} ${className || ''}`}>
+            <div className={styles.jobCardContent}>
+                <div className={styles.jobInfo}>
+                    <h3 className={styles.jobTitle}>{title}</h3>
+                    <p className={styles.jobMeta}>{company} | {location}</p>
+                    <p className={styles.jobDescription}>{description}</p>
                 </div>
-                <div className="job-action">
+                <div className={styles.jobAction}>
                     <button
-                        className={`btn-apply ${isApplied ? 'applied' : ''}`}
+                        className={`${styles.btnApply} ${isApplied ? styles.applied : ''}`}
                         onClick={handleApply}
                         disabled={isApplied}
                     >

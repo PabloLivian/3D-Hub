@@ -1,12 +1,17 @@
 import React, { useMemo, useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import JobCard from '../components/JobCard';
 import Pagination from '../components/Pagination';
 import jobsData from '../data/jobs.json';
-import './Jobs.css';
+import styles from './Jobs.module.css';
 
 const Jobs = () => {
+    const location = useLocation();
+    const queryParams = new URLSearchParams(location.search);
+    const initialQuery = queryParams.get('q') || '';
+
     // State for filters and pagination
-    const [searchQuery, setSearchQuery] = useState('');
+    const [searchQuery, setSearchQuery] = useState(initialQuery);
     const [activeFilters, setActiveFilters] = useState({
         technology: '',
         location: '',
@@ -47,6 +52,13 @@ const Jobs = () => {
         });
     }, [searchQuery, activeFilters]);
 
+    // Sync URL query with state (optional, or just one-way from URL to initial state)
+    // Here we reset pages when filters change, but we also want to react to URL changes if the user navigates back/forward
+    useEffect(() => {
+        const query = queryParams.get('q') || '';
+        setSearchQuery(query);
+    }, [location.search]);
+
     // Reset to first page when filters change
     useEffect(() => {
         setCurrentPage(1);
@@ -72,32 +84,32 @@ const Jobs = () => {
     };
 
     return (
-        <div className="jobs-page">
+        <div className={styles.jobsPage}>
             <div className="container">
 
                 {/* Header Section */}
-                <div className="jobs-header">
-                    <h1 className="jobs-title">Encuentra tu próximo trabajo</h1>
-                    <p className="jobs-subtitle">Explora miles de oportunidades en el sector tecnológico.</p>
+                <div className={styles.jobsHeader}>
+                    <h1 className={styles.jobsTitle}>Encuentra tu próximo trabajo</h1>
+                    <p className={styles.jobsSubtitle}>Explora miles de oportunidades en el sector tecnológico.</p>
                 </div>
 
                 {/* Search & Filter Section */}
-                <div className="jobs-controls">
-                    <div className="jobs-search">
-                        <span className="material-symbols-outlined search-icon-input">search</span>
+                <div className={styles.jobsControls}>
+                    <div className={styles.jobsSearch}>
+                        <span className={`material-symbols-outlined ${styles.searchIconInput}`}>search</span>
                         <input
                             type="text"
-                            className="jobs-search-input"
+                            className={styles.jobsSearchInput}
                             placeholder="Buscar trabajos, empresas o habilidades"
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
                         />
                     </div>
 
-                    <div className="jobs-filters">
-                        <div className="filter-wrapper">
+                    <div className={styles.jobsFilters}>
+                        <div className={styles.filterWrapper}>
                             <select
-                                className="filter-select"
+                                className={styles.filterSelect}
                                 value={activeFilters.technology}
                                 onChange={(e) => handleFilterChange('technology', e.target.value)}
                             >
@@ -106,12 +118,12 @@ const Jobs = () => {
                                     <option key={opt} value={opt}>{opt}</option>
                                 ))}
                             </select>
-                            <span className="material-symbols-outlined filter-arrow">expand_more</span>
+                            <span className={`material-symbols-outlined ${styles.filterArrow}`}>expand_more</span>
                         </div>
 
-                        <div className="filter-wrapper">
+                        <div className={styles.filterWrapper}>
                             <select
-                                className="filter-select"
+                                className={styles.filterSelect}
                                 value={activeFilters.location}
                                 onChange={(e) => handleFilterChange('location', e.target.value)}
                             >
@@ -120,12 +132,12 @@ const Jobs = () => {
                                     <option key={opt} value={opt}>{opt}</option>
                                 ))}
                             </select>
-                            <span className="material-symbols-outlined filter-arrow">expand_more</span>
+                            <span className={`material-symbols-outlined ${styles.filterArrow}`}>expand_more</span>
                         </div>
 
-                        <div className="filter-wrapper">
+                        <div className={styles.filterWrapper}>
                             <select
-                                className="filter-select"
+                                className={styles.filterSelect}
                                 value={activeFilters.contract}
                                 onChange={(e) => handleFilterChange('contract', e.target.value)}
                             >
@@ -134,12 +146,12 @@ const Jobs = () => {
                                     <option key={opt} value={opt}>{opt}</option>
                                 ))}
                             </select>
-                            <span className="material-symbols-outlined filter-arrow">expand_more</span>
+                            <span className={`material-symbols-outlined ${styles.filterArrow}`}>expand_more</span>
                         </div>
 
-                        <div className="filter-wrapper">
+                        <div className={styles.filterWrapper}>
                             <select
-                                className="filter-select"
+                                className={styles.filterSelect}
                                 value={activeFilters.experience}
                                 onChange={(e) => handleFilterChange('experience', e.target.value)}
                             >
@@ -148,16 +160,16 @@ const Jobs = () => {
                                     <option key={opt} value={opt}>{opt}</option>
                                 ))}
                             </select>
-                            <span className="material-symbols-outlined filter-arrow">expand_more</span>
+                            <span className={`material-symbols-outlined ${styles.filterArrow}`}>expand_more</span>
                         </div>
                     </div>
                 </div>
 
                 {/* Results Section */}
-                <div className="jobs-results">
-                    <h2 className="results-title">Resultados de búsqueda</h2>
+                <div className={styles.jobsResults}>
+                    <h2 className={styles.resultsTitle}>Resultados de búsqueda</h2>
 
-                    <div className="jobs-list">
+                    <div className={styles.jobsList}>
                         {currentJobs.length > 0 ? (
                             currentJobs.map(job => (
                                 <JobCard
@@ -166,6 +178,7 @@ const Jobs = () => {
                                     company={job.company}
                                     location={job.location}
                                     description={job.description}
+                                    className={styles.jobListItem}
                                 // Optional: pass tabs/tags if needed, e.g.
                                 // tags={[job.contract, job.experience]} 
                                 />

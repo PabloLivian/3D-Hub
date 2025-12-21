@@ -93,6 +93,34 @@
 
 ---
 
+## [2025-12-21] Refactorización a CSS Modules
+**Funcionalidad:**
+- Migración completa de estilos globales a **CSS Modules** para cumplir con nuevas reglas de arquitectura.
+- Aislamiento de estilos por componente para evitar colisiones.
+
+**Ejecución Técnica:**
+- Renombrado de archivos `.css` a `.module.css`.
+- Actualización de imports en componentes (`import styles from './Component.module.css'`).
+- Refactorización de clases CSS a **camelCase** (ej: `.job-card` -> `.jobCard`).
+- Actualización de JSX para usar objeto `styles`.
+- Modificación de `JobCard` para aceptar `className` externo (para estilos de lista en `Jobs`).
+
+---
+
+## [2025-12-21] Implementación de Búsqueda desde Home
+**Funcionalidad:**
+- Habilitación del buscador en la página de inicio.
+- Filtrado automático en la página de Jobs al llegar desde el Home.
+
+**Ejecución Técnica:**
+- `Hero.jsx`: Implementación de redirección programática (`useNavigate`) al enviar el formulario.
+- `Jobs.jsx`: Lectura de parámetros de URL (`useLocation`) para inicializar y sincronizar el estado del buscador.
+
+**Tecnologías/Librerías Nuevas:**
+- `react-router-dom`: Hooks `useNavigate`, `useLocation`.
+
+---
+
 ## [2025-12-21] Refactorización de Paginación
 **Funcionalidad:**
 - Extracción de la lógica de paginación a un componente reutilizable.

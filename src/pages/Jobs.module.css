@@ -1,49 +1,49 @@
-.jobs-page {
+.jobsPage {
     padding: 2rem 0 3rem;
 }
 
 @media (min-width: 768px) {
-    .jobs-page {
+    .jobsPage {
         padding: 3rem 0;
     }
 }
 
-.jobs-header {
+.jobsHeader {
     text-align: center;
     margin-bottom: 2rem;
 }
 
-.jobs-title {
+.jobsTitle {
     font-size: 2.25rem;
     font-weight: 700;
     color: var(--text-dark);
 }
 
 @media (min-width: 640px) {
-    .jobs-title {
+    .jobsTitle {
         font-size: 3rem;
     }
 }
 
-.jobs-subtitle {
+.jobsSubtitle {
     margin-top: 1rem;
     font-size: 1.125rem;
     color: var(--text-muted);
 }
 
-.jobs-controls {
+.jobsControls {
     margin-bottom: 2rem;
     max-width: 64rem;
     margin-left: auto;
     margin-right: auto;
 }
 
-.jobs-search {
+.jobsSearch {
     position: relative;
     margin-bottom: 1rem;
 }
 
-.search-icon-input {
+.searchIconInput {
     position: absolute;
     left: 1rem;
     top: 50%;
@@ -51,7 +51,7 @@
     color: #9ca3af;
 }
 
-.jobs-search-input {
+.jobsSearchInput {
     width: 100%;
     border-radius: 0.5rem;
     border: 1px solid #e5e7eb;
@@ -61,12 +61,12 @@
     color: var(--text-dark);
 }
 
-.jobs-search-input:focus {
+.jobsSearchInput:focus {
     outline: 2px solid var(--primary);
     border-color: var(--primary);
 }
 
-.jobs-filters {
+.jobsFilters {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -74,12 +74,12 @@
 }
 
 /* Filter Wrapper for Select Trick */
-.filter-wrapper {
+.filterWrapper {
     position: relative;
     display: inline-block;
 }
 
-.filter-select {
+.filterSelect {
     appearance: none;
     -webkit-appearance: none;
     border-radius: 0.5rem;
@@ -98,17 +98,17 @@
     font-family: inherit;
 }
 
-.filter-select:hover {
+.filterSelect:hover {
     background-color: #e5e7eb;
 }
 
-.filter-select:focus {
+.filterSelect:focus {
     outline: none;
     background-color: #e5e7eb;
 }
 
 /* Position the arrow over the select */
-.filter-arrow {
+.filterArrow {
     position: absolute;
     right: 0.5rem;
     top: 50%;
@@ -120,19 +120,19 @@
     color: #374151;
 }
 
-.jobs-results {
+.jobsResults {
     max-width: 64rem;
     margin: 0 auto;
 }
 
-.results-title {
+.resultsTitle {
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--text-dark);
     margin-bottom: 1.5rem;
 }
 
-.jobs-list {
+.jobsList {
     display: flex;
     flex-direction: column;
     border-radius: 0.5rem;
@@ -140,11 +140,11 @@
     border: 1px solid #e5e7eb;
 }
 
-.jobs-list>.job-card {
+.jobListItem {
     border: none;
     border-bottom: 1px solid #e5e7eb;
 }
 
-.jobs-list>.job-card:last-child {
+.jobListItem:last-child {
     border-bottom: none;
 }

@@ -1,4 +1,4 @@
-.job-card {
+.jobCard {
     padding: 1.5rem;
     background-color: white;
     border: 1px solid rgba(229, 231, 235, 0.5);
@@ -6,7 +6,7 @@
     transition: background-color 0.2s;
 }
 
-.job-card:hover {
+.jobCard:hover {
     background-color: #f9fafb;
     /* gray-50 */
 }
@@ -18,39 +18,39 @@
      if setup. For now, matching the design aesthetic generally. */
 }
 
-.job-card-content {
+.jobCardContent {
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
 
 @media (min-width: 640px) {
-    .job-card-content {
+    .jobCardContent {
         flex-direction: row;
         align-items: flex-start;
         justify-content: space-between;
     }
 }
 
-.job-info {
+.jobInfo {
     flex-grow: 1;
 }
 
-.job-title {
+.jobTitle {
     font-size: 1.125rem;
     /* text-lg */
     font-weight: 600;
     color: var(--text-dark);
 }
 
-.job-meta {
+.jobMeta {
     margin-top: 0.25rem;
     font-size: 0.875rem;
     /* text-sm */
     color: var(--text-muted);
 }
 
-.job-description {
+.jobDescription {
     margin-top: 0.75rem;
     font-size: 0.875rem;
     /* text-sm */
@@ -63,18 +63,18 @@
     overflow: hidden;
 }
 
-.job-action {
+.jobAction {
     flex-shrink: 0;
     margin-top: 1rem;
 }
 
 @media (min-width: 640px) {
-    .job-action {
+    .jobAction {
         margin-top: 0;
     }
 }
 
-.btn-apply {
+.btnApply {
     padding: 0.625rem 1.25rem;
     border-radius: 0.5rem;
     background-color: var(--primary);
@@ -86,11 +86,11 @@
     transition: background-color 0.2s;
 }
 
-.btn-apply:hover {
+.btnApply:hover {
     background-color: var(--primary-hover);
 }
 
-.btn-apply.applied {
+.btnApply.applied {
     background-color: #22c55e;
     /* green-500 */
     cursor: default;

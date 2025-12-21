@@ -4,13 +4,13 @@
     padding: 2rem 0;
 }
 
-.footer-content {
+.footerContent {
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
 }
 
-.footer-text {
+.footerText {
     color: var(--text-muted);
 }
