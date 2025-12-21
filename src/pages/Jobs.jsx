@@ -1,24 +1,30 @@
 import React, { useMemo, useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import JobCard from '../components/JobCard';
 import Pagination from '../components/Pagination';
 import jobsData from '../data/jobs.json';
 import styles from './Jobs.module.css';
 
 const Jobs = () => {
-    const location = useLocation();
-    const queryParams = new URLSearchParams(location.search);
-    const initialQuery = queryParams.get('q') || '';
+    const [searchParams, setSearchParams] = useSearchParams();
 
-    // State for filters and pagination
+    // Derived state from URL
+    const currentPage = parseInt(searchParams.get('page') || '1', 10);
+    const filtersFromUrl = {
+        technology: searchParams.get('technology') || '',
+        location: searchParams.get('location') || '',
+        contract: searchParams.get('contract') || '',
+        experience: searchParams.get('experience') || ''
+    };
+
+    const initialQuery = searchParams.get('q') || '';
     const [searchQuery, setSearchQuery] = useState(initialQuery);
-    const [activeFilters, setActiveFilters] = useState({
-        technology: '',
-        location: '',
-        contract: '',
-        experience: ''
-    });
-    const [currentPage, setCurrentPage] = useState(1);
+
+    // Sync URL 'q' changes back to local state (e.g. navigation)
+    useEffect(() => {
+        setSearchQuery(searchParams.get('q') || '');
+    }, [searchParams]);
+
     const ITEMS_PER_PAGE = 5;
 
     // Extract unique options for filters (memoized to avoid recalculation)
@@ -31,10 +37,16 @@ const Jobs = () => {
         return { technologies, locations, contracts, experiences };
     }, []);
 
-    // Filter jobs based on search query and active filters
+    // Filter jobs based on URL params (source of truth)
     const filteredJobs = useMemo(() => {
         return jobsData.filter(job => {
-            // Text Search
+            // Text Search (from local state or URL? better use URL for consistency in render)
+            // But we want live feedback. Let's use local searchQuery for filtering to be instant
+            // while the URL updates debounced.
+            // ACTUALLY: User asked for URL to update. If we filter by searchQuery (local),
+            // and URL lags, it breaks "reload gives same result" if we are mid-typing.
+            // Let's filter by searchQuery which is synced with URL.
+
             const query = searchQuery.toLowerCase();
             const matchesSearch =
                 job.title.toLowerCase().includes(query) ||
@@ -43,26 +55,34 @@ const Jobs = () => {
                 (job.category && job.category.toLowerCase().includes(query));
 
             // Dropdown Filters
-            const matchesTechnology = activeFilters.technology ? job.category === activeFilters.technology : true;
-            const matchesLocation = activeFilters.location ? job.location === activeFilters.location : true;
-            const matchesContract = activeFilters.contract ? job.contract === activeFilters.contract : true;
-            const matchesExperience = activeFilters.experience ? job.experience === activeFilters.experience : true;
+            const matchesTechnology = filtersFromUrl.technology ? job.category === filtersFromUrl.technology : true;
+            const matchesLocation = filtersFromUrl.location ? job.location === filtersFromUrl.location : true;
+            const matchesContract = filtersFromUrl.contract ? job.contract === filtersFromUrl.contract : true;
+            const matchesExperience = filtersFromUrl.experience ? job.experience === filtersFromUrl.experience : true;
 
             return matchesSearch && matchesTechnology && matchesLocation && matchesContract && matchesExperience;
         });
-    }, [searchQuery, activeFilters]);
+    }, [searchQuery, filtersFromUrl]);
 
-    // Sync URL query with state (optional, or just one-way from URL to initial state)
-    // Here we reset pages when filters change, but we also want to react to URL changes if the user navigates back/forward
+    // Update URL when Search Query Changes (Debounced)
     useEffect(() => {
-        const query = queryParams.get('q') || '';
-        setSearchQuery(query);
-    }, [location.search]);
+        const timer = setTimeout(() => {
+            const currentQ = searchParams.get('q') || '';
+            if (searchQuery !== currentQ) {
+                setSearchParams(prev => {
+                    const newParams = new URLSearchParams(prev);
+                    if (searchQuery) newParams.set('q', searchQuery);
+                    else newParams.delete('q');
+                    // Reset page on new search
+                    newParams.set('page', '1');
+                    return newParams;
+                }, { replace: true });
+            }
+        }, 300);
 
-    // Reset to first page when filters change
-    useEffect(() => {
-        setCurrentPage(1);
-    }, [searchQuery, activeFilters]);
+        return () => clearTimeout(timer);
+    }, [searchQuery, setSearchParams, searchParams]);
+
 
     // Pagination calculations
     const totalPages = Math.ceil(filteredJobs.length / ITEMS_PER_PAGE);
@@ -73,12 +93,22 @@ const Jobs = () => {
 
     // Handlers
     const handleFilterChange = (key, value) => {
-        setActiveFilters(prev => ({ ...prev, [key]: value }));
+        setSearchParams(prev => {
+            const newParams = new URLSearchParams(prev);
+            if (value) newParams.set(key, value);
+            else newParams.delete(key);
+            newParams.set('page', '1'); // Reset to page 1 on filter change
+            return newParams;
+        });
     };
 
     const handlePageChange = (newPage) => {
         if (newPage >= 1 && newPage <= totalPages) {
-            setCurrentPage(newPage);
+            setSearchParams(prev => {
+                const newParams = new URLSearchParams(prev);
+                newParams.set('page', newPage.toString());
+                return newParams;
+            });
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     };
@@ -110,7 +140,7 @@ const Jobs = () => {
                         <div className={styles.filterWrapper}>
                             <select
                                 className={styles.filterSelect}
-                                value={activeFilters.technology}
+                                value={filtersFromUrl.technology}
                                 onChange={(e) => handleFilterChange('technology', e.target.value)}
                             >
                                 <option value="">Tecnología</option>
@@ -124,7 +154,7 @@ const Jobs = () => {
                         <div className={styles.filterWrapper}>
                             <select
                                 className={styles.filterSelect}
-                                value={activeFilters.location}
+                                value={filtersFromUrl.location}
                                 onChange={(e) => handleFilterChange('location', e.target.value)}
                             >
                                 <option value="">Ubicación</option>
@@ -138,7 +168,7 @@ const Jobs = () => {
                         <div className={styles.filterWrapper}>
                             <select
                                 className={styles.filterSelect}
-                                value={activeFilters.contract}
+                                value={filtersFromUrl.contract}
                                 onChange={(e) => handleFilterChange('contract', e.target.value)}
                             >
                                 <option value="">Tipo de contrato</option>
@@ -152,7 +182,7 @@ const Jobs = () => {
                         <div className={styles.filterWrapper}>
                             <select
                                 className={styles.filterSelect}
-                                value={activeFilters.experience}
+                                value={filtersFromUrl.experience}
                                 onChange={(e) => handleFilterChange('experience', e.target.value)}
                             >
                                 <option value="">Nivel de experiencia</option>

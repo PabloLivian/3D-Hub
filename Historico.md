@@ -93,6 +93,19 @@
 
 ---
 
+## [2025-12-21] Sincronización de Estado y URL en Jobs
+**Funcionalidad:**
+- Persistencia total de filtros, paginación y búsqueda en la URL.
+- Navegación bidireccional: al cambiar la URL se actualiza la UI y viceversa.
+- Permite compartir enlaces con filtros aplicados (ej: `/jobs?q=react&location=remoto&page=2`).
+
+**Ejecución Técnica:**
+- Refactorización de `Jobs.jsx` para usar `useSearchParams`.
+- Estado derivado directamente de los query params.
+- Implementación de **debounce** (300ms) para la búsqueda en tiempo real sin saturar el historial del navegador.
+
+---
+
 ## [2025-12-21] Implementación de Página de Contacto
 **Funcionalidad:**
 - Nueva página de contacto accesible desde el Navbar.
