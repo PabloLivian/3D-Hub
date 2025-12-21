@@ -18,10 +18,9 @@ const Navbar = () => {
                     </Link>
 
                     <nav className={styles.navbarLinks}>
-                        <Link to="/search" className={styles.navLink}>Buscar</Link>
                         <Link to="/jobs" className={styles.navLink}>Empleos</Link>
                         <Link to="/companies" className={styles.navLink}>Empresas</Link>
-                        <Link to="/salaries" className={styles.navLink}>Salarios</Link>
+                        <Link to="/contact" className={styles.navLink}>Contacto</Link>
                     </nav>
 
                     <div className={styles.navbarActions}>

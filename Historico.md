@@ -93,6 +93,18 @@
 
 ---
 
+## [2025-12-21] Implementación de Página de Contacto
+**Funcionalidad:**
+- Nueva página de contacto accesible desde el Navbar.
+- Formulario básico con estilos consistentes.
+
+**Ejecución Técnica:**
+- Limpieza y refactorización de `Contact.jsx` (eliminando dependencias externas rotas).
+- Creación de ruta `/contact` en `App.jsx`.
+- Implementación de estilos vía `Contact.module.css`.
+
+---
+
 ## [2025-12-21] Refactorización a CSS Modules
 **Funcionalidad:**
 - Migración completa de estilos globales a **CSS Modules** para cumplir con nuevas reglas de arquitectura.
