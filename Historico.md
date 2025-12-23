@@ -97,12 +97,13 @@
     - **Estilos:** Refactorización CSS en `JobCard.module.css` para soportar la nueva estructura de filas.
 
 ### [2025-12-23 16:30] - Implementación Página de Empresas
+- **Commit:** `Implementación de la página de Empresas y optimización de logos`
 - **Funcionalidad:** Nueva página `/companies` que lista todos los estudios con ofertas activas.
 - **Detalles técnicos:**
     - **Grid:** Layout de 4 columnas (responsive).
     - **Lógica:** Se calculan dinámicamente las ofertas por empresa recorriendo `jobs3D.json`.
     - **Componentes:** `Companies.jsx` (página) y `CompanyCard.jsx` (componente visual).
-    - **Logos:** Implementación de avatars para logos de empresa (empezando con DNEG). Se mapean dinámicamente y se muestran centrados en un contenedor estilizado.
+    - **Logos:** Implementación de avatars para logos de empresa (empezando con DNEG). Se mapean dinámicamente y se muestran centrados en un contenedor estilizado. (Solucionado problema de extensión .png).
     - **Navegación:** Al hacer clic en una tarjeta de empresa, redirige a la página `/jobs` filtrando automáticamente por el nombre de la compañía seleccionada.
     - **Routing:** Añadida la ruta en `App.jsx` con Lazy Loading.
 
@@ -262,3 +263,32 @@
 
 ---
 
+
+## [2025-12-23] Actualización de Metadatos del Proyecto
+**Funcionalidad:**
+- Renombrado del proyecto en `package.json` de `midujobs` a `3d-hub` para coincidir con la carpeta.
+
+**Ejecución Técnica:**
+- Actualización de `name` en `package.json`.
+- Actualizado remote origin a `https://github.com/PabloLivian/3D-Hub.git`.
+
+---
+
+## [2025-12-23] Mejora de Documentación (README)
+**Funcionalidad:**
+- Reescritura completa de `README.md` para mejorar la presentación del producto.
+
+**Ejecución Técnica:**
+- Se añadieron secciones de: Características, Tech Stack, Instalación y Estructura del Proyecto.
+- Se actualizó con la nueva identidad "3D Hub".
+
+**Tecnologías/Librerías Nuevas:**
+- Ninguna.
+
+---
+
+
+**Tecnologías/Librerías Nuevas:**
+- Ninguna.
+
+---

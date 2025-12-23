@@ -1,16 +1,65 @@
-# React + Vite
+# 3D Hub - The Job Board for the 3D Industry
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![3D Hub Logo](/public/logo.svg)
 
-Currently, two official plugins are available:
+**3D Hub** is a specialized job board connecting talented 3D artists, animators, and VFX specialists with top studios worldwide. Built with modern web technologies, it offers a seamless and responsive experience for job seekers to discover their next career opportunity.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Product Features
 
-## React Compiler
+-   **Smart Filtering**: Filter jobs by Specialty (VFX, Animation, Games), Experience Level, and Contract Type.
+-   **Dynamic Search**: Real-time search by job title, studio, or keywords.
+-   **Company Profiles**: Browse detailed profiles of top studios (DNEG, Industrial Light & Magic, Ubisoft, etc.) to see all their open positions.
+-   **Job Details**: deeply integrated details view with full job descriptions and direct application links.
+-   **Responsive Design**: Fully optimized for desktop, tablet, and mobile devices.
+-   **Modern UI**: A clean, "glassmorphism" inspired aesthetic with smooth interactions.
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+## 🛠️ Tech Stack
 
-## Expanding the ESLint configuration
+This project is built with a focus on performance, scalability, and code quality:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+-   **Core**: [React 19](https://react.dev/) + [Vite](https://vitejs.dev/) (SWC compiler).
+-   **Routing**: React Router v7 with Lazy Loading & Suspense.
+-   **Styling**: Native CSS Modules for component-scoped styles + Standard CSS variables.
+-   **Icons**: Google Material Symbols.
+-   **Fonts**: Inter & Noto Sans (via Google Fonts).
+-   **Data**: JSON-based mock database for rapid prototyping.
+
+## 📦 Installation & Setup
+
+Follow these steps to run the project locally:
+
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/PabloLivian/3D-Hub.git
+    cd 3DHub
+    ```
+
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
+
+3.  **Run the development server:**
+    ```bash
+    npm run dev
+    ```
+
+4.  **Build for production:**
+    ```bash
+    npm run build
+    ```
+
+## 📂 Project Structure
+
+```text
+src/
+├── components/   # Reusable UI components (JobCard, Navbar, etc.)
+├── pages/        # Main application views (Home, Jobs, Companies)
+├── hooks/        # Custom React hooks
+├── data/         # Mock data (jobs3D.json)
+├── styles/       # Global styles and variables
+└── main.jsx      # Entry point
+```
+
+## 📄 License
+This project is for educational and portfolio purposes. All job listings and company logos are property of their respective owners.
