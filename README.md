@@ -1,6 +1,5 @@
 # 3D Hub - The Job Board for the 3D Industry
 
-![3D Hub Logo](/public/logo.svg)
 
 **3D Hub** is a specialized job board connecting talented 3D artists, animators, and VFX specialists with top studios worldwide. Built with modern web technologies, it offers a seamless and responsive experience for job seekers to discover their next career opportunity.
 

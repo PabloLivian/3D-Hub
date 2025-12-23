@@ -277,6 +277,7 @@
 ## [2025-12-23] Mejora de Documentación (README)
 **Funcionalidad:**
 - Reescritura completa de `README.md` para mejorar la presentación del producto.
+- Ajuste: Eliminado logo del README por limpieza visual.
 
 **Ejecución Técnica:**
 - Se añadieron secciones de: Características, Tech Stack, Instalación y Estructura del Proyecto.
