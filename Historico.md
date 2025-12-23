@@ -80,6 +80,50 @@
 
 # Bitácora de Desarrollo - MiduJobs
 
+### [2025-12-23 13:00] - Refinamiento de Diseño y Lógica JobCard
+- **Funcionalidad solicitada:** Ajuste final de layout y comportamiento de botones.
+- **Explicación técnica:**
+    - **Layout JobCard:**
+        1. Título (Especialidad) + Experiencia
+        2. Empresa
+        3. Ubicación + Modalidad (en fila)
+        4. Descripción
+    - **Botón Aplicar:** Se convirtió en un enlace externo (`<a>`) que abre la URL de origen (`Source_Contact`) en nueva pestaña.
+    - **Paginación:** Aumentado el límite de empleos por página de 5 a 10.
+    - **Botón Limpiar:** Se estilizó con color primario (azul) para mayor visibilidad.
+    - **Botón Limpiar:** Se estilizó con color primario (azul) para mayor visibilidad.
+    - **Estilos:** Refactorización CSS en `JobCard.module.css` para soportar la nueva estructura de filas.
+
+---
+
+### [2025-12-23 12:45] - Actualización de diseño JobCard (Iteración Previa)
+
+---
+
+### [2025-12-23 12:35] - Refactor Página de Empleos 3D
+- **Funcionalidad solicitada:** Cambiar la fuente de datos a `jobs3D.json` y rediseñar los filtros de búsqueda.
+- **Explicación técnica:** 
+    - Se actualizó `Jobs.jsx` para consumir `src/data/jobs3D.json`.
+    - Se implementaron 4 nuevos filtros: Especialidad (`Job_Title`), Experiencia (`Experience_Level`), Modalidad (`On_Site_Remote_Hybrid`), y País (`Country`).
+    - Se añadió lógica "include" para filtros de valores múltiples (ej: "Mid, Senior").
+    - Se agregó botón "Limpiar filtros".
+    - Se refactorizó `JobDetails.jsx` para mapear las nuevas propiedades (`ID`, `Studio`, `Notes`, etc.) y corregir la navegación.
+- **Tecnologías/Librerías:** React Hooks (`useMemo`, `useSearchParams`).
+
+---
+
+### [2025-12-23 11:55] - Actualización de Favicon y Branding
+- **Funcionalidad solicitada:** Cambiar el logo de Vite por el nuevo logo de 3D HUB en la pestaña del navegador.
+- **Explicación técnica:** 
+    - Se creó `public/logo.svg` para la pestaña del navegador, optimizando su viewBox para que se vea lo más grande posible.
+    - Se actualizó `index.html` para usar este `/logo.svg`.
+    - El logo del Navbar se mantiene con su escalado estándar para un diseño armónico.
+    - Se ajustaron estilos en `Navbar.module.css` (gap y tamaño del logo).
+    - Se actualizó el contenido de `Features.jsx` para artistas 3D (VFX, Animación y Videojuegos).
+- **Tecnologías/Librerías:** SVG, HTML, CSS Modules.
+
+---
+
 ## [2025-12-21] Reset a la Versión Inicial
 **Funcionalidad:**
 - Reversión completa del proyecto al estado inicial.
@@ -170,6 +214,39 @@
 
 **Tecnologías/Librerías Nuevas:**
 - Ninguna.
+
+---
+
+## [2025-12-22] Implementación de Lazy Loading y Suspense
+**Funcionalidad:**
+- Implementación de carga diferida (Lazy Loading) para las páginas principales, mejorando el tiempo de carga inicial.
+- Introducción de componente `Loader` visual durante las transiciones de rutas.
+
+**Ejecución Técnica:**
+- `App.jsx`:
+    - Sustitución de imports estáticos por `React.lazy`.
+    - Envoltorio de rutas con `Suspense` y fallback a `Loader`.
+- Creación de componentes:
+    - `src/components/Loader.jsx` y `src/components/Loader.module.css`.
+
+**Tecnologías/Librerías Nuevas:**
+- React: `lazy`, `Suspense`.
+
+---
+
+## [2025-12-22] Implementación de Página 404 (Not Found)
+**Funcionalidad:**
+- Creación de una página personalizada para rutas no existentes.
+- Diseño visual atractivo con animaciones CSS y feedback claro al usuario.
+- Botón de retorno al inicio.
+
+**Ejecución Técnica:**
+- Componente `NotFound.jsx` con estilos modulares (`NotFound.module.css`).
+- Configuración de ruta "catch-all" (`path="*"`) en `App.jsx`.
+- Implementación compatible con `React.lazy`.
+
+**Tecnologías/Librerías Nuevas:**
+- Animaciones CSS (keyframes).
 
 ---
 

@@ -2,33 +2,40 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './JobCard.module.css';
 
-const JobCard = ({ id, title, company, location, description, className }) => {
-    const [isApplied, setIsApplied] = useState(false);
+const JobCard = ({ id, title, company, location, description, modality, experience, externalLink, className }) => {
 
-    const handleApply = (e) => {
-        e.preventDefault(); // Prevent navigation to details when clicking apply
-        e.stopPropagation();
-        setIsApplied(true);
-    };
+    // We don't really need state for "Applied" anymore if it's an external link, 
+    // but maybe we want to visually indicate it was clicked? 
+    // User asked to "change functionality", implying it's now just a link.
+    // Let's rely on :visited if needed, or simple link behavior.
 
     return (
         <div className={`${styles.jobCard} ${className || ''}`}>
             <div className={styles.jobCardContent}>
                 <Link to={`/jobs/${id}`} className={styles.cardLink}>
                     <div className={styles.jobInfo}>
-                        <h3 className={styles.jobTitle}>{title}</h3>
-                        <p className={styles.jobMeta}>{company} | {location}</p>
-                        <p className={styles.jobDescription}>{description}</p>
+                        <div className={styles.jobHeader}>
+                            <h3 className={styles.jobTitle}>{title}</h3>
+                            <span className={styles.jobExperience}>{experience}</span>
+                        </div>
+                        <p className={styles.jobCompany}>{company}</p>
+                        <div className={styles.jobDetailsRow}>
+                            <p className={styles.jobLocation}>{location}</p>
+                            <span className={styles.jobModality}>{modality}</span>
+                        </div>
+                        <p className={styles.jobDescription}>{description || 'Sin descripción previa'}</p>
                     </div>
                 </Link>
                 <div className={styles.jobAction}>
-                    <button
-                        className={`${styles.btnApply} ${isApplied ? styles.applied : ''}`}
-                        onClick={handleApply}
-                        disabled={isApplied}
+                    <a
+                        href={externalLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.btnApply}
+                        onClick={(e) => e.stopPropagation()}
                     >
-                        {isApplied ? 'Aplicado' : 'Aplicar'}
-                    </button>
+                        Aplicar
+                    </a>
                 </div>
             </div>
         </div>

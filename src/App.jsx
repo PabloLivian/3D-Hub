@@ -1,11 +1,16 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Suspense, lazy } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import Home from './pages/Home';
-import Jobs from './pages/Jobs';
-import Contact from './pages/Contact';
-import JobDetails from './pages/JobDetails';
+import Loader from './components/Loader';
 import './App.css';
+
+// Lazy loading pages
+const Home = lazy(() => import('./pages/Home'));
+const Jobs = lazy(() => import('./pages/Jobs'));
+const Contact = lazy(() => import('./pages/Contact'));
+const JobDetails = lazy(() => import('./pages/JobDetails'));
+const NotFound = lazy(() => import('./pages/NotFound'));
 
 function App() {
   return (
@@ -13,13 +18,15 @@ function App() {
       <div className="app-layout">
         <Navbar />
         <main className="main-content">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/jobs" element={<Jobs />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/jobs/:id" element={<JobDetails />} />
-            {/* Future routes: /companies, etc. */}
-          </Routes>
+          <Suspense fallback={<Loader />}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/jobs" element={<Jobs />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/jobs/:id" element={<JobDetails />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Suspense>
         </main>
         <Footer />
       </div>

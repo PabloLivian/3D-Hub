@@ -157,3 +157,21 @@
 .jobListItem:last-child {
     border-bottom: none;
 }
+
+.btnClear {
+    background-color: var(--primary);
+    border: 1px solid var(--primary);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 0.875rem;
+    transition: all 0.2s;
+    height: 100%;
+}
+
+.btnClear:hover {
+    background-color: var(--primary-hover);
+    border-color: var(--primary-hover);
+    color: white;
+}

@@ -8,13 +8,16 @@ const Navbar = () => {
             <div className="container">
                 <div className={styles.navbarContent}>
                     <Link to="/" className={styles.navbarLogo}>
-                        <svg className={styles.logoIcon} fill="none" stroke="currentColor" strokeLinecap="round"
-                            strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <polyline points="16 18 22 12 16 6"></polyline>
-                            <polyline points="8 6 2 12 8 18"></polyline>
+                        <svg className={styles.logoIcon} width="200px" height="200px" viewBox="0 0 200 200" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                            <title>Cubo Minimalista 3D</title>
+                            <desc>Un cubo isométrico con sombreado plano.</desc>
+                            <g id="cubo" transform="translate(100, 100)">
+                                <polygon id="top-face" fill="#A0C4FF" points="0,-50 50,-25 0,0 -50,-25"></polygon>
+                                <polygon id="left-face" fill="#74A5F7" points="0,0 -50,-25 -50,25 0,50"></polygon>
+                                <polygon id="right-face" fill="#4A86E8" points="0,0 50,-25 50,25 0,50"></polygon>
+                            </g>
                         </svg>
-                        <h2 className={styles.logoText}>DevJobs</h2>
+                        <h2 className={styles.logoText}>3D HUB</h2>
                     </Link>
 
                     <nav className={styles.navbarLinks}>

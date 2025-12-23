@@ -2,7 +2,7 @@ import React, { useMemo, useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import JobCard from '../components/JobCard';
 import Pagination from '../components/Pagination';
-import jobsData from '../data/jobs.json';
+import jobsData from '../data/jobs3D.json';
 import styles from './Jobs.module.css';
 
 const Jobs = () => {
@@ -11,57 +11,76 @@ const Jobs = () => {
     // Derived state from URL
     const currentPage = parseInt(searchParams.get('page') || '1', 10);
     const filtersFromUrl = {
-        technology: searchParams.get('technology') || '',
-        location: searchParams.get('location') || '',
-        contract: searchParams.get('contract') || '',
-        experience: searchParams.get('experience') || ''
+        jobTitle: searchParams.get('jobTitle') || '',
+        experience: searchParams.get('experience') || '',
+        modality: searchParams.get('modality') || '',
+        country: searchParams.get('country') || ''
     };
 
     const initialQuery = searchParams.get('q') || '';
     const [searchQuery, setSearchQuery] = useState(initialQuery);
 
-    // Sync URL 'q' changes back to local state (e.g. navigation)
+    // Sync URL 'q' changes back to local state
     const currentUrlQ = searchParams.get('q') || '';
     useEffect(() => {
         setSearchQuery(currentUrlQ);
     }, [currentUrlQ]);
 
-    const ITEMS_PER_PAGE = 5;
+    const ITEMS_PER_PAGE = 10;
 
-    // Extract unique options for filters (memoized to avoid recalculation)
+    // Extract unique options for filters
     const filterOptions = useMemo(() => {
-        const technologies = [...new Set(jobsData.map(job => job.category))].sort();
-        const locations = [...new Set(jobsData.map(job => job.location))].sort();
-        const contracts = [...new Set(jobsData.map(job => job.contract))].sort();
-        const experiences = [...new Set(jobsData.map(job => job.experience))].sort();
+        const jobTitles = [...new Set(jobsData.map(job => job.Job_Title))].sort();
 
-        return { technologies, locations, contracts, experiences };
+        // For multi-value fields (comma separated), we might want to split them to get unique individual options
+        // But for the dropdown, usually users expect to filter by specific criteria.
+        // Let's collect unique individual values for Experience and Modality.
+
+        const experienceSet = new Set();
+        jobsData.forEach(job => {
+            if (job.Experience_Level) {
+                job.Experience_Level.split(',').forEach(item => experienceSet.add(item.trim()));
+            }
+        });
+        const experiences = [...experienceSet].sort();
+
+        const modalitySet = new Set();
+        jobsData.forEach(job => {
+            if (job.On_Site_Remote_Hybrid) {
+                job.On_Site_Remote_Hybrid.split(',').forEach(item => modalitySet.add(item.trim()));
+            }
+        });
+        const modalities = [...modalitySet].sort();
+
+        const countries = [...new Set(jobsData.map(job => job.Country))].sort();
+
+        return { jobTitles, experiences, modalities, countries };
     }, []);
 
-    // Filter jobs based on URL params (source of truth)
+    // Filter jobs based on URL params
     const filteredJobs = useMemo(() => {
         return jobsData.filter(job => {
-            // Text Search (from local state or URL? better use URL for consistency in render)
-            // But we want live feedback. Let's use local searchQuery for filtering to be instant
-            // while the URL updates debounced.
-            // ACTUALLY: User asked for URL to update. If we filter by searchQuery (local),
-            // and URL lags, it breaks "reload gives same result" if we are mid-typing.
-            // Let's filter by searchQuery which is synced with URL.
-
             const query = searchQuery.toLowerCase();
             const matchesSearch =
-                job.title.toLowerCase().includes(query) ||
-                job.company.toLowerCase().includes(query) ||
-                job.description.toLowerCase().includes(query) ||
-                (job.category && job.category.toLowerCase().includes(query));
+                job.Job_Title.toLowerCase().includes(query) ||
+                job.Studio.toLowerCase().includes(query) ||
+                (job.Notes && job.Notes.toLowerCase().includes(query));
 
             // Dropdown Filters
-            const matchesTechnology = filtersFromUrl.technology ? job.category === filtersFromUrl.technology : true;
-            const matchesLocation = filtersFromUrl.location ? job.location === filtersFromUrl.location : true;
-            const matchesContract = filtersFromUrl.contract ? job.contract === filtersFromUrl.contract : true;
-            const matchesExperience = filtersFromUrl.experience ? job.experience === filtersFromUrl.experience : true;
+            const matchesJobTitle = filtersFromUrl.jobTitle ? job.Job_Title === filtersFromUrl.jobTitle : true;
 
-            return matchesSearch && matchesTechnology && matchesLocation && matchesContract && matchesExperience;
+            // For Experience and Modality, check if the job "includes" the selected filter value
+            const matchesExperience = filtersFromUrl.experience
+                ? job.Experience_Level && job.Experience_Level.includes(filtersFromUrl.experience)
+                : true;
+
+            const matchesModality = filtersFromUrl.modality
+                ? job.On_Site_Remote_Hybrid && job.On_Site_Remote_Hybrid.includes(filtersFromUrl.modality)
+                : true;
+
+            const matchesCountry = filtersFromUrl.country ? job.Country === filtersFromUrl.country : true;
+
+            return matchesSearch && matchesJobTitle && matchesExperience && matchesModality && matchesCountry;
         });
     }, [searchQuery, filtersFromUrl]);
 
@@ -74,7 +93,6 @@ const Jobs = () => {
                     const newParams = new URLSearchParams(prev);
                     if (searchQuery) newParams.set('q', searchQuery);
                     else newParams.delete('q');
-                    // Reset page on new search
                     newParams.set('page', '1');
                     return newParams;
                 }, { replace: true });
@@ -98,9 +116,14 @@ const Jobs = () => {
             const newParams = new URLSearchParams(prev);
             if (value) newParams.set(key, value);
             else newParams.delete(key);
-            newParams.set('page', '1'); // Reset to page 1 on filter change
+            newParams.set('page', '1');
             return newParams;
         });
+    };
+
+    const handleClearFilters = () => {
+        setSearchQuery('');
+        setSearchParams({});
     };
 
     const handlePageChange = (newPage) => {
@@ -121,7 +144,7 @@ const Jobs = () => {
                 {/* Header Section */}
                 <div className={styles.jobsHeader}>
                     <h1 className={styles.jobsTitle}>Encuentra tu próximo trabajo</h1>
-                    <p className={styles.jobsSubtitle}>Explora miles de oportunidades en el sector tecnológico.</p>
+                    <p className={styles.jobsSubtitle}>Explora miles de oportunidades en la industria 3D.</p>
                 </div>
 
                 {/* Search & Filter Section */}
@@ -131,7 +154,7 @@ const Jobs = () => {
                         <input
                             type="text"
                             className={styles.jobsSearchInput}
-                            placeholder="Buscar trabajos, empresas o habilidades"
+                            placeholder="Buscar trabajos, estudios..."
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
                         />
@@ -141,39 +164,11 @@ const Jobs = () => {
                         <div className={styles.filterWrapper}>
                             <select
                                 className={styles.filterSelect}
-                                value={filtersFromUrl.technology}
-                                onChange={(e) => handleFilterChange('technology', e.target.value)}
+                                value={filtersFromUrl.jobTitle}
+                                onChange={(e) => handleFilterChange('jobTitle', e.target.value)}
                             >
-                                <option value="">Tecnología</option>
-                                {filterOptions.technologies.map(opt => (
-                                    <option key={opt} value={opt}>{opt}</option>
-                                ))}
-                            </select>
-                            <span className={`material-symbols-outlined ${styles.filterArrow}`}>expand_more</span>
-                        </div>
-
-                        <div className={styles.filterWrapper}>
-                            <select
-                                className={styles.filterSelect}
-                                value={filtersFromUrl.location}
-                                onChange={(e) => handleFilterChange('location', e.target.value)}
-                            >
-                                <option value="">Ubicación</option>
-                                {filterOptions.locations.map(opt => (
-                                    <option key={opt} value={opt}>{opt}</option>
-                                ))}
-                            </select>
-                            <span className={`material-symbols-outlined ${styles.filterArrow}`}>expand_more</span>
-                        </div>
-
-                        <div className={styles.filterWrapper}>
-                            <select
-                                className={styles.filterSelect}
-                                value={filtersFromUrl.contract}
-                                onChange={(e) => handleFilterChange('contract', e.target.value)}
-                            >
-                                <option value="">Tipo de contrato</option>
-                                {filterOptions.contracts.map(opt => (
+                                <option value="">Especialidad</option>
+                                {filterOptions.jobTitles.map(opt => (
                                     <option key={opt} value={opt}>{opt}</option>
                                 ))}
                             </select>
@@ -186,13 +181,45 @@ const Jobs = () => {
                                 value={filtersFromUrl.experience}
                                 onChange={(e) => handleFilterChange('experience', e.target.value)}
                             >
-                                <option value="">Nivel de experiencia</option>
+                                <option value="">Experiencia</option>
                                 {filterOptions.experiences.map(opt => (
                                     <option key={opt} value={opt}>{opt}</option>
                                 ))}
                             </select>
                             <span className={`material-symbols-outlined ${styles.filterArrow}`}>expand_more</span>
                         </div>
+
+                        <div className={styles.filterWrapper}>
+                            <select
+                                className={styles.filterSelect}
+                                value={filtersFromUrl.modality}
+                                onChange={(e) => handleFilterChange('modality', e.target.value)}
+                            >
+                                <option value="">Modalidad</option>
+                                {filterOptions.modalities.map(opt => (
+                                    <option key={opt} value={opt}>{opt}</option>
+                                ))}
+                            </select>
+                            <span className={`material-symbols-outlined ${styles.filterArrow}`}>expand_more</span>
+                        </div>
+
+                        <div className={styles.filterWrapper}>
+                            <select
+                                className={styles.filterSelect}
+                                value={filtersFromUrl.country}
+                                onChange={(e) => handleFilterChange('country', e.target.value)}
+                            >
+                                <option value="">País</option>
+                                {filterOptions.countries.map(opt => (
+                                    <option key={opt} value={opt}>{opt}</option>
+                                ))}
+                            </select>
+                            <span className={`material-symbols-outlined ${styles.filterArrow}`}>expand_more</span>
+                        </div>
+
+                        <button className={styles.btnClear} onClick={handleClearFilters}>
+                            Limpiar filtros
+                        </button>
                     </div>
                 </div>
 
@@ -204,15 +231,16 @@ const Jobs = () => {
                         {currentJobs.length > 0 ? (
                             currentJobs.map(job => (
                                 <JobCard
-                                    key={job.id}
-                                    id={job.id}
-                                    title={job.title}
-                                    company={job.company}
-                                    location={job.location}
-                                    description={job.description}
+                                    key={job.ID}
+                                    id={job.ID}
+                                    title={job.Job_Title}
+                                    company={job.Studio}
+                                    location={`${job.City}${job.City && job.Country ? ', ' : ''}${job.Country}`}
+                                    description={job.Notes}
+                                    modality={job.On_Site_Remote_Hybrid}
+                                    experience={job.Experience_Level}
+                                    externalLink={job.Source_Contact}
                                     className={styles.jobListItem}
-                                // Optional: pass tabs/tags if needed, e.g.
-                                // tags={[job.contract, job.experience]} 
                                 />
                             ))
                         ) : (

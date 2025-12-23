@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import jobsData from '../data/jobs.json';
+import jobsData from '../data/jobs3D.json';
 import styles from './JobDetails.module.css';
 
 const JobDetails = () => {
@@ -10,7 +10,7 @@ const JobDetails = () => {
     // Find the job by ID from the JSON data
     // Convert id to number because URL params are always strings
     const job = useMemo(() => {
-        return jobsData.find(j => j.id === parseInt(id));
+        return jobsData.find(j => j.ID === parseInt(id));
     }, [id]);
 
     if (!job) {
@@ -36,39 +36,53 @@ const JobDetails = () => {
 
                 {/* Header with Title and Metadata */}
                 <header className={styles.jobDetailsHeader}>
-                    <h1 className={styles.jobTitle}>{job.title}</h1>
+                    <h1 className={styles.jobTitle}>{job.Job_Title}</h1>
                     <div className={styles.jobMeta}>
                         <div className={styles.metaItem}>
                             <span className="material-symbols-outlined icon">domain</span>
-                            {job.company}
+                            {job.Studio}
                         </div>
                         <div className={styles.metaItem}>
                             <span className="material-symbols-outlined icon">location_on</span>
-                            {job.location}
+                            {job.City ? `${job.City}, ${job.Country}` : job.Country}
                         </div>
                         <div className={styles.metaItem}>
                             <span className="material-symbols-outlined icon">schedule</span>
-                            {job.contract}
+                            {job.On_Site_Remote_Hybrid}
                         </div>
                         <div className={styles.metaItem}>
                             <span className="material-symbols-outlined icon">work_history</span>
-                            {job.experience}
+                            {job.Experience_Level}
                         </div>
                     </div>
 
-                    <button className={styles.applyButton} onClick={() => alert('¡Aplicación enviada con éxito!')}>
-                        Aplicar a esta oferta
-                    </button>
+                    <div className={styles.applyActions}>
+                        <a
+                            href={job.Source_Contact}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={styles.applyButton}
+                        >
+                            Aplicar a esta oferta
+                        </a>
+                        <p className={styles.applyNote}>Serás redirigido al sitio oficial.</p>
+                    </div>
                 </header>
 
                 {/* Body with Description */}
                 <div className={styles.jobDetailsBody}>
-                    <h3 className={styles.sectionTitle}>Descripción del puesto</h3>
-                    <p className={styles.description}>{job.description}</p>
+                    <h3 className={styles.sectionTitle}>Notas / Descripción</h3>
+                    <p className={styles.description}>{job.Notes || 'No hay descripción adicional disponible.'}</p>
 
-                    <h3 className={styles.sectionTitle}>Categoría</h3>
+                    <h3 className={styles.sectionTitle}>Software</h3>
                     <div className={styles.tags}>
-                        <span className={styles.tag}>{job.category}</span>
+                        {job.Software_Programs ? (
+                            job.Software_Programs.split(',').map((soft, index) => (
+                                <span key={index} className={styles.tag}>{soft.trim()}</span>
+                            ))
+                        ) : (
+                            <span className={styles.tag}>No especificado</span>
+                        )}
                     </div>
                 </div>
             </div>

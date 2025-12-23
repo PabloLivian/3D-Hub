@@ -1,0 +1,9 @@
+<svg width="200" height="200" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <title>Cubo Minimalista 3D</title>
+    <desc>Un cubo isométrico con sombreado plano.</desc>
+    <g id="cubo" transform="translate(50, 50)">
+        <polygon id="top-face" fill="#A0C4FF" points="0,-50 50,-25 0,0 -50,-25"></polygon>
+        <polygon id="left-face" fill="#74A5F7" points="0,0 -50,-25 -50,25 0,50"></polygon>
+        <polygon id="right-face" fill="#4A86E8" points="0,0 50,-25 50,25 0,50"></polygon>
+    </g>
+</svg>
