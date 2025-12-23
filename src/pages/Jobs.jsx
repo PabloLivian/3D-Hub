@@ -225,7 +225,10 @@ const Jobs = () => {
 
                 {/* Results Section */}
                 <div className={styles.jobsResults}>
-                    <h2 className={styles.resultsTitle}>Resultados de búsqueda</h2>
+                    <div className={styles.resultsHeader}>
+                        <h2 className={styles.resultsTitle}>Resultados de búsqueda</h2>
+                        <span className={styles.resultsCount}>{filteredJobs.length} empleos</span>
+                    </div>
 
                     <div className={styles.jobsList}>
                         {currentJobs.length > 0 ? (

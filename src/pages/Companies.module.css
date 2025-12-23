@@ -1,0 +1,116 @@
+.companiesPage {
+    padding: 2rem 0;
+    min-height: 80vh;
+}
+
+.companiesHeader {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.pageTitle {
+    font-size: 2.5rem;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+}
+
+.pageSubtitle {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+.companiesGrid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem;
+}
+
+/* Responsive Grid */
+@media (min-width: 640px) {
+    .companiesGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .companiesGrid {
+        grid-template-columns: repeat(4, 1fr);
+        /* 4 columns as requested */
+    }
+}
+
+/* Company Card Styles */
+.companyCardLink {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    height: 100%;
+}
+
+.companyCard {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    border: 1px solid #f3f4f6;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Center content */
+    text-align: center;
+    /* Center text */
+    height: 100%;
+    /* Ensure full height */
+}
+
+.companyCard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    border-color: var(--primary-light, #e0e7ff);
+}
+
+.logoContainer {
+    width: 64px;
+    height: 64px;
+    background-color: #f9fafb;
+    border-radius: 1rem;
+    /* Rounded square avatar */
+    display: flex;
+    /* Flexbox execution for centering */
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+}
+
+.companyLogo {
+    max-width: 80%;
+    max-height: 80%;
+    object-fit: contain;
+}
+
+.logoPlaceholder {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-muted);
+}
+
+.companyName {
+    font-size: 1.15rem;
+    /* Slightly smaller to fit better */
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 0 0 0.5rem 0;
+}
+
+.jobCount {
+    font-size: 0.9rem;
+    color: var(--primary);
+    background-color: var(--background-highlight, #eff6ff);
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    font-weight: 600;
+    display: inline-block;
+}

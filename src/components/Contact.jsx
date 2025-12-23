@@ -56,7 +56,7 @@ export const ContactSimpleForm = () => {
                                 name="email"
                                 type="email"
                                 className={styles.input}
-                                placeholder="tu@empresa.com"
+                                placeholder="tu@whateveryouwant.com"
                                 required
                             />
                         </div>

@@ -81,6 +81,7 @@
 # Bitácora de Desarrollo - MiduJobs
 
 ### [2025-12-23 13:00] - Refinamiento de Diseño y Lógica JobCard
+- **Commit:** `Refactor: Jobs page update with 3D industry data, final JobCard layout adjustments, and pagination update to 10 items`
 - **Funcionalidad solicitada:** Ajuste final de layout y comportamiento de botones.
 - **Explicación técnica:**
     - **Layout JobCard:**
@@ -91,8 +92,19 @@
     - **Botón Aplicar:** Se convirtió en un enlace externo (`<a>`) que abre la URL de origen (`Source_Contact`) en nueva pestaña.
     - **Paginación:** Aumentado el límite de empleos por página de 5 a 10.
     - **Botón Limpiar:** Se estilizó con color primario (azul) para mayor visibilidad.
-    - **Botón Limpiar:** Se estilizó con color primario (azul) para mayor visibilidad.
+    - **Contador de Resultados:** Se añadió el número total de empleos encontrados en un badge estilizado junto al título.
+    - **Filtro Modalidad:** Se actualizó la base de datos `jobs3D.json` para reemplazar "All options" por "On-Site, Remote, Hybrid", normalizando los filtros y la visualización.
     - **Estilos:** Refactorización CSS en `JobCard.module.css` para soportar la nueva estructura de filas.
+
+### [2025-12-23 16:30] - Implementación Página de Empresas
+- **Funcionalidad:** Nueva página `/companies` que lista todos los estudios con ofertas activas.
+- **Detalles técnicos:**
+    - **Grid:** Layout de 4 columnas (responsive).
+    - **Lógica:** Se calculan dinámicamente las ofertas por empresa recorriendo `jobs3D.json`.
+    - **Componentes:** `Companies.jsx` (página) y `CompanyCard.jsx` (componente visual).
+    - **Logos:** Implementación de avatars para logos de empresa (empezando con DNEG). Se mapean dinámicamente y se muestran centrados en un contenedor estilizado.
+    - **Navegación:** Al hacer clic en una tarjeta de empresa, redirige a la página `/jobs` filtrando automáticamente por el nombre de la compañía seleccionada.
+    - **Routing:** Añadida la ruta en `App.jsx` con Lazy Loading.
 
 ---
 
