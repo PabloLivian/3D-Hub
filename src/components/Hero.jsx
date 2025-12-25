@@ -19,7 +19,7 @@ const Hero = () => {
     return (
         <section className={styles.hero}>
             <div className={`container ${styles.heroContainer}`}>
-                <h1 className={styles.heroTitle}>El punto de conexion de VFX, Animación 3D y videojuegos</h1>
+                <h1 className={styles.heroTitle}>Encuentra el estudio donde dejarás tu huella digital</h1>
                 <p className={styles.heroSubtitle}>
                     Únete a la comunidad emergente de la industria de 3D y encuentra tu próxima oportunidad.
                 </p>

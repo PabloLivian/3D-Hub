@@ -1,3 +1,5 @@
+# Bitácora de Desarrollo - MiduJobs
+
 ## [2025-12-18] Inicialización y Refactorización del Home
 **Funcionalidad:**
 - Configuración inicial del proyecto y estructura de directorios.
@@ -17,6 +19,8 @@
 
 **Tecnologías/Librerías Nuevas:**
 - `react-router-dom`, SWC (Vite plugin implícito), Google Fonts.
+
+---
 
 ---
 
@@ -42,6 +46,8 @@
 
 ---
 
+---
+
 ## [2025-12-19] Expansión de Datos y Filtros Dinámicos
 **Funcionalidad:**
 - Creación de un conjunto de datos robusto para empleos (`jobs.json`).
@@ -57,6 +63,8 @@
 
 **Tecnologías/Librerías Nuevas:**
 - Manejo de datos JSON estáticos, lógica de filtrado (preparación de opciones).
+
+---
 
 ---
 
@@ -78,63 +86,6 @@
 
 ---
 
-# Bitácora de Desarrollo - MiduJobs
-
-### [2025-12-23 13:00] - Refinamiento de Diseño y Lógica JobCard
-- **Commit:** `Refactor: Jobs page update with 3D industry data, final JobCard layout adjustments, and pagination update to 10 items`
-- **Funcionalidad solicitada:** Ajuste final de layout y comportamiento de botones.
-- **Explicación técnica:**
-    - **Layout JobCard:**
-        1. Título (Especialidad) + Experiencia
-        2. Empresa
-        3. Ubicación + Modalidad (en fila)
-        4. Descripción
-    - **Botón Aplicar:** Se convirtió en un enlace externo (`<a>`) que abre la URL de origen (`Source_Contact`) en nueva pestaña.
-    - **Paginación:** Aumentado el límite de empleos por página de 5 a 10.
-    - **Botón Limpiar:** Se estilizó con color primario (azul) para mayor visibilidad.
-    - **Contador de Resultados:** Se añadió el número total de empleos encontrados en un badge estilizado junto al título.
-    - **Filtro Modalidad:** Se actualizó la base de datos `jobs3D.json` para reemplazar "All options" por "On-Site, Remote, Hybrid", normalizando los filtros y la visualización.
-    - **Estilos:** Refactorización CSS en `JobCard.module.css` para soportar la nueva estructura de filas.
-
-### [2025-12-23 16:30] - Implementación Página de Empresas
-- **Commit:** `Implementación de la página de Empresas y optimización de logos`
-- **Funcionalidad:** Nueva página `/companies` que lista todos los estudios con ofertas activas.
-- **Detalles técnicos:**
-    - **Grid:** Layout de 4 columnas (responsive).
-    - **Lógica:** Se calculan dinámicamente las ofertas por empresa recorriendo `jobs3D.json`.
-    - **Componentes:** `Companies.jsx` (página) y `CompanyCard.jsx` (componente visual).
-    - **Logos:** Implementación de avatars para logos de empresa (empezando con DNEG). Se mapean dinámicamente y se muestran centrados en un contenedor estilizado. (Solucionado problema de extensión .png).
-    - **Navegación:** Al hacer clic en una tarjeta de empresa, redirige a la página `/jobs` filtrando automáticamente por el nombre de la compañía seleccionada.
-    - **Routing:** Añadida la ruta en `App.jsx` con Lazy Loading.
-
----
-
-### [2025-12-23 12:45] - Actualización de diseño JobCard (Iteración Previa)
-
----
-
-### [2025-12-23 12:35] - Refactor Página de Empleos 3D
-- **Funcionalidad solicitada:** Cambiar la fuente de datos a `jobs3D.json` y rediseñar los filtros de búsqueda.
-- **Explicación técnica:** 
-    - Se actualizó `Jobs.jsx` para consumir `src/data/jobs3D.json`.
-    - Se implementaron 4 nuevos filtros: Especialidad (`Job_Title`), Experiencia (`Experience_Level`), Modalidad (`On_Site_Remote_Hybrid`), y País (`Country`).
-    - Se añadió lógica "include" para filtros de valores múltiples (ej: "Mid, Senior").
-    - Se agregó botón "Limpiar filtros".
-    - Se refactorizó `JobDetails.jsx` para mapear las nuevas propiedades (`ID`, `Studio`, `Notes`, etc.) y corregir la navegación.
-- **Tecnologías/Librerías:** React Hooks (`useMemo`, `useSearchParams`).
-
----
-
-### [2025-12-23 11:55] - Actualización de Favicon y Branding
-- **Funcionalidad solicitada:** Cambiar el logo de Vite por el nuevo logo de 3D HUB en la pestaña del navegador.
-- **Explicación técnica:** 
-    - Se creó `public/logo.svg` para la pestaña del navegador, optimizando su viewBox para que se vea lo más grande posible.
-    - Se actualizó `index.html` para usar este `/logo.svg`.
-    - El logo del Navbar se mantiene con su escalado estándar para un diseño armónico.
-    - Se ajustaron estilos en `Navbar.module.css` (gap y tamaño del logo).
-    - Se actualizó el contenido de `Features.jsx` para artistas 3D (VFX, Animación y Videojuegos).
-- **Tecnologías/Librerías:** SVG, HTML, CSS Modules.
-
 ---
 
 ## [2025-12-21] Reset a la Versión Inicial
@@ -147,6 +98,8 @@
 
 **Tecnologías/Librerías Nuevas:**
 - Ninguna (reversión).
+
+---
 
 ---
 
@@ -163,6 +116,8 @@
 
 ---
 
+---
+
 ## [2025-12-21] Sincronización de Estado y URL en Jobs
 **Funcionalidad:**
 - Persistencia total de filtros, paginación y búsqueda en la URL.
@@ -176,6 +131,8 @@
 
 ---
 
+---
+
 ## [2025-12-21] Implementación de Página de Contacto
 **Funcionalidad:**
 - Nueva página de contacto accesible desde el Navbar.
@@ -185,6 +142,8 @@
 - Limpieza y refactorización de `Contact.jsx` (eliminando dependencias externas rotas).
 - Creación de ruta `/contact` en `App.jsx`.
 - Implementación de estilos vía `Contact.module.css`.
+
+---
 
 ---
 
@@ -202,6 +161,8 @@
 
 ---
 
+---
+
 ## [2025-12-21] Implementación de Búsqueda desde Home
 **Funcionalidad:**
 - Habilitación del buscador en la página de inicio.
@@ -216,6 +177,8 @@
 
 ---
 
+---
+
 ## [2025-12-21] Refactorización de Paginación
 **Funcionalidad:**
 - Extracción de la lógica de paginación a un componente reutilizable.
@@ -227,6 +190,8 @@
 
 **Tecnologías/Librerías Nuevas:**
 - Ninguna.
+
+---
 
 ---
 
@@ -247,6 +212,8 @@
 
 ---
 
+---
+
 ## [2025-12-22] Implementación de Página 404 (Not Found)
 **Funcionalidad:**
 - Creación de una página personalizada para rutas no existentes.
@@ -263,6 +230,7 @@
 
 ---
 
+---
 
 ## [2025-12-23] Actualización de Metadatos del Proyecto
 **Funcionalidad:**
@@ -271,6 +239,8 @@
 **Ejecución Técnica:**
 - Actualización de `name` en `package.json`.
 - Actualizado remote origin a `https://github.com/PabloLivian/3D-Hub.git`.
+
+---
 
 ---
 
@@ -293,3 +263,130 @@
 - Ninguna.
 
 ---
+
+---
+
+### [2025-12-23 11:55] - Actualización de Favicon y Branding
+- **Funcionalidad solicitada:** Cambiar el logo de Vite por el nuevo logo de 3D HUB en la pestaña del navegador.
+- **Explicación técnica:** 
+    - Se creó `public/logo.svg` para la pestaña del navegador, optimizando su viewBox para que se vea lo más grande posible.
+    - Se actualizó `index.html` para usar este `/logo.svg`.
+    - El logo del Navbar se mantiene con su escalado estándar para un diseño armónico.
+    - Se ajustaron estilos en `Navbar.module.css` (gap y tamaño del logo).
+    - Se actualizó el contenido de `Features.jsx` para artistas 3D (VFX, Animación y Videojuegos).
+- **Tecnologías/Librerías:** SVG, HTML, CSS Modules.
+
+---
+
+---
+
+### [2025-12-23 12:35] - Refactor Página de Empleos 3D
+- **Funcionalidad solicitada:** Cambiar la fuente de datos a `jobs3D.json` y rediseñar los filtros de búsqueda.
+- **Explicación técnica:** 
+    - Se actualizó `Jobs.jsx` para consumir `src/data/jobs3D.json`.
+    - Se implementaron 4 nuevos filtros: Especialidad (`Job_Title`), Experiencia (`Experience_Level`), Modalidad (`On_Site_Remote_Hybrid`), y País (`Country`).
+    - Se añadió lógica "include" para filtros de valores múltiples (ej: "Mid, Senior").
+    - Se agregó botón "Limpiar filtros".
+    - Se refactorizó `JobDetails.jsx` para mapear las nuevas propiedades (`ID`, `Studio`, `Notes`, etc.) y corregir la navegación.
+- **Tecnologías/Librerías:** React Hooks (`useMemo`, `useSearchParams`).
+
+---
+
+---
+
+### [2025-12-23 12:45] - Actualización de diseño JobCard (Iteración Previa)
+
+---
+
+---
+
+### [2025-12-23 13:00] - Refinamiento de Diseño y Lógica JobCard
+- **Commit:** `Refactor: Jobs page update with 3D industry data, final JobCard layout adjustments, and pagination update to 10 items`
+- **Funcionalidad solicitada:** Ajuste final de layout y comportamiento de botones.
+- **Explicación técnica:**
+    - **Layout JobCard:**
+        1. Título (Especialidad) + Experiencia
+        2. Empresa
+        3. Ubicación + Modalidad (en fila)
+        4. Descripción
+    - **Botón Aplicar:** Se convirtió en un enlace externo (`<a>`) que abre la URL de origen (`Source_Contact`) en nueva pestaña.
+    - **Paginación:** Aumentado el límite de empleos por página de 5 a 10.
+    - **Botón Limpiar:** Se estilizó con color primario (azul) para mayor visibilidad.
+    - **Contador de Resultados:** Se añadió el número total de empleos encontrados en un badge estilizado junto al título.
+    - **Filtro Modalidad:** Se actualizó la base de datos `jobs3D.json` para reemplazar "All options" por "On-Site, Remote, Hybrid", normalizando los filtros y la visualización.
+    - **Estilos:** Refactorización CSS en `JobCard.module.css` para soportar la nueva estructura de filas.
+
+---
+
+### [2025-12-23 16:30] - Implementación Página de Empresas
+- **Commit:** `Implementación de la página de Empresas y optimización de logos`
+- **Funcionalidad:** Nueva página `/companies` que lista todos los estudios con ofertas activas.
+- **Detalles técnicos:**
+    - **Grid:** Layout de 4 columnas (responsive).
+    - **Lógica:** Se calculan dinámicamente las ofertas por empresa recorriendo `jobs3D.json`.
+    - **Componentes:** `Companies.jsx` (página) y `CompanyCard.jsx` (componente visual).
+    - **Logos:** Implementación de avatars para logos de empresa (empezando con DNEG). Se mapean dinámicamente y se muestran centrados en un contenedor estilizado. (Solucionado problema de extensión .png).
+    - **Navegación:** Al hacer clic en una tarjeta de empresa, redirige a la página `/jobs` filtrando automáticamente por el nombre de la compañía seleccionada.
+    - **Routing:** Añadida la ruta en `App.jsx` con Lazy Loading.
+
+---
+
+### [2025-12-25 18:55] - Actualización de Imagen del Hero
+- **Funcionalidad solicitada:** Sustituir la imagen del hero por `HeroImage.webp`.
+- **Explicación técnica:**
+    - Se actualizó `Hero.module.css` para utilizar `url('../assets/HeroImage.webp')` reemplazando la imagen de Unsplash.
+
+
+---
+
+### [2025-12-25 19:35] - Implementación de Página de Talento (Artistas)
+- **Funcionalidad solicitada:** Página para buscar profesionales con filtros avanzados basada en `artist.json`.
+- **Explicación técnica:**
+    - Se creó `src/pages/Artists.jsx` con lógica de filtrado directo (Experiencia, Relocalizacion, Ciudad, Disponibilidad, Software).
+    - Se creó `src/components/ArtistCard.jsx` y su módulo CSS para visualizar la información del artista.
+    - Se implementó la ruta `/artists` (Lazy Loaded) y se añadió al `Navbar` como "Talento".
+- **Tecnologías/Librerías:** React Hooks (`useMemo`), CSS Modules.
+
+
+---
+
+### [2025-12-25 19:40] - Refinamiento de UI en ArtistCard
+- **Funcionalidad solicitada:** Mejorar íconos y layout de la tarjeta de artista.
+- **Explicación técnica:**
+    - Se reemplazaron los Google Material Symbols (texto) por SVGs inline para mayor consistencia visual.
+    - Se movió el botón de LinkedIn y el estado de Disponibilidad a la cabecera, junto al nombre del artista.
+    - Se ajustó el layout flexbox en `ArtistCard.module.css` para soportar la nueva disposición (`topRow`, `badgesWrapper`).
+
+---
+
+### [2025-12-25 19:43] - Corrección de Componentes Duplicados
+- **Problema:** Navbar y Footer se visualizaban dos veces en la página de Artistas.
+- **Solución:** Se eliminaron los componentes redundantes en `Artists.jsx`, ya que ahora se gestionan globalmente desde `App.jsx`.
+
+---
+
+### [25/12/2025 19:55] - Actualización de UI y Lógica en Página de Talento
+- **Filtros**: Se han alineado todos los filtros en una sola línea en la página de `Artists.jsx` mediante `flex-wrap: nowrap` y scroll horizontal en `Artists.module.css`.
+- **Iconografía**: Se actualizó el icono de Relocalización en `ArtistCard.jsx` con un nuevo SVG de avión.
+- **Botón Reel**:
+    - Se cambió el color del botón "Ver Reel" a un azul (`#2563eb`) distinto al botón de contacto.
+    - Se implementó lógica para que el botón siempre sea visible.
+    - Si el artista no tiene Reel, el botón aparece deshabilitado, en gris (muted) y con el texto "No Reel".
+- **Responsive**: Se ajustaron los anchos mínimos de los selects para optimizar el espacio en la fila de filtros.
+
+### [25/12/2025 20:05] - Ajuste Visual en Filtros
+- **Fix**: Se limitó el ancho máximo (`max-width: 200px`) de los selectores de filtro en `Artists.module.css` para evitar que opciones con texto muy largo (como en Software) rompan la maquetación.
+
+### [25/12/2025 20:07] - Refinamiento de Estilos en ArtistCard
+- **Botón Reel**: Se aclaró el color azul (`#60a5fa`) para un toque más suave ("azul clarito").
+- **Card**: Se eliminó el efecto de elevación y sombra al hacer hover (`transform` y `box-shadow`) para una interfaz más plana y estática.
+
+### [25/12/2025 20:15] - Corrección de Enlaces de LinkedIn
+- **Fix**: Se limpiaron los enlaces de LinkedIn en `artist.json` eliminando textos que no eran URLs (ej: "Nombre | LinkedIn") que causaban enlaces rotos.
+- **UI**: Se optimizó la lógica en `ArtistCard.jsx` para asegurar que solo se muestren enlaces de LinkedIn válidos.
+
+### [25/12/2025 20:10] - Actualización de Datos y Funcionalidad
+- **Data Update**: Se normalizó la base de datos `artist.json`, estableciendo el campo `Disponibilidad` a "Available" para todos los registros.
+- **Filtros**: 
+    - Se añadió la opción "20+ años" en el filtro de experiencia.
+    - Se estilizó el botón "Limpiar Filtros" para coincidir con el diseño de la página de Jobs (fondo azul sólido).

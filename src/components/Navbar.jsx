@@ -23,6 +23,7 @@ const Navbar = () => {
                     <nav className={styles.navbarLinks}>
                         <Link to="/jobs" className={styles.navLink}>Empleos</Link>
                         <Link to="/companies" className={styles.navLink}>Empresas</Link>
+                        <Link to="/artists" className={styles.navLink}>Talento</Link>
                         <Link to="/contact" className={styles.navLink}>Contacto</Link>
                     </nav>
 
