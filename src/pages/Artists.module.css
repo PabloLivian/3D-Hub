@@ -101,6 +101,22 @@
     border-color: var(--primary-hover);
 }
 
+.joinButton {
+    background-color: #10b981;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: background-color 0.2s;
+    display: inline-block;
+}
+
+.joinButton:hover {
+    background-color: #059669;
+}
+
 .resultsSection {
     padding: 3rem 0;
     background-color: #f8fafc;

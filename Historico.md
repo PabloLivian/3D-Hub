@@ -390,3 +390,23 @@
 - **Filtros**: 
     - Se añadió la opción "20+ años" en el filtro de experiencia.
     - Se estilizó el botón "Limpiar Filtros" para coincidir con el diseño de la página de Jobs (fondo azul sólido).
+
+### [25/12/2025 20:40] - Implementación de Formulario "Join the Squad"
+- **Funcionalidad**: Nueva página `/join` accesible desde la sección de Talento.
+- **Formulario**: Permite a los artistas postularse rellenando un perfil completo (Nombre, Rol, Reel, LinkedIn, Disponibilidad, etc.).
+- **UI**: Diseño limpio y centrado, coherente con el estilo de la aplicación (`JoinList.module.css`).
+- **Navegación**: Botón "Join to the list" añadido en la cabecera de `Artists.jsx`.
+
+### [25/12/2025 20:45] - Refinamiento de UX en Formulario y Navegación
+- **Join Form**:
+    - Se implementaron listas dinámicas (`<DynamicList />`) para los campos de "Software" e "Industrias", permitiendo añadir múltiples etiquetas visuales (chips) en lugar de texto plano.
+    - Se establecieron opciones neutras ("Selecciona...") por defecto en todos los desplegables.
+- **Artists Page**:
+    - Se rediseñó el botón "Join to the list": Ahora es verde (`#10b981`), más grande y con mayor peso visual (`font-weight: 700`).
+    - Se ajustó la posición del botón para estar más cerca del título "Talento 3D".
+
+### [25/12/2025 20:50] - Correcciones de Layout y Posicionamiento
+- **Artists Page**: Se reestructuró la cabecera para que el botón "Join to the list" aparezca inmediatamente a la derecha del título principal `<h1>` (usando un contenedor flex inline), en lugar de estar separado o al lado del subtítulo.
+- **Join Form**: 
+    - Se corrigió el estilo del grupo de input (`.listInputGroup`) en listas dinámicas. Ahora el input ocupa el espacio restante (`flex: 1`) evitando que el botón "+ Añadir" rompa la línea visualmente.
+    - Se robusteció la función `handleAdd` para evitar comportamientos inesperados al añadir items.

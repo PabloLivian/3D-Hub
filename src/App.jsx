@@ -12,6 +12,7 @@ const Companies = lazy(() => import('./pages/Companies'));
 const Artists = lazy(() => import('./pages/Artists'));
 const Contact = lazy(() => import('./pages/Contact'));
 const JobDetails = lazy(() => import('./pages/JobDetails'));
+const JoinList = lazy(() => import('./pages/JoinList'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
               <Route path="/artists" element={<Artists />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/jobs/:id" element={<JobDetails />} />
+              <Route path="/join" element={<JoinList />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>

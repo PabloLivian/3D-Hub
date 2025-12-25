@@ -105,10 +105,17 @@ const Artists = () => {
             <main className="main-content">
                 <section className={styles.headerSection}>
                     <div className="container">
-                        <h1 className={styles.pageTitle}>Talento 3D</h1>
-                        <p className={styles.pageSubtitle}>
-                            Encuentra a los mejores artistas y técnicos para tu próximo proyecto.
-                        </p>
+                        <div style={{ marginBottom: '2rem' }}>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', marginBottom: '0.5rem' }}>
+                                <h1 className={styles.pageTitle} style={{ marginBottom: 0 }}>Talento 3D</h1>
+                                <a href="/join" className={styles.joinButton}>
+                                    Join to the list
+                                </a>
+                            </div>
+                            <p className={styles.pageSubtitle} style={{ marginBottom: 0 }}>
+                                Encuentra a los mejores artistas y técnicos para tu próximo proyecto.
+                            </p>
+                        </div>
 
                         <div className={styles.searchContainer}>
                             <input
