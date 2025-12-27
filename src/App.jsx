@@ -15,9 +15,12 @@ const JobDetails = lazy(() => import('./pages/JobDetails'));
 const JoinList = lazy(() => import('./pages/JoinList'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
+import ScrollToTop from './components/ScrollToTop';
+
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <div className="app-layout">
         <Navbar />
         <main className="main-content">

@@ -68,8 +68,10 @@ const JoinList = () => {
         linkedin: '',
         relocalizacion: '',
         preferencia: '',
-        software: []
+        software: [],
+        cv: null
     });
+    const [fileError, setFileError] = useState('');
 
     const [submitted, setSubmitted] = useState(false);
 
@@ -79,6 +81,23 @@ const JoinList = () => {
             ...prev,
             [name]: value
         }));
+    };
+
+    const handleFileChange = (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        // 20MB limit (20 * 1024 * 1024 bytes)
+        const maxSize = 20 * 1024 * 1024;
+
+        if (file.size > maxSize) {
+            setFileError('El archivo es demasiado grande. Máximo 20MB.');
+            e.target.value = ''; // Reset input
+            setFormData(prev => ({ ...prev, cv: null }));
+        } else {
+            setFileError('');
+            setFormData(prev => ({ ...prev, cv: file }));
+        }
     };
 
     const handleAddItem = (field, item) => {
@@ -276,6 +295,19 @@ const JoinList = () => {
                                 className={styles.input}
                                 placeholder="https://vimeo.com/..."
                             />
+                        </div>
+
+                        {/* CV Upload */}
+                        <div className={`${styles.formGroup} ${styles.fullWidth}`}>
+                            <label className={styles.label}>CV (Máx 20MB)</label>
+                            <input
+                                type="file"
+                                name="cv"
+                                onChange={handleFileChange}
+                                className={styles.fileInput}
+                                accept=".pdf,.doc,.docx"
+                            />
+                            {fileError && <span className={styles.errorMessage}>{fileError}</span>}
                         </div>
 
                         {/* Industrias (Dynamic List) */}

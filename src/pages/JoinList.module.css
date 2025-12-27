@@ -178,3 +178,15 @@
 .removeChip:hover {
     color: #ef4444;
 }
+
+.fileInput {
+    padding: 0.5rem 0;
+    cursor: pointer;
+}
+
+.errorMessage {
+    color: #ef4444;
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+    font-weight: 500;
+}

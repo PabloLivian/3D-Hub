@@ -1,10 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Navbar.module.css';
 
 const Navbar = () => {
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 50) {
+                setIsScrolled(true);
+            } else if (window.scrollY < 10) {
+                setIsScrolled(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
     return (
-        <header className={styles.navbar}>
+        <header className={`${styles.navbar} ${isScrolled ? styles.scrolled : ''}`}>
             <div className="container">
                 <div className={styles.navbarContent}>
                     <Link to="/" className={styles.navbarLogo}>
@@ -28,7 +43,7 @@ const Navbar = () => {
                     </nav>
 
                     <div className={styles.navbarActions}>
-                        <Link to="/post-job" className={`${styles.btn} ${styles.btnSecondary}`}>Publicar un empleo</Link>
+                        {/* Post Job button removed as per request */}
                         <Link to="/login" className={`${styles.btn} ${styles.btnOutline}`}>Iniciar sesión</Link>
                     </div>
                 </div>

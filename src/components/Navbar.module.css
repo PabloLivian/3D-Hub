@@ -1,7 +1,19 @@
 .navbar {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     background-color: var(--background-dark);
-    /* Default to white for header usually */
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.scrolled {
+    background-color: rgba(16, 25, 34, 0.8);
+    /* Dark background with transparency */
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
 .navbarContent {
@@ -9,6 +21,12 @@
     align-items: center;
     justify-content: space-between;
     height: var(--header-height);
+    transition: height 0.3s ease;
+}
+
+.scrolled .navbarContent {
+    height: 3.5rem;
+    /* Reduced height */
 }
 
 .navbarLogo {

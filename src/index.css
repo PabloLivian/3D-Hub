@@ -35,6 +35,7 @@ body {
   background-color: var(--background-light);
   color: var(--text-dark);
   line-height: 1.5;
+  padding-top: var(--header-height);
 }
 
 /* Utility classes for container */

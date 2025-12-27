@@ -409,4 +409,54 @@
 - **Artists Page**: Se reestructuró la cabecera para que el botón "Join to the list" aparezca inmediatamente a la derecha del título principal `<h1>` (usando un contenedor flex inline), en lugar de estar separado o al lado del subtítulo.
 - **Join Form**: 
     - Se corrigió el estilo del grupo de input (`.listInputGroup`) en listas dinámicas. Ahora el input ocupa el espacio restante (`flex: 1`) evitando que el botón "+ Añadir" rompa la línea visualmente.
-    - Se robusteció la función `handleAdd` para evitar comportamientos inesperados al añadir items.
+### [27/12/2025 12:45] - Adición de campo CV con validación de tamaño
+- **Funcionalidad**: Se añadió un campo para subir el CV en el formulario de "Join the Squad", debajo del campo Reel.
+- **Validación**: Implementada validación de tamaño máximo de 20MB. Si el archivo excede este límite, se muestra un mensaje de error en rojo y el campo se resetea.
+- **Diseño**:
+    - Se añadió el input de tipo `file` con estilos personalizados en `JoinList.module.css`.
+    - El campo acepta formatos `.pdf`, `.doc` y `.docx`.
+- **Explicación técnica**:
+    - Se actualizó el estado `formData` para incluir la propiedad `cv`.
+    - Se creó la función `handleFileChange` para gestionar la selección de archivos y la validación de bytes (20 * 1024 * 1024).
+### [27/12/2025 13:00] - Refactorización de Navbar (Sticky & Glassmorphism)
+- **Funcionalidad**: Se modificó la barra de navegación para que sea "sticky" y permanezca visible al hacer scroll.
+- **Cambios UI**:
+    - **Efecto Scroll**: Al bajar más de 20px, el navbar reduce ligeramente su altura y aplica un fondo semitransparente con efecto de desenfoque (`backdrop-filter: blur`).
+    - **Botón Eliminado**: Se eliminó el botón "Publicar un empleo" a petición del usuario.
+- **Implementación**:
+    - `Navbar.jsx`: Añadido listener de evento `scroll` para gestionar el estado `isScrolled`.
+### [27/12/2025 13:10] - Corrección de Temblor en Navbar (Position Fixed)
+- **Problema**: El uso de `position: sticky` junto con la animación de altura causaba un bucle de redimensionado (jitter) al hacer scroll cerca del límite.
+- **Solución**: Se cambió la estrategia a `position: fixed`.
+- **Implementación**:
+    - `Navbar.module.css`: Cambiado a `position: fixed`.
+    - `index.css`: Añadido `padding-top: var(--header-height)` (80px) al `body` para compensar la altura del navbar fijo y evitar que el contenido se oculte.
+    - Esta separación desacopla completamente la animación del navbar del flujo del documento, eliminando cualquier posibilidad de temblor.
+
+### [27/12/2025 13:30] - Implementación de Paginación en Página de Artistas
+- **Funcionalidad**: Se integró el sistema de paginación en `/artists` para mejorar la navegación entre la lista de profesionales.
+- **Detalles técnicos**:
+    - Se reutilizó el componente `Pagination.jsx`.
+    - Se implementó estado local (`currentPage`) que se resetea al cambiar los filtros.
+    - Se configuró a 12 artistas por página (`ITEMS_PER_PAGE`).
+    - Se añadió scroll automático al inicio al cambiar de página.
+
+### [27/12/2025 13:35] - Corrección de Error de Sintaxis en Artists.jsx
+- **Bug Fix**: Se corrigió un error de duplicación de código generado durante la implementación de la paginación que causaba que la página fallara.
+- **Detalle**: Se eliminaron líneas redundantes en el cierre del hook `useMemo` y `filter`.
+
+### [27/12/2025 17:05] - Corrección de Persistencia de Scroll
+- **Funcionalidad**: Se implementó un componente `ScrollToTop` para asegurar que la vista vuelva al inicio (top: 0) cada vez que el usuario navega entre rutas.
+- **Detalles técnicos**:
+    - Componente creado: `src/components/ScrollToTop.jsx`.
+    - Integración: Añadido dentro de `BrowserRouter` en `App.jsx` para escuchar cambios en `pathname`.
+
+---
+
+### [27/12/2025 17:05] - COMMIT: Mejora de Navegación, Paginación y Formulario
+**Resumen de Cambios:**
+- **Formulario Join**: Nuevo campo de subida de CV con validación de 20MB.
+- **Navbar**: Rediseño a `position: fixed` con efecto de desenfoque e hidratación de altura en scroll.
+- **Talento (Artists)**: Paginación de resultados (12 por página) e integración del componente `Pagination`.
+- **Global**: Corrección de persistencia de scroll mediante el componente `ScrollToTop`.
+- **Fixes**: Corrección de errores de sintaxis y bug de temblor (jitter) en el header.

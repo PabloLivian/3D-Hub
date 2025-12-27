@@ -1,11 +1,15 @@
 
 import React, { useState, useMemo } from 'react';
 import ArtistCard from '../components/ArtistCard';
+import Pagination from '../components/Pagination';
 import artistData from '../data/artist.json';
 import styles from './Artists.module.css';
 
 const Artists = () => {
     const [searchTerm, setSearchTerm] = useState('');
+    const [currentPage, setCurrentPage] = useState(1);
+    const ITEMS_PER_PAGE = 12;
+
     const [filters, setFilters] = useState({
         experiencia: '',
         Relocalizacion: '',
@@ -37,6 +41,7 @@ const Artists = () => {
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFilters(prev => ({ ...prev, [name]: value }));
+        setCurrentPage(1); // Reset to first page on filter change
     };
 
     const clearFilters = () => {
@@ -48,6 +53,7 @@ const Artists = () => {
             disponibilidad: '',
             software: ''
         });
+        setCurrentPage(1);
     };
 
     const filteredArtists = useMemo(() => {
@@ -100,6 +106,13 @@ const Artists = () => {
         });
     }, [searchTerm, filters]);
 
+    // Pagination Logic
+    const totalPages = Math.ceil(filteredArtists.length / ITEMS_PER_PAGE);
+    const currentArtists = filteredArtists.slice(
+        (currentPage - 1) * ITEMS_PER_PAGE,
+        currentPage * ITEMS_PER_PAGE
+    );
+
     return (
         <div className="page-wrapper">
             <main className="main-content">
@@ -123,7 +136,10 @@ const Artists = () => {
                                 placeholder="Buscar por nombre, rol, software..."
                                 className={styles.searchInput}
                                 value={searchTerm}
-                                onChange={(e) => setSearchTerm(e.target.value)}
+                                onChange={(e) => {
+                                    setSearchTerm(e.target.value);
+                                    setCurrentPage(1);
+                                }}
                             />
                         </div>
 
@@ -194,8 +210,8 @@ const Artists = () => {
                         </div>
 
                         <div className={styles.grid}>
-                            {filteredArtists.length > 0 ? (
-                                filteredArtists.map((artist, index) => (
+                            {currentArtists.length > 0 ? (
+                                currentArtists.map((artist, index) => (
                                     <ArtistCard key={index} artist={artist} />
                                 ))
                             ) : (
@@ -204,6 +220,15 @@ const Artists = () => {
                                 </div>
                             )}
                         </div>
+
+                        <Pagination
+                            currentPage={currentPage}
+                            totalPages={totalPages}
+                            onPageChange={(page) => {
+                                setCurrentPage(page);
+                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                            }}
+                        />
                     </div>
                 </section>
             </main>
