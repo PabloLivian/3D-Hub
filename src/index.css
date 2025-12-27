@@ -4,17 +4,37 @@
   --primary-hover: #0e5a9e;
   /* Darker shade for hover */
   --primary-bg: rgba(17, 115, 212, 0.1);
-  /* primary/10 */
+
+  /* BACKGROUNDS */
+  --background-navbar: #101922;
+  --background-primary: #ececec;
+  --background-button: #1173d4;
+  --background-button-hover: #0e5a9e;
+  --background-button2: #ececec;
+  --background-button2-hover: #ececec;
+  --background-search: #ffffff;
+  --background-card: #ececec;
+  --background-filter: #f3f4f6;
+  --background-filter-hover: #ececec;
+  --background-chip-blue: #eff6ff;
+  --background-chip-blue2: #e0f2fe;
+  --background-chip-grey: #f3f4f6;
+  --background-avatar-studio: #f9fafb;
+
+  /* TEXT */
+  --text-dark: #101922;
+  --text-light: #ffffff;
+  --text-muted: #64748b;
+  --text-muted-dark: #94a3b8;
+
+  /* SHAPE */
+
+
 
   --background-light: #ececec;
   --background-dark: #101922;
 
-  --text-dark: #101922;
-  --text-light: #ffffff;
-  --text-muted: #64748b;
-  /* slate-500 approx */
-  --text-muted-dark: #94a3b8;
-  /* slate-400 approx */
+
 
   /* Spacing */
   --container-width: 1200px;
@@ -35,7 +55,15 @@ body {
   background-color: var(--background-light);
   color: var(--text-dark);
   line-height: 1.5;
+  /* Removed global padding-top to allow Hero to overlay */
+}
+
+/* Utility for standard pages to compensate fixed header */
+.page-wrapper {
   padding-top: var(--header-height);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Utility classes for container */

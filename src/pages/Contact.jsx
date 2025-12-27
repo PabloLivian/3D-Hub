@@ -3,8 +3,10 @@ import { ContactSimpleForm } from '../components/Contact';
 
 const Contact = () => {
     return (
-        <div className="contact-page">
-            <ContactSimpleForm />
+        <div className="page-wrapper">
+            <div className="contact-page">
+                <ContactSimpleForm />
+            </div>
         </div>
     );
 };

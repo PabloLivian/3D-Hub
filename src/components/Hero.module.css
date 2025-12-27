@@ -2,8 +2,10 @@
     position: relative;
     background-size: cover;
     background-position: center;
-    padding: 6rem 0;
-    /* py-24 */
+    background-position: center;
+    padding-top: calc(8rem + 80px);
+    /* 8rem + header height */
+    padding-bottom: 8rem;
     background-image: linear-gradient(rgba(16, 25, 34, 0.7), rgba(16, 25, 34, 0.9)), url('../assets/HeroImage.webp');
     color: white;
 }
@@ -24,6 +26,16 @@
     /* text-4xl */
     font-weight: 900;
     margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.gradientText {
+    background: linear-gradient(to right, #2664eb, #5fa3f9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
 }
 
 @media (min-width: 768px) {

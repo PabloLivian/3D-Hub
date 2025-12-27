@@ -27,22 +27,24 @@ const Companies = () => {
     }, []);
 
     return (
-        <div className={styles.companiesPage}>
-            <div className="container">
-                <header className={styles.companiesHeader}>
-                    <h1 className={styles.pageTitle}>Empresas Destacadas</h1>
-                    <p className={styles.pageSubtitle}>Descubre los estudios que están contratando talento 3D ahora mismo.</p>
-                </header>
+        <div className="page-wrapper">
+            <div className={styles.companiesPage}>
+                <div className="container">
+                    <header className={styles.companiesHeader}>
+                        <h1 className={styles.pageTitle}>Empresas Destacadas</h1>
+                        <p className={styles.pageSubtitle}>Descubre los estudios que están contratando talento 3D ahora mismo.</p>
+                    </header>
 
-                <div className={styles.companiesGrid}>
-                    {companies.map(company => (
-                        <CompanyCard
-                            key={company.name}
-                            name={company.name}
-                            count={company.count}
-                            logo={companyLogos[company.name]}
-                        />
-                    ))}
+                    <div className={styles.companiesGrid}>
+                        {companies.map(company => (
+                            <CompanyCard
+                                key={company.name}
+                                name={company.name}
+                                count={company.count}
+                                logo={companyLogos[company.name]}
+                            />
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>

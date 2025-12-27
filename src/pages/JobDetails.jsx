@@ -27,62 +27,64 @@ const JobDetails = () => {
     }
 
     return (
-        <div className={styles.jobDetailsPage}>
-            <div className="container">
-                <Link to="/jobs" className={styles.backLink}>
-                    <span className="material-symbols-outlined">arrow_back</span>
-                    Volver a las ofertas
-                </Link>
+        <div className="page-wrapper">
+            <div className={styles.jobDetailsPage}>
+                <div className="container">
+                    <Link to="/jobs" className={styles.backLink}>
+                        <span className="material-symbols-outlined">arrow_back</span>
+                        Volver a las ofertas
+                    </Link>
 
-                {/* Header with Title and Metadata */}
-                <header className={styles.jobDetailsHeader}>
-                    <h1 className={styles.jobTitle}>{job.Job_Title}</h1>
-                    <div className={styles.jobMeta}>
-                        <div className={styles.metaItem}>
-                            <span className="material-symbols-outlined icon">domain</span>
-                            {job.Studio}
+                    {/* Header with Title and Metadata */}
+                    <header className={styles.jobDetailsHeader}>
+                        <h1 className={styles.jobTitle}>{job.Job_Title}</h1>
+                        <div className={styles.jobMeta}>
+                            <div className={styles.metaItem}>
+                                <span className="material-symbols-outlined icon">domain</span>
+                                {job.Studio}
+                            </div>
+                            <div className={styles.metaItem}>
+                                <span className="material-symbols-outlined icon">location_on</span>
+                                {job.City ? `${job.City}, ${job.Country}` : job.Country}
+                            </div>
+                            <div className={styles.metaItem}>
+                                <span className="material-symbols-outlined icon">schedule</span>
+                                {job.On_Site_Remote_Hybrid}
+                            </div>
+                            <div className={styles.metaItem}>
+                                <span className="material-symbols-outlined icon">work_history</span>
+                                {job.Experience_Level}
+                            </div>
                         </div>
-                        <div className={styles.metaItem}>
-                            <span className="material-symbols-outlined icon">location_on</span>
-                            {job.City ? `${job.City}, ${job.Country}` : job.Country}
-                        </div>
-                        <div className={styles.metaItem}>
-                            <span className="material-symbols-outlined icon">schedule</span>
-                            {job.On_Site_Remote_Hybrid}
-                        </div>
-                        <div className={styles.metaItem}>
-                            <span className="material-symbols-outlined icon">work_history</span>
-                            {job.Experience_Level}
-                        </div>
-                    </div>
 
-                    <div className={styles.applyActions}>
-                        <a
-                            href={job.Source_Contact}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={styles.applyButton}
-                        >
-                            Aplicar a esta oferta
-                        </a>
-                        <p className={styles.applyNote}>Serás redirigido al sitio oficial.</p>
-                    </div>
-                </header>
+                        <div className={styles.applyActions}>
+                            <a
+                                href={job.Source_Contact}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={styles.applyButton}
+                            >
+                                Aplicar a esta oferta
+                            </a>
+                            <p className={styles.applyNote}>Serás redirigido al sitio oficial.</p>
+                        </div>
+                    </header>
 
-                {/* Body with Description */}
-                <div className={styles.jobDetailsBody}>
-                    <h3 className={styles.sectionTitle}>Notas / Descripción</h3>
-                    <p className={styles.description}>{job.Notes || 'No hay descripción adicional disponible.'}</p>
+                    {/* Body with Description */}
+                    <div className={styles.jobDetailsBody}>
+                        <h3 className={styles.sectionTitle}>Notas / Descripción</h3>
+                        <p className={styles.description}>{job.Notes || 'No hay descripción adicional disponible.'}</p>
 
-                    <h3 className={styles.sectionTitle}>Software</h3>
-                    <div className={styles.tags}>
-                        {job.Software_Programs ? (
-                            job.Software_Programs.split(',').map((soft, index) => (
-                                <span key={index} className={styles.tag}>{soft.trim()}</span>
-                            ))
-                        ) : (
-                            <span className={styles.tag}>No especificado</span>
-                        )}
+                        <h3 className={styles.sectionTitle}>Software</h3>
+                        <div className={styles.tags}>
+                            {job.Software_Programs ? (
+                                job.Software_Programs.split(',').map((soft, index) => (
+                                    <span key={index} className={styles.tag}>{soft.trim()}</span>
+                                ))
+                            ) : (
+                                <span className={styles.tag}>No especificado</span>
+                            )}
+                        </div>
                     </div>
                 </div>
             </div>

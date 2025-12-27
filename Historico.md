@@ -460,3 +460,66 @@
 - **Talento (Artists)**: Paginación de resultados (12 por página) e integración del componente `Pagination`.
 - **Global**: Corrección de persistencia de scroll mediante el componente `ScrollToTop`.
 - **Fixes**: Corrección de errores de sintaxis y bug de temblor (jitter) en el header.
+
+### [27/12/2025 17:15] - Implementación de Menú Hamburguesa (Responsive Navbar)
+- **Funcionalidad**: Se añadió soporte para navegación móvil mediante un menú desplegable tipo hamburguesa.
+- **Detalles técnicos**:
+    - `Navbar.jsx`: Control de estado `isMenuOpen` para mostrar/ocultar el menú.
+    - `Navbar.module.css`: Media queries para ocultar el menú de escritorio y mostrar el botón hamburguesa en pantallas < 768px.
+    - Animación CSS para transformar el icono de 3 líneas en una "X" al abrirse.
+
+### [27/12/2025 17:20] - Optimización de Layout (Hero Overlay)
+- **Funcionalidad**: Se ajustó el layout para eliminar el hueco blanco superior en la Home, permitiendo que el Navbar se superponga al Hero.
+- **Detalles técnicos**:
+    - `index.css`: Eliminado `padding-top` global del body. Creada clase de utilidad `.page-wrapper`.
+    - `Hero.module.css`: Aumentado padding superior para compensar (8rem + header height).
+    - **Páginas**: Se aplicó `.page-wrapper` a `Jobs`, `Companies`, `Contact`, `JobDetails` y `NotFound` para mantener el espaciado correcto en el resto de la app.
+
+### [27/12/2025 17:25] - Corrección de Padding en Página de Join
+- **Bug Fix**: La página `/join` no estaba aplicando correctamente el padding superior porque usaba una clase local en lugar de la global `.page-wrapper`.
+- **Solución**: Se actualizó `JoinList.jsx` para implementar la clase de utilidad global, corrigiendo la superposición del navbar sobre el formulario.
+
+### [27/12/2025 17:30] - Refactorización Final de Espaciado (Fix Overlap)
+- **Problema**: La combinación de clases `className={"page-wrapper " + styles.page}` causaba conflictos de especificidad CSS, anulando el padding superior en algunas páginas.
+- **Solución**: Se refactorizaron `Contact`, `Companies`, `JobDetails`, `JoinList` y `NotFound` para usar un `div` contenedor externo exclusivo con la clase `.page-wrapper`. Esto aísla la lógica de espaciado global de los estilos locales de cada componente, garantizando consistencia.
+
+### [27/12/2025 17:35] - Reparación de Errores de Sintaxis en JoinList
+- **Problema**: Ediciones previas dejaron etiquetas `<div>` mal cerradas y bloques de retorno rotos en `JoinList.jsx`.
+- **Solución**: Se reescribió el componente `JoinList` y se verificaron `Companies` y `JobDetails` para asegurar que el JSX sea válido y el flujo de navegación post-envío funcione correctamente.
+
+### [27/12/2025 17:40] - Corrección de Solapamiento en Jobs.jsx
+- **Problema**: La página de empleos seguía mostrando el navbar superpuesto debido a la combinación de clases CSS en un mismo elemento.
+- **Solución**: Se aplicó la misma refactorización que en las otras páginas, envolviendo el contenido de `Jobs.jsx` en un `div` con la clase `.page-wrapper` exclusivo.
+
+### [27/12/2025 17:45] - Mejora de Filtros en Móvil (Artists.jsx)
+- **Problema**: Los filtros en la página de artistas se apilaban verticalmente en una sola columna, resultando poco estéticos.
+- **Solución**: Se implementó un grid de 2 columnas para los filtros en dispositivos móviles y se ajustó el botón de "Limpiar Filtros" para ocupar todo el ancho, mejorando la usabilidad y el diseño.
+
+### [27/12/2025 19:15] - Resaltado de Enlace Activo en Navbar
+- **Funcionalidad**: Se añadió lógica visual para resaltar la página actual en la barra de navegación.
+- **Implementación**:
+    - Se usó el hook `useLocation` en `Navbar.jsx` para detectar la ruta actual.
+    - Se creó la función `isActive` para asignar condicionalmente la clase `.active`.
+    - Se definieron los estilos `.active` (color primario y mayor peso de fuente) en `Navbar.module.css`.
+
+### [27/12/2025 19:40] - Degradado en Título del Hero
+- **Cambio**: Se aplicó un degradado lineal al texto "huella digital" en la página de inicio.
+- **Detalles Técnicos**:
+    - Se refactorizó `Hero.jsx` para envolver "huella digital" en un `<span>` con la clase `gradientText`.
+    - Se aplicó `background: linear-gradient(to right, #2664eb, #5fa3f9)` con `background-clip: text` en `Hero.module.css`.
+    - Se mejoró el `line-height` del título para evitar solapamientos visuales.
+
+### [27/12/2025 21:35] - Adición de Enlace "Registrarse" en Navbar
+- **Cambio**: Se añadió un enlace de texto para el registro de usuarios.
+- **Detalles**:
+    - Se insertó `<Link to="/register">` a la izquierda del botón de inicio de sesión.
+    - Se aplicaron estilos específicos para que aparezca como texto simple (sin forma de botón) con efecto hover en azul.
+
+### [27/12/2025 22:15] - Expansión de Variables CSS y Commit de Finalización
+- **Cambio**: Actualización profunda de `index.css` con nuevas variables semánticas de color para botones, fondos y componentes.
+- **Commit**: Realizado commit final de la sesión: "Refinando UI: Enlaces activos, Registro en Navbar, degradado en Hero y nuevas variables CSS".
+- **Archivos Incluidos**:
+    - `src/index.css` (Variables actualizadas).
+    - `src/components/Navbar.jsx` / `.module.css` (Lógica de enlace activo y Registro).
+    - `src/components/Hero.jsx` / `.module.css` (Degradado en título).
+    - `src/pages/Jobs.jsx` y `src/pages/JoinList.jsx` (Correcciones de sintaxis y disposición).

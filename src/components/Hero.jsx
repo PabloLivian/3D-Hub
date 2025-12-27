@@ -19,7 +19,10 @@ const Hero = () => {
     return (
         <section className={styles.hero}>
             <div className={`container ${styles.heroContainer}`}>
-                <h1 className={styles.heroTitle}>Encuentra el estudio donde dejarás tu huella digital</h1>
+                <h1 className={styles.heroTitle}>
+                    Encuentra el estudio donde <br />
+                    dejarás tu <span className={styles.gradientText}>huella digital</span>
+                </h1>
                 <p className={styles.heroSubtitle}>
                     Únete a la comunidad emergente de la industria de 3D y encuentra tu próxima oportunidad.
                 </p>

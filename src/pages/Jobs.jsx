@@ -138,130 +138,132 @@ const Jobs = () => {
     };
 
     return (
-        <div className={styles.jobsPage}>
-            <div className="container">
+        <div className="page-wrapper">
+            <div className={styles.jobsPage}>
+                <div className="container">
 
-                {/* Header Section */}
-                <div className={styles.jobsHeader}>
-                    <h1 className={styles.jobsTitle}>Encuentra tu próximo trabajo</h1>
-                    <p className={styles.jobsSubtitle}>Explora miles de oportunidades en la industria 3D.</p>
-                </div>
-
-                {/* Search & Filter Section */}
-                <div className={styles.jobsControls}>
-                    <div className={styles.jobsSearch}>
-                        <span className={`material-symbols-outlined ${styles.searchIconInput}`}>search</span>
-                        <input
-                            type="text"
-                            className={styles.jobsSearchInput}
-                            placeholder="Buscar trabajos, estudios..."
-                            value={searchQuery}
-                            onChange={(e) => setSearchQuery(e.target.value)}
-                        />
+                    {/* Header Section */}
+                    <div className={styles.jobsHeader}>
+                        <h1 className={styles.jobsTitle}>Encuentra tu próximo trabajo</h1>
+                        <p className={styles.jobsSubtitle}>Explora miles de oportunidades en la industria 3D.</p>
                     </div>
 
-                    <div className={styles.jobsFilters}>
-                        <div className={styles.filterWrapper}>
-                            <select
-                                className={styles.filterSelect}
-                                value={filtersFromUrl.jobTitle}
-                                onChange={(e) => handleFilterChange('jobTitle', e.target.value)}
-                            >
-                                <option value="">Especialidad</option>
-                                {filterOptions.jobTitles.map(opt => (
-                                    <option key={opt} value={opt}>{opt}</option>
-                                ))}
-                            </select>
-                            <span className={`material-symbols-outlined ${styles.filterArrow}`}>expand_more</span>
+                    {/* Search & Filter Section */}
+                    <div className={styles.jobsControls}>
+                        <div className={styles.jobsSearch}>
+                            <span className={`material-symbols-outlined ${styles.searchIconInput}`}>search</span>
+                            <input
+                                type="text"
+                                className={styles.jobsSearchInput}
+                                placeholder="Buscar trabajos, estudios..."
+                                value={searchQuery}
+                                onChange={(e) => setSearchQuery(e.target.value)}
+                            />
                         </div>
 
-                        <div className={styles.filterWrapper}>
-                            <select
-                                className={styles.filterSelect}
-                                value={filtersFromUrl.experience}
-                                onChange={(e) => handleFilterChange('experience', e.target.value)}
-                            >
-                                <option value="">Experiencia</option>
-                                {filterOptions.experiences.map(opt => (
-                                    <option key={opt} value={opt}>{opt}</option>
-                                ))}
-                            </select>
-                            <span className={`material-symbols-outlined ${styles.filterArrow}`}>expand_more</span>
-                        </div>
-
-                        <div className={styles.filterWrapper}>
-                            <select
-                                className={styles.filterSelect}
-                                value={filtersFromUrl.modality}
-                                onChange={(e) => handleFilterChange('modality', e.target.value)}
-                            >
-                                <option value="">Modalidad</option>
-                                {filterOptions.modalities.map(opt => (
-                                    <option key={opt} value={opt}>{opt}</option>
-                                ))}
-                            </select>
-                            <span className={`material-symbols-outlined ${styles.filterArrow}`}>expand_more</span>
-                        </div>
-
-                        <div className={styles.filterWrapper}>
-                            <select
-                                className={styles.filterSelect}
-                                value={filtersFromUrl.country}
-                                onChange={(e) => handleFilterChange('country', e.target.value)}
-                            >
-                                <option value="">País</option>
-                                {filterOptions.countries.map(opt => (
-                                    <option key={opt} value={opt}>{opt}</option>
-                                ))}
-                            </select>
-                            <span className={`material-symbols-outlined ${styles.filterArrow}`}>expand_more</span>
-                        </div>
-
-                        <button className={styles.btnClear} onClick={handleClearFilters}>
-                            Limpiar filtros
-                        </button>
-                    </div>
-                </div>
-
-                {/* Results Section */}
-                <div className={styles.jobsResults}>
-                    <div className={styles.resultsHeader}>
-                        <h2 className={styles.resultsTitle}>Resultados de búsqueda</h2>
-                        <span className={styles.resultsCount}>{filteredJobs.length} empleos</span>
-                    </div>
-
-                    <div className={styles.jobsList}>
-                        {currentJobs.length > 0 ? (
-                            currentJobs.map(job => (
-                                <JobCard
-                                    key={job.ID}
-                                    id={job.ID}
-                                    title={job.Job_Title}
-                                    company={job.Studio}
-                                    location={`${job.City}${job.City && job.Country ? ', ' : ''}${job.Country}`}
-                                    description={job.Notes}
-                                    modality={job.On_Site_Remote_Hybrid}
-                                    experience={job.Experience_Level}
-                                    externalLink={job.Source_Contact}
-                                    className={styles.jobListItem}
-                                />
-                            ))
-                        ) : (
-                            <div className="no-results">
-                                <p>No se encontraron ofertas que coincidan con tu búsqueda.</p>
+                        <div className={styles.jobsFilters}>
+                            <div className={styles.filterWrapper}>
+                                <select
+                                    className={styles.filterSelect}
+                                    value={filtersFromUrl.jobTitle}
+                                    onChange={(e) => handleFilterChange('jobTitle', e.target.value)}
+                                >
+                                    <option value="">Especialidad</option>
+                                    {filterOptions.jobTitles.map(opt => (
+                                        <option key={opt} value={opt}>{opt}</option>
+                                    ))}
+                                </select>
+                                <span className={`material-symbols-outlined ${styles.filterArrow}`}>expand_more</span>
                             </div>
-                        )}
+
+                            <div className={styles.filterWrapper}>
+                                <select
+                                    className={styles.filterSelect}
+                                    value={filtersFromUrl.experience}
+                                    onChange={(e) => handleFilterChange('experience', e.target.value)}
+                                >
+                                    <option value="">Experiencia</option>
+                                    {filterOptions.experiences.map(opt => (
+                                        <option key={opt} value={opt}>{opt}</option>
+                                    ))}
+                                </select>
+                                <span className={`material-symbols-outlined ${styles.filterArrow}`}>expand_more</span>
+                            </div>
+
+                            <div className={styles.filterWrapper}>
+                                <select
+                                    className={styles.filterSelect}
+                                    value={filtersFromUrl.modality}
+                                    onChange={(e) => handleFilterChange('modality', e.target.value)}
+                                >
+                                    <option value="">Modalidad</option>
+                                    {filterOptions.modalities.map(opt => (
+                                        <option key={opt} value={opt}>{opt}</option>
+                                    ))}
+                                </select>
+                                <span className={`material-symbols-outlined ${styles.filterArrow}`}>expand_more</span>
+                            </div>
+
+                            <div className={styles.filterWrapper}>
+                                <select
+                                    className={styles.filterSelect}
+                                    value={filtersFromUrl.country}
+                                    onChange={(e) => handleFilterChange('country', e.target.value)}
+                                >
+                                    <option value="">País</option>
+                                    {filterOptions.countries.map(opt => (
+                                        <option key={opt} value={opt}>{opt}</option>
+                                    ))}
+                                </select>
+                                <span className={`material-symbols-outlined ${styles.filterArrow}`}>expand_more</span>
+                            </div>
+
+                            <button className={styles.btnClear} onClick={handleClearFilters}>
+                                Limpiar filtros
+                            </button>
+                        </div>
                     </div>
 
-                    {/* Pagination */}
-                    <Pagination
-                        currentPage={currentPage}
-                        totalPages={totalPages}
-                        onPageChange={handlePageChange}
-                    />
+                    {/* Results Section */}
+                    <div className={styles.jobsResults}>
+                        <div className={styles.resultsHeader}>
+                            <h2 className={styles.resultsTitle}>Resultados de búsqueda</h2>
+                            <span className={styles.resultsCount}>{filteredJobs.length} empleos</span>
+                        </div>
+
+                        <div className={styles.jobsList}>
+                            {currentJobs.length > 0 ? (
+                                currentJobs.map(job => (
+                                    <JobCard
+                                        key={job.ID}
+                                        id={job.ID}
+                                        title={job.Job_Title}
+                                        company={job.Studio}
+                                        location={`${job.City}${job.City && job.Country ? ', ' : ''}${job.Country}`}
+                                        description={job.Notes}
+                                        modality={job.On_Site_Remote_Hybrid}
+                                        experience={job.Experience_Level}
+                                        externalLink={job.Source_Contact}
+                                        className={styles.jobListItem}
+                                    />
+                                ))
+                            ) : (
+                                <div className="no-results">
+                                    <p>No se encontraron ofertas que coincidan con tu búsqueda.</p>
+                                </div>
+                            )}
+                        </div>
+
+                        {/* Pagination */}
+                        <Pagination
+                            currentPage={currentPage}
+                            totalPages={totalPages}
+                            onPageChange={handlePageChange}
+                        />
+
+                    </div>
 
                 </div>
-
             </div>
         </div>
     );

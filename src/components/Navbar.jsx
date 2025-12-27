@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import styles from './Navbar.module.css';
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const location = useLocation();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -17,6 +19,18 @@ const Navbar = () => {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    };
+
+    const closeMenu = () => {
+        setIsMenuOpen(false);
+    };
+
+    const isActive = (path) => {
+        return location.pathname === path ? `${styles.navLink} ${styles.active}` : styles.navLink;
+    };
 
     return (
         <header className={`${styles.navbar} ${isScrolled ? styles.scrolled : ''}`}>
@@ -36,16 +50,36 @@ const Navbar = () => {
                     </Link>
 
                     <nav className={styles.navbarLinks}>
-                        <Link to="/jobs" className={styles.navLink}>Empleos</Link>
-                        <Link to="/companies" className={styles.navLink}>Empresas</Link>
-                        <Link to="/artists" className={styles.navLink}>Talento</Link>
-                        <Link to="/contact" className={styles.navLink}>Contacto</Link>
+                        <Link to="/jobs" className={isActive('/jobs')}>Empleos</Link>
+                        <Link to="/companies" className={isActive('/companies')}>Empresas</Link>
+                        <Link to="/artists" className={isActive('/artists')}>Talento</Link>
+                        <Link to="/contact" className={isActive('/contact')}>Contacto</Link>
                     </nav>
+
+                    {/* Hamburger Button */}
+                    <button
+                        className={`${styles.menuToggle} ${isMenuOpen ? styles.open : ''}`}
+                        onClick={toggleMenu}
+                        aria-label="Toggle navigation"
+                    >
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
 
                     <div className={styles.navbarActions}>
                         {/* Post Job button removed as per request */}
+                        <Link to="/register" className={styles.registerLink}>Registrarse</Link>
                         <Link to="/login" className={`${styles.btn} ${styles.btnOutline}`}>Iniciar sesión</Link>
                     </div>
+                </div>
+
+                {/* Mobile Menu Dropdown */}
+                <div className={`${styles.mobileMenu} ${isMenuOpen ? styles.open : ''}`}>
+                    <Link to="/jobs" className={isActive('/jobs')} onClick={closeMenu}>Empleos</Link>
+                    <Link to="/companies" className={isActive('/companies')} onClick={closeMenu}>Empresas</Link>
+                    <Link to="/artists" className={isActive('/artists')} onClick={closeMenu}>Talento</Link>
+                    <Link to="/contact" className={isActive('/contact')} onClick={closeMenu}>Contacto</Link>
                 </div>
             </div>
         </header>
