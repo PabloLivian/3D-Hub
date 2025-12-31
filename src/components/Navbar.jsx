@@ -69,7 +69,9 @@ const Navbar = () => {
                     </button>
 
                     <div className={styles.navbarActions}>
-                        <ThemeToggle />
+                        <div className={styles.desktopThemeToggle}>
+                            <ThemeToggle />
+                        </div>
                         {/* Post Job button removed as per request */}
                         <Link to="/register" className={styles.registerLink}>Registrarse</Link>
                         <Link to="/login" className={`${styles.btn} ${styles.btnOutline}`}>Iniciar sesión</Link>

@@ -129,6 +129,11 @@
     padding: 0.5rem 0;
 }
 
+/* Default: Hide on mobile */
+.desktopThemeToggle {
+    display: none;
+}
+
 /* Desktop Styles */
 @media (min-width: 768px) {
     .menuToggle {
@@ -144,6 +149,10 @@
         display: flex;
         gap: 2rem;
         align-items: center;
+    }
+
+    .desktopThemeToggle {
+        display: block;
     }
 }
 
@@ -178,6 +187,8 @@
     color: var(--navbar-text);
     background-color: var(--navbar-button-hover);
 }
+
+
 
 .navbarActions {
     display: flex;
