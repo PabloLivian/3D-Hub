@@ -1,5 +1,6 @@
 
 import React, { useState, useMemo } from 'react';
+import { Link } from 'react-router-dom';
 import ArtistCard from '../components/ArtistCard';
 import Pagination from '../components/Pagination';
 import artistData from '../data/artist.json';
@@ -121,9 +122,9 @@ const Artists = () => {
                         <div className={styles.artistsHeader}>
                             <div className={styles.titleRow}>
                                 <h1 className={styles.pageTitle} style={{ marginBottom: 0 }}>Talento 3D</h1>
-                                <a href="/join" className={styles.joinButton}>
+                                <Link to="/join" className={styles.joinButton}>
                                     Join to the list
-                                </a>
+                                </Link>
                             </div>
                             <p className={styles.pageSubtitle} style={{ marginBottom: 0 }}>
                                 Encuentra a los mejores artistas y técnicos para tu próximo proyecto.
