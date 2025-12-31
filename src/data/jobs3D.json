@@ -11,7 +11,8 @@
         "Date": "December 22, 2025",
         "Source_Contact": "https://www.jimsonweed.studio/join-us/pipeline-td-vfx-dev-o/",
         "Software_Programs": "",
-        "Notes": "Remote possible according to this post: https://www.linkedin.com/posts/jimsonweed_were-hiring-in-oviedo-spain-jimsonweed-activity-7408829324977672192-CRvo"
+        "Notes": "Remote possible according to this post: https://www.linkedin.com/posts/jimsonweed_were-hiring-in-oviedo-spain-jimsonweed-activity-7408829324977672192-CRvo",
+        "Webpage": "https://www.jimsonweed.studio/"
     },
     {
         "ID": 2,
@@ -25,7 +26,8 @@
         "Date": "December 22, 2025",
         "Source_Contact": "https://www.jimsonweed.studio/join-us/vfx-producer/",
         "Software_Programs": "Shotgrid, Trello",
-        "Notes": ""
+        "Notes": "",
+        "Webpage": "https://www.jimsonweed.studio/"
     },
     {
         "ID": 3,
@@ -39,7 +41,8 @@
         "Date": "December 22, 2025",
         "Source_Contact": "https://www.jimsonweed.studio/join-us/vfx-production-assistance/",
         "Software_Programs": "Shotgrid, Trello",
-        "Notes": "VFX Production Assistant"
+        "Notes": "VFX Production Assistant",
+        "Webpage": "https://www.jimsonweed.studio/"
     },
     {
         "ID": 4,
@@ -53,7 +56,8 @@
         "Date": "December 22, 2025",
         "Source_Contact": "https://www.jimsonweed.studio/join-us/vfx-coordinator/",
         "Software_Programs": "Shotgrid, Trello",
-        "Notes": "VFX Coordinator"
+        "Notes": "VFX Coordinator",
+        "Webpage": "https://www.jimsonweed.studio/"
     },
     {
         "ID": 5,
@@ -67,7 +71,8 @@
         "Date": "December 22, 2025",
         "Source_Contact": "https://boards.greenhouse.io/swayboxstudios/jobs/4087081009",
         "Software_Programs": "Shotgrid, Airtable, Avid",
-        "Notes": ""
+        "Notes": "",
+        "Webpage": "https://swayboxstudios.com/"
     },
     {
         "ID": 6,
@@ -81,7 +86,8 @@
         "Date": "December 22, 2025",
         "Source_Contact": "https://boards.greenhouse.io/swayboxstudios/jobs/4079610009",
         "Software_Programs": "Nuke, Python, Blinkscript",
-        "Notes": "Nuke TD"
+        "Notes": "Nuke TD",
+        "Webpage": "https://swayboxstudios.com/"
     },
     {
         "ID": 7,
@@ -95,7 +101,8 @@
         "Date": "December 22, 2025",
         "Source_Contact": "https://www.akqa.com/careers/senior-designer-7487048",
         "Software_Programs": "Adobe Suite, Figma",
-        "Notes": ""
+        "Notes": "",
+        "Webpage": "https://www.akqa.com/"
     },
     {
         "ID": 8,
@@ -109,7 +116,8 @@
         "Date": "December 22, 2025",
         "Source_Contact": "https://www.laika.com/careers/job-listing/?jobid=7470037",
         "Software_Programs": "Maya, Houdini, nCloth, Vellum, Renderman, Python, MEL, VEX",
-        "Notes": "Remote only possible if you live in California, Oregon, or Washington"
+        "Notes": "Remote only possible if you live in California, Oregon, or Washington",
+        "Webpage": "https://www.laika.com/"
     },
     {
         "ID": 9,
@@ -123,7 +131,8 @@
         "Date": "December 22, 2025",
         "Source_Contact": "https://www.laika.com/careers/job-listing/?jobid=7467994",
         "Software_Programs": "Katana, Nuke, Maya, Houdini, Renderman",
-        "Notes": ""
+        "Notes": "",
+        "Webpage": "https://www.laika.com/"
     },
     {
         "ID": 10,
@@ -137,7 +146,8 @@
         "Date": "December 22, 2025",
         "Source_Contact": "https://www.laika.com/careers/job-listing/?jobid=7488478",
         "Software_Programs": "Adobe CS, Avid",
-        "Notes": "Creative Marketing Producer"
+        "Notes": "Creative Marketing Producer",
+        "Webpage": "https://www.laika.com/"
     },
     {
         "ID": 11,
@@ -151,7 +161,8 @@
         "Date": "December 22, 2025",
         "Source_Contact": "https://boards.greenhouse.io/sonypicturesanimation/jobs/7569011003",
         "Software_Programs": "",
-        "Notes": "CG Supervisor - Series"
+        "Notes": "CG Supervisor - Series",
+        "Webpage": "https://www.sonypicturesanimation.com/"
     },
     {
         "ID": 12,
@@ -165,7 +176,8 @@
         "Date": "December 22, 2025",
         "Source_Contact": "https://www.lizlangproduction.com/careers",
         "Software_Programs": "",
-        "Notes": ""
+        "Notes": "",
+        "Webpage": "https://www.lizlangproduction.com/"
     },
     {
         "ID": 13,
@@ -179,7 +191,8 @@
         "Date": "December 22, 2025",
         "Source_Contact": "https://jobs.smartrecruiters.com/RodeoFX/744000099583706-creature-fx-artist",
         "Software_Programs": "Houdini, VEX, Nuke, Python, Shotgrid",
-        "Notes": "For creatures"
+        "Notes": "For creatures",
+        "Webpage": "https://www.rodeofx.com/"
     },
     {
         "ID": 14,
@@ -193,7 +206,8 @@
         "Date": "December 22, 2025",
         "Source_Contact": "https://jobs.smartrecruiters.com/RodeoFX/744000099417936-matte-painter",
         "Software_Programs": "Photoshop, Nuke, Maya, Blender, 3ds Max, Cinema 4D, Shotgrid",
-        "Notes": ""
+        "Notes": "",
+        "Webpage": "https://www.rodeofx.com/"
     },
     {
         "ID": 15,
@@ -207,7 +221,8 @@
         "Date": "December 22, 2025",
         "Source_Contact": "https://apply.workable.com/big-viking-games-3/j/D8EF35DA76/",
         "Software_Programs": "Unity, JIRA, Confluence, GitHub",
-        "Notes": "9-month contract"
+        "Notes": "9-month contract",
+        "Webpage": "https://www.bigvikinggames.com/"
     },
     {
         "ID": 16,
@@ -221,7 +236,8 @@
         "Date": "December 22, 2025",
         "Source_Contact": "https://apply.workable.com/big-viking-games-3/j/D32644FFC4/",
         "Software_Programs": "Excel",
-        "Notes": "4-month contract"
+        "Notes": "4-month contract",
+        "Webpage": "https://www.bigvikinggames.com/"
     },
     {
         "ID": 17,
@@ -235,7 +251,8 @@
         "Date": "December 22, 2025",
         "Source_Contact": "https://jobs.ea.com/en_US/careers/JobDetail/Associate-Art-Director-UFC/212180",
         "Software_Programs": "",
-        "Notes": ""
+        "Notes": "",
+        "Webpage": "https://www.ea.com/sports"
     },
     {
         "ID": 18,
@@ -249,7 +266,8 @@
         "Date": "December 22, 2025",
         "Source_Contact": "https://jobs.ea.com/en_US/careers/JobDetail/Associate-Technical-Art-Director-UFC/212185",
         "Software_Programs": "Python, C#, C++, Maya, Photoshop, Houdini",
-        "Notes": ""
+        "Notes": "",
+        "Webpage": "https://www.ea.com/sports"
     },
     {
         "ID": 19,
@@ -263,7 +281,8 @@
         "Date": "December 22, 2025",
         "Source_Contact": "https://jobs.ea.com/en_US/careers/JobDetail/Illustrator-MURALS-EA-SPORTS-6-months/212133",
         "Software_Programs": "Photoshop, Illustrator",
-        "Notes": "6-month contract"
+        "Notes": "6-month contract",
+        "Webpage": "https://www.ea.com/sports"
     },
     {
         "ID": 20,
@@ -277,7 +296,8 @@
         "Date": "December 22, 2025",
         "Source_Contact": "https://jobs.ea.com/en_US/careers/JobDetail/Senior-Lighting-Director-EA-SPORTS-FC/212135",
         "Software_Programs": "Maya, Photoshop, Perforce, JIRA, Shotgrid",
-        "Notes": ""
+        "Notes": "",
+        "Webpage": "https://www.ea.com/sports"
     },
     {
         "ID": 21,
@@ -291,7 +311,8 @@
         "Date": "December 22, 2025",
         "Source_Contact": "https://framestore.recruitee.com/o/midsenior-animator-short-term",
         "Software_Programs": "Maya",
-        "Notes": "Goes from mid-January to May 1, 2026. They are open to remote candidates located anywhere in Australia or NZ"
+        "Notes": "Goes from mid-January to May 1, 2026. They are open to remote candidates located anywhere in Australia or NZ",
+        "Webpage": "https://www.framestore.com/"
     },
     {
         "ID": 22,
@@ -305,7 +326,8 @@
         "Date": "December 22, 2025",
         "Source_Contact": "https://framestore.recruitee.com/o/department-manager-film-episodic-3",
         "Software_Programs": "Office, Google Suite",
-        "Notes": ""
+        "Notes": "",
+        "Webpage": "https://www.framestore.com/"
     },
     {
         "ID": 23,
@@ -319,7 +341,8 @@
         "Date": "December 22, 2025",
         "Source_Contact": "https://framestore.recruitee.com/o/mid-modeler-1",
         "Software_Programs": "Maya",
-        "Notes": ""
+        "Notes": "",
+        "Webpage": "https://www.framestore.com/"
     },
     {
         "ID": 24,
@@ -333,7 +356,8 @@
         "Date": "December 22, 2025",
         "Source_Contact": "https://framestore.recruitee.com/o/textureurse-texture-artist",
         "Software_Programs": "Photoshop, Mari",
-        "Notes": ""
+        "Notes": "",
+        "Webpage": "https://www.framestore.com/"
     },
     {
         "ID": 25,
@@ -347,7 +371,8 @@
         "Date": "December 22, 2025",
         "Source_Contact": "https://framestore.recruitee.com/o/senior-texture-artist-1",
         "Software_Programs": "Mari, Substance, Photoshop",
-        "Notes": ""
+        "Notes": "",
+        "Webpage": "https://www.framestore.com/"
     },
     {
         "ID": 26,
@@ -361,7 +386,8 @@
         "Date": "December 22, 2025",
         "Source_Contact": "https://blazinggriffin.bamboohr.com/careers/121",
         "Software_Programs": "Unity, 3ds Max, Maya, Blender, Substance",
-        "Notes": "1-year contract. Must be UK-based"
+        "Notes": "1-year contract. Must be UK-based",
+        "Webpage": "https://www.blazinggriffin.com/"
     },
     {
         "ID": 27,
@@ -375,7 +401,8 @@
         "Date": "December 19, 2025",
         "Source_Contact": "jobs@redparrot-studios.com",
         "Software_Programs": "Maya, Houdini, ZBrush, Substance Painter, Arnold",
-        "Notes": "Must have an EU work permit. They are looking for artists who can support them on-site in modeling and texturing of sets, characters, and props for their next feature film"
+        "Notes": "Must have an EU work permit. They are looking for artists who can support them on-site in modeling and texturing of sets, characters, and props for their next feature film",
+        "Webpage": "https://redparrot-studios.com/"
     },
     {
         "ID": 28,
@@ -389,7 +416,8 @@
         "Date": "December 19, 2025",
         "Source_Contact": "https://www.angrymobgames.com/project/stylized-environment-artist/",
         "Software_Programs": "Substance Painter, 3ds Max, Blender, Unity, Photoshop",
-        "Notes": "Stylized Environment Artist"
+        "Notes": "Stylized Environment Artist",
+        "Webpage": "https://www.angrymobgames.com/"
     },
     {
         "ID": 29,
@@ -403,7 +431,8 @@
         "Date": "December 18, 2025",
         "Source_Contact": "jobs@redparrot-studios.com",
         "Software_Programs": "Maya",
-        "Notes": "Must have an EU work permit"
+        "Notes": "Must have an EU work permit",
+        "Webpage": "https://redparrot-studios.com/"
     },
     {
         "ID": 30,
@@ -417,7 +446,8 @@
         "Date": "December 18, 2025",
         "Source_Contact": "https://63cfe2b674b466401a5d1aa2.kenjo.io/2d-compositor-959375",
         "Software_Programs": "Harmony, After Effects",
-        "Notes": "2D Compositor. Apply by January 1, 2026"
+        "Notes": "2D Compositor. Apply by January 1, 2026",
+        "Webpage": "https://www.bouldermedia.tv/"
     },
     {
         "ID": 31,
@@ -431,7 +461,8 @@
         "Date": "December 17, 2025",
         "Source_Contact": "https://63cfe2b674b466401a5d1aa2.kenjo.io/production-coordinator-745064",
         "Software_Programs": "Office, Ftrack",
-        "Notes": "Apply by January 1, 2026"
+        "Notes": "Apply by January 1, 2026",
+        "Webpage": "https://www.bouldermedia.tv/"
     },
     {
         "ID": 32,
@@ -445,7 +476,8 @@
         "Date": "December 16, 2025",
         "Source_Contact": "brandon@deadmoney.gg",
         "Software_Programs": "Unity, Spine",
-        "Notes": "Need to be located in the western hemisphere. A full job description can be found here: https://www.artstation.com/jobs/94g5"
+        "Notes": "Need to be located in the western hemisphere. A full job description can be found here: https://www.artstation.com/jobs/94g5",
+        "Webpage": "https://deadmoney.gg/"
     },
     {
         "ID": 33,
@@ -459,7 +491,8 @@
         "Date": "December 15, 2025",
         "Source_Contact": "https://glitchproductions.applytojob.com/apply/2JGz6fkDP6/Brand-Operations-Manager",
         "Software_Programs": "Asana, Shotgrid",
-        "Notes": "Must be able to work in Australia, New Zealand, the US, or Canada"
+        "Notes": "Must be able to work in Australia, New Zealand, the US, or Canada",
+        "Webpage": "https://www.glitchprod.com/"
     },
     {
         "ID": 34,
@@ -473,7 +506,8 @@
         "Date": "December 22, 2025",
         "Source_Contact": "https://jobs.disneycareers.com/job/vancouver/animator/391/89700817632",
         "Software_Programs": "Maya",
-        "Notes": "Starts April 2026"
+        "Notes": "Starts April 2026",
+        "Webpage": "https://www.disneyanimation.com/"
     },
     {
         "ID": 35,
@@ -487,7 +521,8 @@
         "Date": "December 22, 2025",
         "Source_Contact": "https://jobs.disneycareers.com/job/burbank/animator/391/89696715216",
         "Software_Programs": "Maya",
-        "Notes": "Starts April 2026"
+        "Notes": "Starts April 2026",
+        "Webpage": "https://www.disneyanimation.com/"
     },
     {
         "ID": 36,
@@ -501,7 +536,8 @@
         "Date": "December 22, 2025",
         "Source_Contact": "https://www.chromeproductions.com/vacancies/editor",
         "Software_Programs": "Adobe CC",
-        "Notes": ""
+        "Notes": "",
+        "Webpage": "https://www.chromeproductions.com/"
     },
     {
         "ID": 37,
@@ -515,7 +551,8 @@
         "Date": "December 22, 2025",
         "Source_Contact": "https://www.chromeproductions.com/vacancies/producer",
         "Software_Programs": "Office, Adobe Suite",
-        "Notes": ""
+        "Notes": "",
+        "Webpage": "https://www.chromeproductions.com/"
     },
     {
         "ID": 38,
@@ -529,7 +566,8 @@
         "Date": "December 22, 2025",
         "Source_Contact": "https://www.chromeproductions.com/vacancies/production-coordinator",
         "Software_Programs": "Office",
-        "Notes": ""
+        "Notes": "",
+        "Webpage": "https://www.chromeproductions.com/"
     },
     {
         "ID": 39,
@@ -543,7 +581,8 @@
         "Date": "December 22, 2025",
         "Source_Contact": "https://zoicstudios.applytojob.com/apply/JTymvNsqcm/BC-FX-Technical-Supervisor",
         "Software_Programs": "USD, Houdini, VEX, Python, Karma, Mantra, Maya, Unreal, Shotgrid, Nuke",
-        "Notes": "FX Technical Supervisor. Starts in January 2026. Preference to those in BC. US candidates may be considered as well."
+        "Notes": "FX Technical Supervisor. Starts in January 2026. Preference to those in BC. US candidates may be considered as well.",
+        "Webpage": "https://zoicstudios.com/"
     },
     {
         "ID": 40,
@@ -557,7 +596,8 @@
         "Date": "December 22, 2025",
         "Source_Contact": "https://www.tonally.com/jobs",
         "Software_Programs": "FMOD, Wwise, Unreal, Unity",
-        "Notes": ""
+        "Notes": "",
+        "Webpage": "https://www.tonally.com/"
     },
     {
         "ID": 41,
@@ -571,7 +611,8 @@
         "Date": "December 22, 2025",
         "Source_Contact": "https://www.linkedin.com/feed/update/urn:li:activity:7407855212385869825/",
         "Software_Programs": "Premiere, After Effects",
-        "Notes": ""
+        "Notes": "",
+        "Webpage": "https://ufilms.tv/"
     },
     {
         "ID": 42,
@@ -585,7 +626,8 @@
         "Date": "December 22, 2025",
         "Source_Contact": "https://www.jimsonweed.studio/join-us/pipeline-supervisor/",
         "Software_Programs": "Maya, Houdini, Nuke, Python",
-        "Notes": "Remote possible according to this post: https://www.linkedin.com/posts/jimsonweed_were-hiring-in-oviedo-spain-jimsonweed-activity-7408829324977672192-CRvo"
+        "Notes": "Remote possible according to this post: https://www.linkedin.com/posts/jimsonweed_were-hiring-in-oviedo-spain-jimsonweed-activity-7408829324977672192-CRvo",
+        "Webpage": "https://www.jimsonweed.studio/"
     },
     {
         "ID": 43,
@@ -599,7 +641,8 @@
         "Date": "December 22, 2025",
         "Source_Contact": "https://wildbrain-career.talent-soft.com/job/job-lead-designer-2d_5199.aspx",
         "Software_Programs": "",
-        "Notes": "This is a Union position and the terms and conditions of employment are covered by a collective agreement"
+        "Notes": "This is a Union position and the terms and conditions of employment are covered by a collective agreement",
+        "Webpage": "https://www.wildbrain.com/"
     },
     {
         "ID": 44,
@@ -613,7 +656,8 @@
         "Date": "December 22, 2025",
         "Source_Contact": "https://jobs.jobvite.com/double-negative-visual-effects/job/op6yfw6",
         "Software_Programs": "Maya, Mari, ZBrush, Nuke",
-        "Notes": "For the DNEG VFX division. This contract in particular will involve a 3-6 month secondment to their Sydney office"
+        "Notes": "For the DNEG VFX division. This contract in particular will involve a 3-6 month secondment to their Sydney office",
+        "Webpage": "https://www.dneg.com/"
     },
     {
         "ID": 45,
@@ -627,7 +671,8 @@
         "Date": "December 22, 2025",
         "Source_Contact": "https://jobs.jobvite.com/double-negative-visual-effects/job/oaqbvfwO",
         "Software_Programs": "Houdini, Maya, Python, VEX, C++",
-        "Notes": "For the DNEG VFX division. This contract in particular will involve a 3-6 month secondment to their Sydney office"
+        "Notes": "For the DNEG VFX division. This contract in particular will involve a 3-6 month secondment to their Sydney office",
+        "Webpage": "https://www.dneg.com/"
     },
     {
         "ID": 46,
@@ -641,7 +686,8 @@
         "Date": "December 22, 2025",
         "Source_Contact": "https://jobs.jobvite.com/double-negative-visual-effects/job/o0r6vfwX",
         "Software_Programs": "Maya, Nuke",
-        "Notes": "For the DNEG Animation division"
+        "Notes": "For the DNEG Animation division",
+        "Webpage": "https://www.dneg.com/"
     },
     {
         "ID": 47,
@@ -655,7 +701,8 @@
         "Date": "December 22, 2025",
         "Source_Contact": "https://squeezestudio.recruitee.com/l/en/o/animateur-trice-gameplay",
         "Software_Programs": "Maya, Unreal",
-        "Notes": "Starts February 23, 2026 and goes at least 6 months. Must be based in the pacific time zone or willing to overlap with PT core hours"
+        "Notes": "Starts February 23, 2026 and goes at least 6 months. Must be based in the pacific time zone or willing to overlap with PT core hours",
+        "Webpage": "https://squeezestudio.com/"
     },
     {
         "ID": 48,
@@ -669,7 +716,8 @@
         "Date": "December 22, 2025",
         "Source_Contact": "https://www.epicgames.com/site/en-US/careers/jobs/5737773004",
         "Software_Programs": "Unreal",
-        "Notes": ""
+        "Notes": "",
+        "Webpage": "https://www.epicgames.com/"
     },
     {
         "ID": 49,
@@ -683,7 +731,8 @@
         "Date": "December 22, 2025",
         "Source_Contact": "https://jobs.smartrecruiters.com/NBCUniversal3/744000099662885-dreamworks-feature-production-assistant",
         "Software_Programs": "Word, Excel, Gmail, Maya, Shotgrid, Flix, Photoshop, Illustrator",
-        "Notes": ""
+        "Notes": "",
+        "Webpage": "https://www.dreamworks.com/"
     },
     {
         "ID": 50,
@@ -697,7 +746,8 @@
         "Date": "December 22, 2025",
         "Source_Contact": "https://boards.greenhouse.io/turtlerockstudios/jobs/4642270005",
         "Software_Programs": "Unreal, Maya, 3ds Max",
-        "Notes": "Must be based in North America to work remotely"
+        "Notes": "Must be based in North America to work remotely",
+        "Webpage": "https://turtlerockstudios.com/"
     },
     {
         "ID": 51,
@@ -711,7 +761,8 @@
         "Date": "December 22, 2025",
         "Source_Contact": "https://www.linkedin.com/feed/update/urn:li:activity:7407751739283755008/",
         "Software_Programs": "Maya",
-        "Notes": "Candidates already based in the Canary Islands will be prioritized. Those that can work at the studio preferred but remote from other Islands will be considered. Must be fluent in English with Spanish a plus. Must be legally able to work in Spain"
+        "Notes": "Candidates already based in the Canary Islands will be prioritized. Those that can work at the studio preferred but remote from other Islands will be considered. Must be fluent in English with Spanish a plus. Must be legally able to work in Spain",
+        "Webpage": "https://ableandbakerstudios.com/"
     },
     {
         "ID": 52,
@@ -725,7 +776,8 @@
         "Date": "December 22, 2025",
         "Source_Contact": "https://www.linkedin.com/feed/update/urn:li:activity:7407764550568636416/",
         "Software_Programs": "Houdini",
-        "Notes": "Candidates already based in the Canary Islands will be prioritized. Applications from Madrid or other remote locations in the Peninsula will also be considered. Must be fluent in English with Spanish a plus. Must be legally able to work in Spain"
+        "Notes": "Candidates already based in the Canary Islands will be prioritized. Applications from Madrid or other remote locations in the Peninsula will also be considered. Must be fluent in English with Spanish a plus. Must be legally able to work in Spain",
+        "Webpage": "https://ableandbakerstudios.com/"
     },
     {
         "ID": 53,
@@ -739,7 +791,8 @@
         "Date": "December 22, 2025",
         "Source_Contact": "https://www.linkedin.com/feed/update/urn:li:activity:7407758880832704512/",
         "Software_Programs": "Houdini, Solaris, Arnold, Nuke",
-        "Notes": "Candidates already based in the Canary Islands will be prioritized. Applications from Madrid or other remote locations in the Peninsula will also be considered. Must be fluent in English with Spanish a plus. Must be legally able to work in Spain"
+        "Notes": "Candidates already based in the Canary Islands will be prioritized. Applications from Madrid or other remote locations in the Peninsula will also be considered. Must be fluent in English with Spanish a plus. Must be legally able to work in Spain",
+        "Webpage": "https://ableandbakerstudios.com/"
     },
     {
         "ID": 54,
@@ -753,7 +806,8 @@
         "Date": "December 22, 2025",
         "Source_Contact": "https://www.linkedin.com/feed/update/urn:li:activity:7407745815709904896/",
         "Software_Programs": "Excel",
-        "Notes": "Must be fluent in English with Spanish a plus. Must be legally able to work in Spain. Remote options will be considered."
+        "Notes": "Must be fluent in English with Spanish a plus. Must be legally able to work in Spain. Remote options will be considered.",
+        "Webpage": "https://ableandbakerstudios.com/"
     },
     {
         "ID": 55,
@@ -767,7 +821,8 @@
         "Date": "December 22, 2025",
         "Source_Contact": "https://www.linkedin.com/feed/update/urn:li:activity:7407745815709904896/",
         "Software_Programs": "Excel",
-        "Notes": "Must be fluent in English with Spanish a plus. Must be legally able to work in Spain. Remote options will be considered."
+        "Notes": "Must be fluent in English with Spanish a plus. Must be legally able to work in Spain. Remote options will be considered.",
+        "Webpage": "https://ableandbakerstudios.com/"
     },
     {
         "ID": 56,
@@ -781,7 +836,8 @@
         "Date": "December 18, 2025",
         "Source_Contact": "https://careers.wetafx.co.nz/jobs/1553",
         "Software_Programs": "Houdini",
-        "Notes": "For projects starting in 2026"
+        "Notes": "For projects starting in 2026",
+        "Webpage": "https://www.wetafx.co.nz/"
     },
     {
         "ID": 57,
@@ -795,7 +851,8 @@
         "Date": "December 18, 2025",
         "Source_Contact": "https://careers.wetafx.co.nz/jobs/1553",
         "Software_Programs": "Houdini",
-        "Notes": "For projects starting in 2026"
+        "Notes": "For projects starting in 2026",
+        "Webpage": "https://www.wetafx.co.nz/"
     },
     {
         "ID": 58,
@@ -809,7 +866,8 @@
         "Date": "December 18, 2025",
         "Source_Contact": "https://careers.wetafx.co.nz/jobs/1553",
         "Software_Programs": "Houdini",
-        "Notes": "For projects starting in 2026"
+        "Notes": "For projects starting in 2026",
+        "Webpage": "https://www.wetafx.co.nz/"
     },
     {
         "ID": 59,
@@ -823,7 +881,8 @@
         "Date": "December 18, 2025",
         "Source_Contact": "https://apply.workable.com/one-of-us/j/80CCD19700/",
         "Software_Programs": "Maya, ZBrush, Houdini, Blender, Substance, Mari",
-        "Notes": ""
+        "Notes": "",
+        "Webpage": "https://www.weareoneofus.com/"
     },
     {
         "ID": 60,
@@ -837,7 +896,8 @@
         "Date": "December 18, 2025",
         "Source_Contact": "https://apply.workable.com/one-of-us/j/94203685D8/",
         "Software_Programs": "",
-        "Notes": ""
+        "Notes": "",
+        "Webpage": "https://www.weareoneofus.com/"
     },
     {
         "ID": 61,
@@ -851,7 +911,8 @@
         "Date": "December 18, 2025",
         "Source_Contact": "https://www.linkedin.com/feed/update/urn:li:activity:7404174131073708032/",
         "Software_Programs": "Maya",
-        "Notes": ""
+        "Notes": "",
+        "Webpage": "https://b-waterstudios.com/"
     },
     {
         "ID": 62,
@@ -865,7 +926,8 @@
         "Date": "December 18, 2025",
         "Source_Contact": "https://www.linkedin.com/feed/update/urn:li:activity:7407064992391991297/",
         "Software_Programs": "",
-        "Notes": "Starts January 15, 2026"
+        "Notes": "Starts January 15, 2026",
+        "Webpage": "https://b-waterstudios.com/"
     },
     {
         "ID": 63,
@@ -879,7 +941,8 @@
         "Date": "December 18, 2025",
         "Source_Contact": "https://jobs.jobvite.com/double-negative-visual-effects/job/ouW6yfwQ",
         "Software_Programs": "Python, Linux, Maya, Houdini, Katana, Nuke",
-        "Notes": "For the DNEG Animation division"
+        "Notes": "For the DNEG Animation division",
+        "Webpage": "https://www.dneg.com/"
     },
     {
         "ID": 64,
@@ -893,7 +956,8 @@
         "Date": "December 18, 2025",
         "Source_Contact": "https://jobs.jobvite.com/double-negative-visual-effects/job/o6I0vfwW",
         "Software_Programs": "Python, Linux, Maya, Houdini, Katana, Nuke",
-        "Notes": "For the DNEG Animation division"
+        "Notes": "For the DNEG Animation division",
+        "Webpage": "https://www.dneg.com/"
     },
     {
         "ID": 65,
@@ -907,7 +971,8 @@
         "Date": "December 18, 2025",
         "Source_Contact": "https://www.dneg.com/join-us/open-positions?p=job%2FoQrzvfwv",
         "Software_Programs": "Office",
-        "Notes": "For the DNEG VFX division"
+        "Notes": "For the DNEG VFX division",
+        "Webpage": "https://www.dneg.com/"
     },
     {
         "ID": 66,
@@ -921,6 +986,7 @@
         "Date": "December 18, 2025",
         "Source_Contact": "https://jobs.jobvite.com/double-negative-visual-effects/job/oiq0xfwP",
         "Software_Programs": "Unreal, C++, Python",
-        "Notes": "For the DNEG Animation division"
+        "Notes": "For the DNEG Animation division",
+        "Webpage": "https://www.dneg.com/"
     }
 ]

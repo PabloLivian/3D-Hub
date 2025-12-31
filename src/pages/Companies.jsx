@@ -11,18 +11,21 @@ const companyLogos = {
 const Companies = () => {
     // Logic to extract unique studios and count their jobs
     const companies = useMemo(() => {
-        const studioCounts = {};
+        const studioData = {};
 
         jobsData.forEach(job => {
             const studio = job.Studio;
             if (studio) {
-                studioCounts[studio] = (studioCounts[studio] || 0) + 1;
+                if (!studioData[studio]) {
+                    studioData[studio] = { count: 0, webpage: job.Webpage };
+                }
+                studioData[studio].count += 1;
             }
         });
 
         // Convert to array and sort alphabetically
-        return Object.entries(studioCounts)
-            .map(([name, count]) => ({ name, count }))
+        return Object.entries(studioData)
+            .map(([name, data]) => ({ name, count: data.count, webpage: data.webpage }))
             .sort((a, b) => a.name.localeCompare(b.name));
     }, []);
 
@@ -42,6 +45,7 @@ const Companies = () => {
                                 name={company.name}
                                 count={company.count}
                                 logo={companyLogos[company.name]}
+                                website={company.webpage}
                             />
                         ))}
                     </div>

@@ -681,3 +681,17 @@
 - **UI Tweaks:** Se cambió el color del borde al hacer hover en las tarjetas de empresas (`Companies.module.css`) a `var(--primary)` para mantener la consistencia con el azul corporativo.
 
 ---
+
+### [2025-12-31] Eliminación Hover No Reel
+- **UI UX:** Se eliminó el efecto hover en el botón "No Reel" en `ArtistCard.module.css`.
+- **Motivo:** Al ser un elemento deshabilitado, no debe tener feedback visual de interacción.
+
+---
+
+### [2025-12-31] Enlaces Web en Empresas
+- **Feature:** Se añadió la visualización del sitio web oficial en las tarjetas de empresas (`Companies.jsx`).
+- **Refactor:** `CompanyCard` ahora usa `onClick` en un `div` contenedor en lugar de envolver todo en un `Link`, permitiendo anidar el enlace de la web (`<a>`) sin violar estándares HTML.
+- **Data:** Se actualizó la lógica para extraer el campo `Webpage` desde `jobs3D.json` (actualizado manualmente por el usuario).
+- **Styles:** Se estilizó el enlace con el SVG solicitado y efecto hover (`--primary-hover`).
+
+---

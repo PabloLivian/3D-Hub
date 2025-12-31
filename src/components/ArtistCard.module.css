@@ -163,9 +163,6 @@
     cursor: not-allowed;
 }
 
-.reelButtonMuted:hover {
-    background-color: #f1f5f9;
-}
 
 .linkedin {
     color: #0077b5;
