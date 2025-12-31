@@ -578,3 +578,106 @@
 - **Tecnologías:** CSS Custom Properties (Variables CSS).
 
 ---
+
+### [2025-12-31] Estandarización de Navbar (Solución Variables Globales)
+- **Funcionalidad Solicitada:** Centralizar la configuración de colores de la Navbar en `index.css` manteniendo su estética oscura fija.
+- **Explicación Técnica:**
+    - Se definieron nuevas variables específicas en el `:root` de `index.css`: `--navbar-bg`, `--navbar-border`, `--navbar-text`, `--navbar-mobile-bg`, `--navbar-scrolled-bg`, `--navbar-button-hover`.
+    - Estas variables contienen los valores hexadecimales del tema oscuro y **no se sobrescriben** en el bloque de tema claro.
+    - Se refactorizó `Navbar.module.css` para consumir estas variables exclusivas en lugar de las genéricas (`--background-navbar`, etc.), permitiendo al usuario modificar toda la paleta del Navbar desde un único archivo (`index.css`) sin afectar al resto de la UI.
+- **Tecnologías:** CSS Variables (CSS Custom Properties).
+
+---
+
+
+---
+
+### [2025-12-31] Refactorización de Layout y Fondo Global
+- **Problema:** Solución anterior (aplicar fondo al wrapper) era incompleta. El usuario sugirió correctamente enfocarlo en el padding y delegar el fondo al contenedor principal.
+- **Solución Final:**
+    - **Global Body:** Se cambió el `background-color` del `body` en `index.css` de `var(--background-light)` a `var(--background-primary)`. Esto asegura que el "lienzo" base de la aplicación siempre coincida con el tema (Oscuro/Claro), eliminando el hueco blanco detrás del Navbar al hacer scroll.
+    - **Page Wrapper:** Se simplificó la clase `.page-wrapper` para que su TAREA ÚNICA sea aplicar el `padding-top` necesario para compensar el Navbar fijo. Se eliminaron propiedades redundantes (`display: flex`, backgrounds locales).
+- **Archivos Afectados:** `src/index.css`.
+
+---
+
+### [2025-12-31] Limpieza y Organización de index.css
+- **Objetivo:** Eliminar variables no utilizadas y exceso de comentarios tras la refactorización de la Navbar.
+- **Cambios:**
+    - Se eliminó la variable `--background-navbar` (obsoleta en favor de las variables específicas `--navbar-*`).
+    - Se eliminó el bloque de comentarios explicativos redundantes en la sección `[data-theme="light"]`.
+    - Se reorganizaron las variables CSS en secciones claras (COLORS, BACKGROUNDS, UI ELEMENTS, NAVBAR, etc.) para mejorar la legibilidad.
+    - Se condensaron las clases de utilidad `.flex`, `.gap`, etc., para reducir el ruido visual.
+- **Resultado:** Archivo `src/index.css` más limpio y mantenible.
+
+---
+
+### [2025-12-31] Corrección de Error de Sintaxis en index.css
+- **Bug Fix:** Se añadió la llave de cierre `}` faltante al final de `src/index.css`, que causaba un error de sintaxis en el bloque `[data-theme="light"]`.
+- **Explicación:** El bloque de estilos del tema claro quedaba abierto, lo que podía afectar la cascada de estilos o causar errores de parseo CSS.
+
+### [2025-12-31] Limpieza de Variables CSS
+- **Cleanup:** Se eliminaron las variables `--background-light` y `--background-dark` de `src/index.css` tras verificar que no se estaban utilizando en ninguna parte del proyecto.
+- **Detalle:** Estas variables eran remanentes de una iteración anterior del diseño.
+
+---
+
+### [2025-12-31] Reorganización de Variables Light Theme
+- **Refactor:** Se reagruparon las variables CSS del bloque `[data-theme="light"]` en `src/index.css` para que coincidan con la estructura y comentarios de sección del tema oscuro (`COLORS`, `BACKGROUNDS`, `UI ELEMENTS`, `NAVBAR`, `BORDERS`, `TEXT`), facilitando la comparación y el mantenimiento.
+
+---
+
+### [2025-12-31] Corrección de Color Navbar Scrolled
+- **UI Fix:** Se actualizó el valor de `--navbar-scrolled-bg` a `rgba(20, 25, 36, 0.8)` para que el color base coincida exactamente con el hexadecimal de `--navbar-bg` (`#141924`), asegurando consistencia visual cuando el menú se vuelve transparente.
+
+---
+
+### [2025-12-31] Unificación de Placeholders Globales
+- **Refactor:** Se creó la variable CSS `--text-placeholder` en `index.css` (exclusiva para este fin) para centralizar el color de los textos de sugerencia.
+- **Implementación:** Se aplicó una regla global `::placeholder` para todos los inputs y textareas de la aplicación.
+- **Limpieza:** Se eliminaron las reglas locales de placeholder en `Contact.module.css` y `JoinList.module.css`.
+
+---
+
+### [2025-12-31] Implementación de Transición Suave de Tema
+- **UX Improvement:** Se añadieron reglas de transición CSS (`transition: 0.3s ease`) globales en `index.css`.
+- **Detalle:** Se aplica a `body` y elementos comunes (`div`, `button`, texts, etc.) para las propiedades `background-color`, `color`, `border-color`, `box-shadow`, `fill`, `stroke`. Esto suaviza el cambio visual al alternar entre modo claro y oscuro.
+
+---
+
+### [2025-12-31] Nueva Variable CSS: --svg-muted
+- **Feature:** Se creó la variable `--svg-muted` para el manejo de color de iconos en estado deshabilitado/muted.
+- **Valores:**
+    - Dark Theme: `#94a3b8` (Un tono slate claro para visibilidad sobre fondo oscuro).
+    - Light Theme: `#64748b` (Coincide con `--text-muted` estándar).
+
+---
+
+### [2025-12-31] Aplicación de --svg-muted en LinkedIn
+- **UI Update:** Se actualizó `ArtistCard.module.css` para que el icono de LinkedIn deshabilitado (cuando no hay enlace) utilice la variable global `--svg-muted`.
+- **Beneficio:** Asegura que el icono "apagado" tenga siempre el contraste correcto según el tema activo (oscuro/claro).
+
+---
+
+### [2025-12-31] Reordenamiento de index.css
+- **Refactor:** Se movió el bloque de estilos del tema claro (`[data-theme="light"]`) justo debajo del bloque `:root` (tema oscuro/default).
+- **Objetivo:** Mejorar la legibilidad y mantenimiento, manteniendo las definiciones de variables de ambos temas agrupadas al inicio del archivo.
+
+---
+
+### [2025-12-31] Unificación de Estilos de Search Bar
+- **UI UX:** Se replicó el estilo de foco (`outline: 2px solid var(--primary)`) de la barra de búsqueda de Empleos en el resto de buscadores (`Home` y `Artists`).
+- **Objetivo:** Consistencia visual en los elementos interactivos de búsqueda.
+
+---
+
+### [2025-12-31] Corrección de Foco en Hero
+- **Bug Fix:** Se ajustó `Hero.module.css` para aplicar el outline de foco al contenedor padre (`.searchForm`) usando `:focus-within`, en lugar de al input interno.
+- **Detalle:** Esto evita que el outline aparezca "dentro" de la caja de búsqueda, unificando la apariencia con el resto de inputs.
+
+---
+
+### [2025-12-31] Ajuste Hover Card Empresas
+- **UI Tweaks:** Se cambió el color del borde al hacer hover en las tarjetas de empresas (`Companies.module.css`) a `var(--primary)` para mantener la consistencia con el azul corporativo.
+
+---

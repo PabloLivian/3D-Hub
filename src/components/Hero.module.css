@@ -81,6 +81,11 @@
     border: 1px solid var(--outline);
 }
 
+.searchForm:focus-within {
+    outline: 2px solid var(--primary);
+    border-color: var(--primary);
+}
+
 .searchIcon {
     padding: 0 0.5rem 0 0.75rem;
     color: var(--text-muted-dark);

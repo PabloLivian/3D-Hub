@@ -1,46 +1,85 @@
 :root {
-  /* Colors */
+  /* COLORS */
   --primary: #1173d4;
   --primary-hover: #0e5a9e;
-  /* Darker shade for hover */
   --primary-bg: rgba(17, 115, 212, 0.1);
 
-  /* BACKGROUNDS - Requested Variables */
-  --background-navbar: #141924;
+  /* BACKGROUNDS */
   --background-primary: #0a101c;
+  --background-card: #151b26;
+  --background-search: #151b26;
+  --background-filter: #151b26;
+  --background-filter-hover: #1e293b;
+
+  /* UI ELEMENTS */
   --background-button: #1173d4;
   --background-button-hover: #0e5a9e;
   --background-button2: #ececec;
   --background-button2-hover: hsl(from var(--background-button2) h calc(s - 30) l);
-  --background-search: #151b26;
-  --background-card: #151b26;
-  --background-filter: #151b26;
-  --background-filter-hover: #1e293b;
   --background-chip-blue: #1e293b;
   --background-chip-blue2: #0f172a;
   --background-chip-grey: #1e293b;
   --background-avatar-studio: #0a101c;
 
+  /* NAVBAR (Fixed Dark Theme) */
+  --navbar-bg: #141924;
+  --navbar-border: #202836;
+  --navbar-text: #e2e8f0;
+  --navbar-text-muted: #94a3b8;
+  --navbar-mobile-bg: #101922;
+  --navbar-scrolled-bg: rgba(20, 25, 36, 0.8);
+  --navbar-button-hover: #1e293b;
+
+  /* BORDERS */
   --outline: #202836;
 
   /* TEXT */
   --text-dark: #101922;
-  --text-chip-blue: #1173d4;
   --text-light: #e2e8f0;
   --text-muted: #64748b;
   --text-muted-dark: #94a3b8;
+  --text-chip-blue: #1173d4;
+  --text-placeholder: #94a3b8;
+  --svg-muted: #94a3b8;
 
-  /* SHAPE */
-  --background-light: #ececec;
-  --background-dark: #101922;
 
-  /* Spacing */
+  /* SPACING & LAYOUT */
   --container-width: 1200px;
   --header-height: 80px;
 
-  /* Fonts */
+  /* FONTS */
   --font-display: 'Inter', system-ui, sans-serif;
 }
+
+/* LIGHT THEME */
+[data-theme="light"] {
+  /* COLORS */
+
+  /* BACKGROUNDS */
+  --background-primary: #f8fafc;
+  --background-card: #ffffff;
+  --background-search: #f1f5f9;
+  --background-filter: #ffffff;
+  --background-filter-hover: #f1f5f9;
+
+  /* UI ELEMENTS */
+  --background-chip-blue: #eff6ff;
+  --background-chip-grey: #f1f5f9;
+  --background-avatar-studio: #f8fafc;
+
+  /* BORDERS */
+  --outline: #e2e8f0;
+
+  /* TEXT */
+  --text-dark: #f8fafc;
+  --text-light: #0f172a;
+  --text-muted: #64748b;
+  --text-muted-dark: #475569;
+  --text-chip-blue: #1d4ed8;
+  --text-placeholder: #64748b;
+  --svg-muted: #ccd5e0;
+}
+
 
 * {
   box-sizing: border-box;
@@ -50,28 +89,53 @@
 
 body {
   font-family: var(--font-display);
-  background-color: var(--background-light);
+  background-color: var(--background-primary);
   color: var(--text-dark);
   line-height: 1.5;
-  /* Removed global padding-top to allow Hero to overlay */
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Utility for standard pages to compensate fixed header */
+/* Global transition for common elements to smooth out theme changes */
+div,
+span,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+button,
+select,
+textarea,
+a,
+li,
+ul,
+ol,
+nav,
+header,
+footer,
+section,
+article,
+aside {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, fill 0.3s ease, stroke 0.3s ease;
+}
+
+/* Compensate for fixed header */
 .page-wrapper {
   padding-top: var(--header-height);
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
 }
 
-/* Utility classes for container */
+/* CONTAINER */
 .container {
   max-width: var(--container-width);
   margin: 0 auto;
   padding: 0 1rem;
 }
 
-/* Flex utilities commonly used */
+/* UTILITIES */
 .flex {
   display: flex;
 }
@@ -100,66 +164,13 @@ body {
   gap: 2rem;
 }
 
-/* Link resets */
 a {
   text-decoration: none;
   color: inherit;
   transition: color 0.2s;
 }
 
-
-
-/* Light Theme (Refined Slate Palette) */
-[data-theme="light"] {
-  /* BACKGROUNDS */
-  --background-navbar: #ffffff;
-  --background-primary: #f8fafc;
-  /* Slate 50 */
-  --background-card: #ffffff;
-  --background-button: #1173d4;
-  /* Keep primary blue */
-  --background-button-hover: #0e5a9e;
-  --background-search: #f1f5f9;
-  /* Slate 100 */
-  --background-filter: #ffffff;
-  --background-filter-hover: #f1f5f9;
-  /* Slate 100 */
-  --background-chip-blue: #eff6ff;
-  /* Blue 50 */
-  --background-chip-grey: #f1f5f9;
-  /* Slate 100 */
-  --background-avatar-studio: #f8fafc;
-
-  /* BORDERS */
-  --outline: #e2e8f0;
-  /* Slate 200 */
-
-  /* TEXT - Inverted for Light Mode */
-  --text-dark: #f8fafc;
-  /* Inverted logic if needed, but usually we map semantic names. 
-                           Actually, --text-dark is used for things that ARE dark. 
-                           In light mode, primary text is dark. 
-                           Let's check usage. If --text-dark is used for backgrounds, we invert.
-                           If --text-dark is used for TEXT that should be dark, it stays dark.
-                           
-                           Wait, current index.css:
-                           --text-dark: #101922; (Dark color)
-                           --text-light: #e2e8f0; (Light color)
-                           
-                           In Dark Mode: Text is --text-light (Light).
-                           In Light Mode: Text should be Dark.
-                           
-                           So we need to swap semantic meaning if classes rely on "light"/"dark" in name.
-                           Ideally variables should be --text-primary, --text-secondary.
-                           But here we have --text-light used for main text.
-                           So in Light Mode, --text-light should become DARK.
-                        */
-  --text-light: #0f172a;
-  /* Slate 900 - Dark text for light background */
-  --text-muted: #64748b;
-  /* Slate 500 */
-  --text-muted-dark: #475569;
-  /* Slate 600 */
-  --text-chip-blue: #1d4ed8;
-  /* Blue 700 */
+::placeholder {
+  color: var(--text-placeholder);
+  opacity: 0.7;
 }

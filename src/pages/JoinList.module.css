@@ -75,11 +75,6 @@
     caret-color: var(--primary);
 }
 
-.input::placeholder,
-.textarea::placeholder {
-    color: var(--text-muted-dark);
-    opacity: 0.7;
-}
 
 .input:focus,
 .select:focus,
