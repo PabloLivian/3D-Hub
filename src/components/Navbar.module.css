@@ -161,10 +161,28 @@
     font-weight: 700;
 }
 
+.themeToggle {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s, background-color 0.2s;
+}
+
+.themeToggle:hover {
+    color: var(--text-light);
+    background-color: var(--background-chip-grey);
+}
+
 .navbarActions {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1rem;
 }
 
 .registerLink {
@@ -201,7 +219,7 @@
 .btnOutline {
     background-color: var(--primary);
     /* slate-200 */
-    color: var(--text-light);
+    color: white;
     /* slate-800 */
 }
 

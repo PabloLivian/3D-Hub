@@ -55,6 +55,7 @@
     /* 3xl */
     margin-left: auto;
     margin-right: auto;
+    text-wrap: balance;
 }
 
 @media (min-width: 768px) {

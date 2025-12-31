@@ -554,6 +554,10 @@
     - **Hero:** Se añadió un borde (`var(--outline)`) al buscador principal para unificar el estilo con el resto de los inputs del sitio.
     - **Página de Contacto:** Se refactorizó `Contact.jsx` para usar CSS Modules (`Contact.module.css`), eliminando clases globales. Se aplicaron los colores del tema oscuro (fondos, textos, inputs y botones) tanto en la página como en el componente de formulario. Además, se configuraron los placeholders de los inputs para usar la variable `--text-muted` con opacidad reducida y se añadió padding general (`4rem 1.5rem`) al contenedor de la página para mejorar el espaciado.
     - **Filtros (Jobs):** Se añadió el borde (`var(--outline)`) a los selectores de filtro en la página de Empleos para igualar el estilo de la página de Talento.
+    - **Tema Claro (Refinado):** Se implementó un esquema de colores "Light Theme" bajo el selector `[data-theme="light"]`. Se utilizó una paleta "Slate" (grises azulados y blancos) para asegurar una estética moderna y premium (`--background-primary: #f8fafc`, `--background-card: #ffffff`, `--text-light: #0f172a`), permitiendo alternar entre temas.
+    - **Toggle de Tema:** Se creó el contexto `ThemeContext` y el componente `ThemeToggle` (botón con icono sol/luna) integrado en la Navbar (escritorio y móvil) para permitir al usuario cambiar fácilmente entre modo claro y oscuro.
+    - **Limpieza (Code Cleanup):** Se eliminaron bloques de comentarios obsoletos y código no utilizado en `src/index.css` relacionados con antiguas implementaciones de media queries para el modo oscuro, ya que ahora se gestiona vía `data-theme`.
+    - **Hero:** Se aplicó `text-wrap: balance` al subtítulo para que el texto se distribuya equilibradamente en dos líneas de anchura similar, mejorando la estética y legibilidad.
     - **Página de Talento:** Se redujo el espacio vertical entre la sección de filtros y el contador de resultados para mejorar el flujo visual y la densidad de información.
     - **Variables Clave:**
         - `--text-light`: `#e2e8f0` (Suavizado desde blanco puro)

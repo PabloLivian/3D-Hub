@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import styles from './Navbar.module.css';
+import ThemeToggle from './ThemeToggle';
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -68,6 +69,7 @@ const Navbar = () => {
                     </button>
 
                     <div className={styles.navbarActions}>
+                        <ThemeToggle />
                         {/* Post Job button removed as per request */}
                         <Link to="/register" className={styles.registerLink}>Registrarse</Link>
                         <Link to="/login" className={`${styles.btn} ${styles.btnOutline}`}>Iniciar sesión</Link>
@@ -80,6 +82,9 @@ const Navbar = () => {
                     <Link to="/companies" className={isActive('/companies')} onClick={closeMenu}>Empresas</Link>
                     <Link to="/artists" className={isActive('/artists')} onClick={closeMenu}>Talento</Link>
                     <Link to="/contact" className={isActive('/contact')} onClick={closeMenu}>Contacto</Link>
+                    <div style={{ padding: '1rem' }}>
+                        <ThemeToggle />
+                    </div>
                 </div>
             </div>
         </header>

@@ -7,9 +7,7 @@
 
   /* BACKGROUNDS - Requested Variables */
   --background-navbar: #141924;
-  /*CHECK*/
   --background-primary: #0a101c;
-  /*CHECK*/
   --background-button: #1173d4;
   --background-button-hover: #0e5a9e;
   --background-button2: #ececec;
@@ -23,7 +21,6 @@
   --background-chip-grey: #1e293b;
   --background-avatar-studio: #0a101c;
 
-  --outline3: #ff0000;
   --outline: #202836;
 
   /* TEXT */
@@ -110,14 +107,59 @@ a {
   transition: color 0.2s;
 }
 
-/* Dark mode support logic can be added here if needed, 
-   currently mapping to defaults or relying on media queries */
-@media (prefers-color-scheme: dark) {
-  /* Commented out to stick to one theme initially unless user enforces system preference immediately,
-     but the variable structure supports it.
-  body {
-    background-color: var(--background-dark);
-    color: var(--text-light);
-  }
-  */
+
+
+/* Light Theme (Refined Slate Palette) */
+[data-theme="light"] {
+  /* BACKGROUNDS */
+  --background-navbar: #ffffff;
+  --background-primary: #f8fafc;
+  /* Slate 50 */
+  --background-card: #ffffff;
+  --background-button: #1173d4;
+  /* Keep primary blue */
+  --background-button-hover: #0e5a9e;
+  --background-search: #f1f5f9;
+  /* Slate 100 */
+  --background-filter: #ffffff;
+  --background-filter-hover: #f1f5f9;
+  /* Slate 100 */
+  --background-chip-blue: #eff6ff;
+  /* Blue 50 */
+  --background-chip-grey: #f1f5f9;
+  /* Slate 100 */
+  --background-avatar-studio: #f8fafc;
+
+  /* BORDERS */
+  --outline: #e2e8f0;
+  /* Slate 200 */
+
+  /* TEXT - Inverted for Light Mode */
+  --text-dark: #f8fafc;
+  /* Inverted logic if needed, but usually we map semantic names. 
+                           Actually, --text-dark is used for things that ARE dark. 
+                           In light mode, primary text is dark. 
+                           Let's check usage. If --text-dark is used for backgrounds, we invert.
+                           If --text-dark is used for TEXT that should be dark, it stays dark.
+                           
+                           Wait, current index.css:
+                           --text-dark: #101922; (Dark color)
+                           --text-light: #e2e8f0; (Light color)
+                           
+                           In Dark Mode: Text is --text-light (Light).
+                           In Light Mode: Text should be Dark.
+                           
+                           So we need to swap semantic meaning if classes rely on "light"/"dark" in name.
+                           Ideally variables should be --text-primary, --text-secondary.
+                           But here we have --text-light used for main text.
+                           So in Light Mode, --text-light should become DARK.
+                        */
+  --text-light: #0f172a;
+  /* Slate 900 - Dark text for light background */
+  --text-muted: #64748b;
+  /* Slate 500 */
+  --text-muted-dark: #475569;
+  /* Slate 600 */
+  --text-chip-blue: #1d4ed8;
+  /* Blue 700 */
 }
