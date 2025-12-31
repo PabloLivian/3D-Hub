@@ -1,6 +1,7 @@
 .companiesPage {
     padding: 2rem 0;
-    min-height: 80vh;
+    min-height: 100vh;
+    background-color: var(--background-primary);
 }
 
 .companiesHeader {
@@ -10,7 +11,7 @@
 
 .pageTitle {
     font-size: 2.5rem;
-    color: var(--text-dark);
+    color: var(--text-light);
     margin-bottom: 0.5rem;
 }
 
@@ -48,11 +49,11 @@
 }
 
 .companyCard {
-    background-color: white;
+    background-color: var(--background-card);
     padding: 1.5rem;
     border-radius: 0.75rem;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    border: 1px solid #f3f4f6;
+    border: 1px solid var(--outline);
     transition: transform 0.2s, box-shadow 0.2s;
     display: flex;
     flex-direction: column;
@@ -73,7 +74,7 @@
 .logoContainer {
     width: 64px;
     height: 64px;
-    background-color: #f9fafb;
+    background-color: var(--background-avatar-studio);
     border-radius: 1rem;
     /* Rounded square avatar */
     display: flex;
@@ -82,7 +83,7 @@
     align-items: center;
     margin-bottom: 1rem;
     overflow: hidden;
-    border: 1px solid #e5e7eb;
+    border: 1px solid var(--outline);
 }
 
 .companyLogo {
@@ -101,14 +102,14 @@
     font-size: 1.15rem;
     /* Slightly smaller to fit better */
     font-weight: 700;
-    color: var(--text-dark);
+    color: var(--text-light);
     margin: 0 0 0.5rem 0;
 }
 
 .jobCount {
     font-size: 0.9rem;
     color: var(--primary);
-    background-color: var(--background-highlight, #eff6ff);
+    background-color: var(--background-chip-blue);
     padding: 0.25rem 0.75rem;
     border-radius: 999px;
     font-weight: 600;

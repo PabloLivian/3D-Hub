@@ -1,6 +1,6 @@
 .footer {
-    background-color: var(--background-light);
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: var(--background-primary);
+    border-top: 1px solid var(--outline);
     padding: 2rem 0;
 }
 

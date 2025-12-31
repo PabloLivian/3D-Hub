@@ -1,6 +1,6 @@
 .artistCard {
-    background-color: white;
-    border: 1px solid #e2e8f0;
+    background-color: var(--background-card);
+    border: 1px solid var(--outline);
     border-radius: 0.75rem;
     padding: 1.5rem;
     display: grid;
@@ -46,7 +46,7 @@
 .name {
     font-size: 1.125rem;
     font-weight: 700;
-    color: var(--text-dark);
+    color: var(--text-light);
 }
 
 .role {
@@ -93,13 +93,13 @@
 }
 
 .chip {
-    background-color: #f1f5f9;
+    background-color: var(--background-chip-grey);
     color: #475569;
     font-size: 0.75rem;
     font-weight: 600;
     padding: 0.25rem 0.625rem;
     border-radius: 9999px;
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--outline);
 }
 
 .availability {
@@ -111,13 +111,15 @@
 }
 
 .available {
-    background-color: #dcfce7;
-    color: #166534;
+    background-color: rgba(16, 185, 129, 0.1);
+    color: #34d399;
+    border: 1px solid rgba(16, 185, 129, 0.2);
 }
 
 .unavailable {
-    background-color: #fee2e2;
-    color: #991b1b;
+    background-color: rgba(239, 68, 68, 0.1);
+    color: #f87171;
+    border: 1px solid rgba(239, 68, 68, 0.2);
 }
 
 .contactButton {
@@ -155,9 +157,9 @@
 }
 
 .reelButtonMuted {
-    background-color: #f1f5f9;
+    background-color: var(--background-chip-grey);
     color: #94a3b8;
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--outline);
     cursor: not-allowed;
 }
 

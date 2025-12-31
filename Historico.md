@@ -523,3 +523,54 @@
     - `src/components/Navbar.jsx` / `.module.css` (Lógica de enlace activo y Registro).
     - `src/components/Hero.jsx` / `.module.css` (Degradado en título).
     - `src/pages/Jobs.jsx` y `src/pages/JoinList.jsx` (Correcciones de sintaxis y disposición).
+
+---
+
+### [2025-12-28 18:58] - Creación de Archivo TODO.md
+- **Funcionalidad solicitada:** Crear un archivo de "to do".
+- **Explicación técnica:**
+    - Se creó el archivo `TODO.md` en la raíz del proyecto para centralizar las tareas pendientes y la hoja de ruta del desarrollo.
+    - Se incluyeron secciones de prioridad alta (Login, Registro, Auth), funcionalidades core, mejoras de UI/UX y mantenimiento.
+- **Tecnologías/Librerías:** Markdown.
+
+### [2025-12-31] Refactorización a Variables CSS Globales
+- **Funcionalidad Solicitada:** Implementar un sistema de variables CSS globales para la gestión de colores, facilitando cambios futuros desde un único punto (`index.css`).
+- **Cambios Realizados:**
+    - **index.css:** Se definieron variables semánticas (ej: `--background-navbar`, `--background-card`, `--background-button`) mapeando los colores hexadecimales existentes.
+    - **Componetización de Estilos:** Se refactorizaron los archivos `.module.css` de `Navbar`, `Jobs`, `JobCard`, `Companies`, `Hero`, `Features`, `Pagination`, `Artists`, `ArtistCard` y `Footer` para sustituir valores hardcodeados por `var(--variable)`.
+    - **Página de Talento:** Se aplicó `--background-card` a las tarjetas de artistas y se normalizaron los fondos de las secciones con `--background-primary`.
+    - **Páginas Jobs y Companies:** Se agregó explícitamente `background-color: var(--background-primary)` y `min-height: 100vh` a los contenedores principales de estas páginas para asegurar consistencia con el tema oscuro.
+    - **Página de Talento:** Se aplicó `--background-search` al input de búsqueda. Se reestructuró el diseño para alinearlo con la página de Jobs: eliminación del borde separador, centrado del encabezado, buscador y filtros, y ampliación del ancho del buscador (`max-width: 64rem`). Además, se unificó el ancho de la lista de artistas con el de empleos, cambiando la rejilla por una columna centrada de `64rem`.
+    - **Página de Talento:** Se añadió un icono de lupa (`search`) al buscador y se ajustó el espaciado interno del input para mejorar la legibilidad y la consistencia con otros buscadores del sitio.
+    - **Artist Card:** Se corrigió el color del nombre del artista para usar `--text-light`.
+    - **Página JobDetails:** Se integraron las variables `--background-primary`, `--background-card` y `--background-chip-grey`, y se ajustaron los colores de texto.
+    - **Chips:** Se actualizaron los colores de fondo de los chips (`--background-chip-blue`, `--background-chip-grey`, etc.) a tonos oscuros (`#1e293b`). También se ajustó el chip de "Available" para usar un fondo verde semitransparente oscuro (`rgba(16, 185, 129, 0.1)`) con borde sutil, integrándose mejor en el modo oscuro.
+    - **Botón Join to the list:** Se cambió el verde brillante hardcodeado por la variable `--background-button` (azul del tema) para mantener la consistencia visual.
+    - **Página Jobs:** Se actualizó el formato del contador de resultados. También se rediseñaron los filtros para incluir etiquetas superiores y opciones por defecto "Cualquiera/Todos", alineándose con la página de Artistas.
+    - **Página JoinList:** Se actualizaron los estilos para utilizar las variables del tema oscuro (`--background-primary`, `--background-card`, `--background-search`) y los colores de botones y chips consistentes con el resto de la aplicación.
+    - **Página JoinList:** Se actualizaron los colores de los inputs para corregir la legibilidad (texto claro sobre fondo oscuro), se estilizó el placeholder y se destacó el cursor de escritura (`caret-color`) para mejorar la UX y la estética.
+    - **Filtros (Jobs y Artists):** Se unificó el estilo de interacción (hover) utilizando la variable `--background-filter-hover` (ajustada a `#1e293b`) para proporcionar una respuesta visual consistente y "bonita" en ambas páginas.
+    - **Tarjetas de Empleo:** Se eliminó el degradado azul claro del hover en la lista de empleos y se reemplazó por el color oscuro consistente (`--background-filter-hover`) para mejorar la estética en el tema oscuro.
+    - **Hero:** Se añadió un borde (`var(--outline)`) al buscador principal para unificar el estilo con el resto de los inputs del sitio.
+    - **Página de Contacto:** Se refactorizó `Contact.jsx` para usar CSS Modules (`Contact.module.css`), eliminando clases globales. Se aplicaron los colores del tema oscuro (fondos, textos, inputs y botones) tanto en la página como en el componente de formulario. Además, se configuraron los placeholders de los inputs para usar la variable `--text-muted` con opacidad reducida y se añadió padding general (`4rem 1.5rem`) al contenedor de la página para mejorar el espaciado.
+    - **Filtros (Jobs):** Se añadió el borde (`var(--outline)`) a los selectores de filtro en la página de Empleos para igualar el estilo de la página de Talento.
+    - **Página de Talento:** Se redujo el espacio vertical entre la sección de filtros y el contador de resultados para mejorar el flujo visual y la densidad de información.
+    - **Variables Clave:**
+        - `--text-light`: `#e2e8f0` (Suavizado desde blanco puro)
+        - `--background-navbar`: `#141924`
+        - `--background-primary`: `#0a101c`
+        - `--background-card`: `#151b26`
+        - `--outline`: `#202836`
+    - **Bordes:** Se reemplazaron todas las definiciones de bordes estructurales (`border`, `border-bottom`, etc.) en toda la aplicación para utilizar la variable global `--outline`, unificando el estilo de los contornos.
+- **Explicación Técnica:**
+        - `--background-navbar`: `#101922`
+        - `--background-primary/card`: `#ececec`
+        - `--background-button`: `#1173d4`
+        - `--background-search`: `#ffffff`
+        - `--background-filter`: `#f3f4f6`
+- **Explicación Técnica:**
+    - Se realizó un mapeo exhaustivo de los colores usados en la UI.
+    - Se reemplazaron ocurrencias específicas en bordes, fondos y textos para asegurar consistencia con el Design System solicitado.
+- **Tecnologías:** CSS Custom Properties (Variables CSS).
+
+---

@@ -1,6 +1,8 @@
 .contactSection {
     padding: 2rem 0 6rem;
-    background-color: var(--background-light);
+    padding: 2rem 0 6rem;
+    background-color: var(--background-primary);
+    color: var(--text-light);
 }
 
 .contactHeader {
@@ -20,7 +22,7 @@
 .contactTitle {
     font-size: 2.25rem;
     font-weight: 700;
-    color: var(--text-dark);
+    color: var(--text-light);
     margin-bottom: 1rem;
 }
 
@@ -38,7 +40,9 @@
 .contactForm {
     max-width: 36rem;
     margin: 0 auto;
-    background-color: white;
+    max-width: 36rem;
+    margin: 0 auto;
+    background-color: var(--background-card);
     padding: 2rem;
     border-radius: 0.75rem;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -72,7 +76,7 @@
 .label {
     font-size: 0.875rem;
     font-weight: 500;
-    color: var(--text-dark);
+    color: var(--text-light);
 }
 
 .input,
@@ -80,13 +84,19 @@
 .select {
     width: 100%;
     padding: 0.75rem 1rem;
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--outline);
     border-radius: 0.5rem;
     font-size: 1rem;
     font-family: inherit;
-    color: var(--text-dark);
-    background-color: transparent;
+    color: var(--text-light);
+    background-color: var(--background-search);
     transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+    color: var(--text-muted);
+    opacity: 0.7;
 }
 
 .input:focus,
@@ -128,7 +138,7 @@
     margin-top: 2rem;
     width: 100%;
     padding: 1rem;
-    background-color: var(--primary);
+    background-color: var(--background-button);
     color: white;
     font-weight: 600;
     font-size: 1rem;
@@ -139,5 +149,5 @@
 }
 
 .submitButton:hover {
-    background-color: var(--primary-hover);
+    background-color: var(--background-button-hover);
 }

@@ -5,36 +5,37 @@
   /* Darker shade for hover */
   --primary-bg: rgba(17, 115, 212, 0.1);
 
-  /* BACKGROUNDS */
-  --background-navbar: #101922;
-  --background-primary: #ececec;
+  /* BACKGROUNDS - Requested Variables */
+  --background-navbar: #141924;
+  /*CHECK*/
+  --background-primary: #0a101c;
+  /*CHECK*/
   --background-button: #1173d4;
   --background-button-hover: #0e5a9e;
   --background-button2: #ececec;
-  --background-button2-hover: #ececec;
-  --background-search: #ffffff;
-  --background-card: #ececec;
-  --background-filter: #f3f4f6;
-  --background-filter-hover: #ececec;
-  --background-chip-blue: #eff6ff;
-  --background-chip-blue2: #e0f2fe;
-  --background-chip-grey: #f3f4f6;
-  --background-avatar-studio: #f9fafb;
+  --background-button2-hover: hsl(from var(--background-button2) h calc(s - 30) l);
+  --background-search: #151b26;
+  --background-card: #151b26;
+  --background-filter: #151b26;
+  --background-filter-hover: #1e293b;
+  --background-chip-blue: #1e293b;
+  --background-chip-blue2: #0f172a;
+  --background-chip-grey: #1e293b;
+  --background-avatar-studio: #0a101c;
+
+  --outline3: #ff0000;
+  --outline: #202836;
 
   /* TEXT */
   --text-dark: #101922;
-  --text-light: #ffffff;
+  --text-chip-blue: #1173d4;
+  --text-light: #e2e8f0;
   --text-muted: #64748b;
   --text-muted-dark: #94a3b8;
 
   /* SHAPE */
-
-
-
   --background-light: #ececec;
   --background-dark: #101922;
-
-
 
   /* Spacing */
   --container-width: 1200px;

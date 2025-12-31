@@ -118,8 +118,8 @@ const Artists = () => {
             <main className="main-content">
                 <section className={styles.headerSection}>
                     <div className="container">
-                        <div style={{ marginBottom: '2rem' }}>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', marginBottom: '0.5rem' }}>
+                        <div className={styles.artistsHeader}>
+                            <div className={styles.titleRow}>
                                 <h1 className={styles.pageTitle} style={{ marginBottom: 0 }}>Talento 3D</h1>
                                 <a href="/join" className={styles.joinButton}>
                                     Join to the list
@@ -131,6 +131,7 @@ const Artists = () => {
                         </div>
 
                         <div className={styles.searchContainer}>
+                            <span className={`material-symbols-outlined ${styles.searchIcon}`}>search</span>
                             <input
                                 type="text"
                                 placeholder="Buscar por nombre, rol, software..."
@@ -205,30 +206,32 @@ const Artists = () => {
 
                 <section className={styles.resultsSection}>
                     <div className="container">
-                        <div className={styles.resultsCount}>
-                            Se encontraron <strong>{filteredArtists.length}</strong> profesionales
-                        </div>
+                        <div className={styles.resultsContainer}>
+                            <div className={styles.resultsCount}>
+                                Se encontraron <strong>{filteredArtists.length}</strong> profesionales
+                            </div>
 
-                        <div className={styles.grid}>
-                            {currentArtists.length > 0 ? (
-                                currentArtists.map((artist, index) => (
-                                    <ArtistCard key={index} artist={artist} />
-                                ))
-                            ) : (
-                                <div className={styles.noResults}>
-                                    <p>No se encontraron artistas con los criterios seleccionados.</p>
-                                </div>
-                            )}
-                        </div>
+                            <div className={styles.grid}>
+                                {currentArtists.length > 0 ? (
+                                    currentArtists.map((artist, index) => (
+                                        <ArtistCard key={index} artist={artist} />
+                                    ))
+                                ) : (
+                                    <div className={styles.noResults}>
+                                        <p>No se encontraron artistas con los criterios seleccionados.</p>
+                                    </div>
+                                )}
+                            </div>
 
-                        <Pagination
-                            currentPage={currentPage}
-                            totalPages={totalPages}
-                            onPageChange={(page) => {
-                                setCurrentPage(page);
-                                window.scrollTo({ top: 0, behavior: 'smooth' });
-                            }}
-                        />
+                            <Pagination
+                                currentPage={currentPage}
+                                totalPages={totalPages}
+                                onPageChange={(page) => {
+                                    setCurrentPage(page);
+                                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                                }}
+                            />
+                        </div>
                     </div>
                 </section>
             </main>

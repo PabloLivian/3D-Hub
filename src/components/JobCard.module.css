@@ -1,13 +1,13 @@
 .jobCard {
     padding: 1.5rem;
-    background-color: white;
-    border: 1px solid rgba(229, 231, 235, 0.5);
+    background-color: var(--background-card);
+    border: 1px solid var(--outline);
     /* gray-200/50 */
     transition: background-color 0.2s;
 }
 
 .jobCard:hover {
-    background-color: #f9fafb;
+    background-color: var(--background-avatar-studio);
     /* gray-50 */
 }
 
@@ -57,7 +57,7 @@
 .jobTitle {
     font-size: 1.125rem;
     font-weight: 700;
-    color: var(--text-dark);
+    color: var(--text-light);
     margin: 0;
 }
 
@@ -65,16 +65,16 @@
     font-size: 0.75rem;
     font-weight: 600;
     color: var(--text-muted);
-    background-color: #f3f4f6;
+    background-color: var(--background-chip-grey);
     padding: 0.15rem 0.5rem;
     border-radius: 999px;
-    border: 1px solid #e5e7eb;
+    border: 1px solid var(--outline);
 }
 
 .jobCompany {
     font-size: 0.95rem;
     font-weight: 600;
-    color: var(--text-dark);
+    color: var(--text-light);
     margin: 0;
 }
 
@@ -95,7 +95,7 @@
     font-size: 0.75rem;
     font-weight: 600;
     color: var(--primary);
-    background-color: var(--background-highlight, #e0f2fe);
+    background-color: var(--background-chip-blue);
     padding: 0.15rem 0.5rem;
     border-radius: 999px;
     text-transform: uppercase;
@@ -139,7 +139,7 @@
 .btnApply {
     padding: 0.625rem 1.25rem;
     border-radius: 0.5rem;
-    background-color: var(--primary);
+    background-color: var(--background-button);
     color: white;
     font-size: 0.875rem;
     font-weight: 600;
@@ -153,7 +153,7 @@
 }
 
 .btnApply:hover {
-    background-color: var(--primary-hover);
+    background-color: var(--background-button-hover);
 }
 
 .btnApply.applied {

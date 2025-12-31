@@ -33,7 +33,7 @@
 }
 
 .paginationBtn:hover:not(:disabled) {
-    background-color: #f3f4f6;
+    background-color: var(--background-filter-hover);
 }
 
 .paginationBtn.active {

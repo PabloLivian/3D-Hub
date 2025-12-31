@@ -162,60 +162,72 @@ const Jobs = () => {
                         </div>
 
                         <div className={styles.jobsFilters}>
-                            <div className={styles.filterWrapper}>
-                                <select
-                                    className={styles.filterSelect}
-                                    value={filtersFromUrl.jobTitle}
-                                    onChange={(e) => handleFilterChange('jobTitle', e.target.value)}
-                                >
-                                    <option value="">Especialidad</option>
-                                    {filterOptions.jobTitles.map(opt => (
-                                        <option key={opt} value={opt}>{opt}</option>
-                                    ))}
-                                </select>
-                                <span className={`material-symbols-outlined ${styles.filterArrow}`}>expand_more</span>
+                            <div className={styles.filterGroup}>
+                                <label>Especialidad</label>
+                                <div className={styles.filterWrapper}>
+                                    <select
+                                        className={styles.filterSelect}
+                                        value={filtersFromUrl.jobTitle}
+                                        onChange={(e) => handleFilterChange('jobTitle', e.target.value)}
+                                    >
+                                        <option value="">Cualquiera</option>
+                                        {filterOptions.jobTitles.map(opt => (
+                                            <option key={opt} value={opt}>{opt}</option>
+                                        ))}
+                                    </select>
+                                    <span className={`material-symbols-outlined ${styles.filterArrow}`}>expand_more</span>
+                                </div>
                             </div>
 
-                            <div className={styles.filterWrapper}>
-                                <select
-                                    className={styles.filterSelect}
-                                    value={filtersFromUrl.experience}
-                                    onChange={(e) => handleFilterChange('experience', e.target.value)}
-                                >
-                                    <option value="">Experiencia</option>
-                                    {filterOptions.experiences.map(opt => (
-                                        <option key={opt} value={opt}>{opt}</option>
-                                    ))}
-                                </select>
-                                <span className={`material-symbols-outlined ${styles.filterArrow}`}>expand_more</span>
+                            <div className={styles.filterGroup}>
+                                <label>Experiencia</label>
+                                <div className={styles.filterWrapper}>
+                                    <select
+                                        className={styles.filterSelect}
+                                        value={filtersFromUrl.experience}
+                                        onChange={(e) => handleFilterChange('experience', e.target.value)}
+                                    >
+                                        <option value="">Cualquiera</option>
+                                        {filterOptions.experiences.map(opt => (
+                                            <option key={opt} value={opt}>{opt}</option>
+                                        ))}
+                                    </select>
+                                    <span className={`material-symbols-outlined ${styles.filterArrow}`}>expand_more</span>
+                                </div>
                             </div>
 
-                            <div className={styles.filterWrapper}>
-                                <select
-                                    className={styles.filterSelect}
-                                    value={filtersFromUrl.modality}
-                                    onChange={(e) => handleFilterChange('modality', e.target.value)}
-                                >
-                                    <option value="">Modalidad</option>
-                                    {filterOptions.modalities.map(opt => (
-                                        <option key={opt} value={opt}>{opt}</option>
-                                    ))}
-                                </select>
-                                <span className={`material-symbols-outlined ${styles.filterArrow}`}>expand_more</span>
+                            <div className={styles.filterGroup}>
+                                <label>Modalidad</label>
+                                <div className={styles.filterWrapper}>
+                                    <select
+                                        className={styles.filterSelect}
+                                        value={filtersFromUrl.modality}
+                                        onChange={(e) => handleFilterChange('modality', e.target.value)}
+                                    >
+                                        <option value="">Cualquiera</option>
+                                        {filterOptions.modalities.map(opt => (
+                                            <option key={opt} value={opt}>{opt}</option>
+                                        ))}
+                                    </select>
+                                    <span className={`material-symbols-outlined ${styles.filterArrow}`}>expand_more</span>
+                                </div>
                             </div>
 
-                            <div className={styles.filterWrapper}>
-                                <select
-                                    className={styles.filterSelect}
-                                    value={filtersFromUrl.country}
-                                    onChange={(e) => handleFilterChange('country', e.target.value)}
-                                >
-                                    <option value="">País</option>
-                                    {filterOptions.countries.map(opt => (
-                                        <option key={opt} value={opt}>{opt}</option>
-                                    ))}
-                                </select>
-                                <span className={`material-symbols-outlined ${styles.filterArrow}`}>expand_more</span>
+                            <div className={styles.filterGroup}>
+                                <label>País</label>
+                                <div className={styles.filterWrapper}>
+                                    <select
+                                        className={styles.filterSelect}
+                                        value={filtersFromUrl.country}
+                                        onChange={(e) => handleFilterChange('country', e.target.value)}
+                                    >
+                                        <option value="">Todos</option>
+                                        {filterOptions.countries.map(opt => (
+                                            <option key={opt} value={opt}>{opt}</option>
+                                        ))}
+                                    </select>
+                                    <span className={`material-symbols-outlined ${styles.filterArrow}`}>expand_more</span>
+                                </div>
                             </div>
 
                             <button className={styles.btnClear} onClick={handleClearFilters}>
@@ -227,8 +239,10 @@ const Jobs = () => {
                     {/* Results Section */}
                     <div className={styles.jobsResults}>
                         <div className={styles.resultsHeader}>
-                            <h2 className={styles.resultsTitle}>Resultados de búsqueda</h2>
-                            <span className={styles.resultsCount}>{filteredJobs.length} empleos</span>
+
+                            <div className={styles.resultsCount}>
+                                Se encontraron <strong>{filteredJobs.length}</strong> empleos
+                            </div>
                         </div>
 
                         <div className={styles.jobsList}>

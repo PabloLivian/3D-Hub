@@ -1,0 +1,10 @@
+.contactPage {
+    background-color: var(--background-primary);
+    min-height: 100vh;
+    padding: 4rem 1.5rem;
+    /* Ensuring full height coverage */
+}
+
+.container {
+    padding-top: var(--header-height);
+}

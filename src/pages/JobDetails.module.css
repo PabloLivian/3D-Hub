@@ -1,12 +1,12 @@
 .jobDetailsPage {
     padding: 3rem 0 5rem;
-    background-color: var(--background-light);
+    background-color: var(--background-primary);
     min-height: calc(100vh - 80px - 80px);
     /* Approx navbar + footer */
 }
 
 .jobDetailsHeader {
-    background: white;
+    background: var(--background-card);
     padding: 2.5rem;
     border-radius: 0.75rem;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
@@ -16,7 +16,7 @@
 
 .jobTitle {
     font-size: 2rem;
-    color: var(--text-dark);
+    color: var(--text-light);
     margin-bottom: 0.5rem;
     font-weight: 700;
 }
@@ -74,7 +74,7 @@
 }
 
 .jobDetailsBody {
-    background: white;
+    background: var(--background-card);
     padding: 2.5rem;
     border-radius: 0.75rem;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -82,7 +82,7 @@
 
 .sectionTitle {
     font-size: 1.5rem;
-    color: var(--text-dark);
+    color: var(--text-light);
     margin-bottom: 1rem;
     font-weight: 600;
 }
@@ -102,7 +102,7 @@
 }
 
 .tag {
-    background-color: #f1f5f9;
+    background-color: var(--background-chip-grey);
     color: var(--text-muted);
     padding: 0.35rem 0.85rem;
     border-radius: 9999px;
@@ -133,6 +133,6 @@
 
 .notFoundTitle {
     font-size: 2rem;
-    color: var(--text-dark);
+    color: var(--text-light);
     margin-bottom: 1rem;
 }
