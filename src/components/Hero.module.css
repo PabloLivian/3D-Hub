@@ -29,6 +29,17 @@
     line-height: 1.2;
 }
 
+@media (max-width: 768px) {
+    .heroTitle {
+        text-wrap: balance;
+        font-size: 2rem;
+    }
+
+    .heroTitle br {
+        display: none;
+    }
+}
+
 .gradientText {
     background: linear-gradient(to right, #2664eb, #5fa3f9);
     -webkit-background-clip: text;

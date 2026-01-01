@@ -695,3 +695,34 @@
 - **Styles:** Se estilizó el enlace con el SVG solicitado y efecto hover (`--primary-hover`).
 
 ---
+
+### [2026-01-01] Implementación de Scaling Móvil (Responsive Typography)
+- **Funcionalidad Solicitada:** Reducir la escala general de la interfaz en dispositivos móviles.
+- **Estrategia Profesional:** Se implementó una regla de "Responsive Typography".
+- **Detalles Técnicos:**
+    - `index.css`: Se añadió una media query `@media (max-width: 768px)` que reduce el `font-size` del `:root` a `14px`.
+    - **Resultado:** Escala automática de toda la interfaz basada en `rem` (87.5% del tamaño original) en pantallas pequeñas.
+- **Tecnologías:** CSS Media Queries, REM units.
+
+---
+
+### [2026-01-01] UX Mejora: Cerrar Menú al Click Fuera
+- **Funcionalidad Solicitada:** Cerrar el menú hamburguesa móvil al hacer clic fuera del mismo.
+- **Implementación Técnica:**
+    - Se añadieron `useRef` para el contenedor del menú y el botón de toggle.
+    - Se implementó un `useEffect` con listener de `mousedown` al documento.
+    - **Lógica:** Si el menú está abierto y el clic NO está en el menú NI en el botón, el estado `isMenuOpen` se establece en `false`.
+- **Tecnologías:** React `useRef`, `useEffect`.
+
+---
+
+### [2026-01-01] UI Fix: Título Hero en Móvil
+- **Problema:** El título principal se rompía en 3 líneas en móviles debido al tamaño de fuente y un `<br>` forzado.
+- **Solución:** Se aplicó una regla CSS específica para móviles (`max-width: 768px`).
+- **Implementación:**
+    - Ocultado del `<br>` manual en móviles para permitir el flujo natural.
+    - Aplicación de `text-wrap: balance` para equilibrar las líneas automáticamente.
+    - Ligero ajuste de `font-size` a `2rem` para asegurar que quepa mejor.
+- **Resultado:** El título se muestra en 2 líneas equilibradas en móvil, manteniendo el comportamiento original en escritorio.
+
+---

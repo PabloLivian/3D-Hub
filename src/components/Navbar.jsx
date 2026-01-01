@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import styles from './Navbar.module.css';
 import ThemeToggle from './ThemeToggle';
@@ -7,6 +7,10 @@ const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const location = useLocation();
+
+    // Refs for click-outside detection
+    const menuRef = useRef(null);
+    const buttonRef = useRef(null);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -20,6 +24,26 @@ const Navbar = () => {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
+    // Click outside handler
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (
+                isMenuOpen &&
+                menuRef.current &&
+                !menuRef.current.contains(event.target) &&
+                buttonRef.current &&
+                !buttonRef.current.contains(event.target)
+            ) {
+                setIsMenuOpen(false);
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [isMenuOpen]);
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
@@ -59,6 +83,7 @@ const Navbar = () => {
 
                     {/* Hamburger Button */}
                     <button
+                        ref={buttonRef}
                         className={`${styles.menuToggle} ${isMenuOpen ? styles.open : ''}`}
                         onClick={toggleMenu}
                         aria-label="Toggle navigation"
@@ -79,7 +104,10 @@ const Navbar = () => {
                 </div>
 
                 {/* Mobile Menu Dropdown */}
-                <div className={`${styles.mobileMenu} ${isMenuOpen ? styles.open : ''}`}>
+                <div
+                    ref={menuRef}
+                    className={`${styles.mobileMenu} ${isMenuOpen ? styles.open : ''}`}
+                >
                     <Link to="/jobs" className={isActive('/jobs')} onClick={closeMenu}>Empleos</Link>
                     <Link to="/companies" className={isActive('/companies')} onClick={closeMenu}>Empresas</Link>
                     <Link to="/artists" className={isActive('/artists')} onClick={closeMenu}>Talento</Link>

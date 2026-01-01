@@ -53,7 +53,6 @@
 
 /* LIGHT THEME */
 [data-theme="light"] {
-  /* COLORS */
 
   /* BACKGROUNDS */
   --background-primary: #f8fafc;
@@ -173,4 +172,21 @@ a {
 ::placeholder {
   color: var(--text-placeholder);
   opacity: 0.7;
+}
+
+/* MOBILE SCALING (Responsive Typography) */
+@media screen and (max-width: 768px) {
+  :root {
+    /* Reduces base unit from 16px to 14px (87.5% scale) */
+    font-size: 14px;
+
+    /* Ensure container takes full width on mobile */
+    --container-width: 100%;
+  }
+
+  /* Safe area adjustments for modern phones */
+  body {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
 }
