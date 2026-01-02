@@ -14,32 +14,39 @@ const Contact = lazy(() => import('./pages/Contact'));
 const JobDetails = lazy(() => import('./pages/JobDetails'));
 const JoinList = lazy(() => import('./pages/JoinList'));
 const NotFound = lazy(() => import('./pages/NotFound'));
+const Login = lazy(() => import('./pages/Login'));
+const Register = lazy(() => import('./pages/Register'));
 
 import ScrollToTop from './components/ScrollToTop';
+import { AuthProvider } from './context/AuthContext';
 
 function App() {
   return (
-    <BrowserRouter>
-      <ScrollToTop />
-      <div className="app-layout">
-        <Navbar />
-        <main className="main-content">
-          <Suspense fallback={<Loader />}>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/jobs" element={<Jobs />} />
-              <Route path="/companies" element={<Companies />} />
-              <Route path="/artists" element={<Artists />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/jobs/:id" element={<JobDetails />} />
-              <Route path="/join" element={<JoinList />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </Suspense>
-        </main>
-        <Footer />
-      </div>
-    </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <ScrollToTop />
+        <div className="app-layout">
+          <Navbar />
+          <main className="main-content">
+            <Suspense fallback={<Loader />}>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/jobs" element={<Jobs />} />
+                <Route path="/companies" element={<Companies />} />
+                <Route path="/artists" element={<Artists />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/jobs/:id" element={<JobDetails />} />
+                <Route path="/join" element={<JoinList />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </Suspense>
+          </main>
+          <Footer />
+        </div>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 

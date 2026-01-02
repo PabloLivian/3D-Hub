@@ -2,11 +2,13 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import styles from './Navbar.module.css';
 import ThemeToggle from './ThemeToggle';
+import { useAuth } from '../hooks/useAuth';
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const location = useLocation();
+    const { user, signOut } = useAuth();
 
     // Refs for click-outside detection
     const menuRef = useRef(null);
@@ -51,6 +53,11 @@ const Navbar = () => {
 
     const closeMenu = () => {
         setIsMenuOpen(false);
+    };
+
+    const handleLogout = async () => {
+        await signOut();
+        closeMenu();
     };
 
     const isActive = (path) => {
@@ -98,8 +105,16 @@ const Navbar = () => {
                             <ThemeToggle />
                         </div>
                         {/* Post Job button removed as per request */}
-                        <Link to="/register" className={styles.registerLink}>Registrarse</Link>
-                        <Link to="/login" className={`${styles.btn} ${styles.btnOutline}`}>Iniciar sesión</Link>
+                        {user ? (
+                            <button onClick={handleLogout} className={`${styles.btn} ${styles.btnOutline}`}>
+                                Cerrar sesión
+                            </button>
+                        ) : (
+                            <>
+                                <Link to="/register" className={styles.registerLink}>Registrarse</Link>
+                                <Link to="/login" className={`${styles.btn} ${styles.btnOutline}`}>Iniciar sesión</Link>
+                            </>
+                        )}
                     </div>
                 </div>
 
@@ -114,6 +129,16 @@ const Navbar = () => {
                     <Link to="/contact" className={isActive('/contact')} onClick={closeMenu}>Contacto</Link>
                     <div style={{ padding: '1rem' }}>
                         <ThemeToggle />
+                    </div>
+                    <div className={styles.mobileAuthActions}>
+                        {user ? (
+                            <button onClick={handleLogout} className={styles.mobileAuthBtn}>Cerrar sesión</button>
+                        ) : (
+                            <>
+                                <Link to="/login" className={styles.mobileAuthBtn} onClick={closeMenu}>Iniciar sesión</Link>
+                                <Link to="/register" className={styles.mobileAuthBtn} onClick={closeMenu}>Registrarse</Link>
+                            </>
+                        )}
                     </div>
                 </div>
             </div>
