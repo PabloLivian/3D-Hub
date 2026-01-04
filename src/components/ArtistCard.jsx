@@ -1,6 +1,7 @@
 
 import React from 'react';
 import styles from './ArtistCard.module.css';
+import BookmarkButton from './BookmarkButton';
 
 const ArtistCard = ({ artist }) => {
     const {
@@ -51,6 +52,9 @@ const ArtistCard = ({ artist }) => {
                                         </svg>
                                     </span>
                                 )}
+                            </div>
+                            <div style={{ marginLeft: 'auto' }}>
+                                <BookmarkButton targetId={artist.id} targetType="artist" />
                             </div>
                         </div>
                         <span className={styles.role}>{Rol}</span>

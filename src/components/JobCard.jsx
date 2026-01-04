@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './JobCard.module.css';
+import BookmarkButton from './BookmarkButton';
 
 const JobCard = ({ id, title, company, location, description, modality, experience, externalLink, className }) => {
 
@@ -27,6 +28,7 @@ const JobCard = ({ id, title, company, location, description, modality, experien
                     </div>
                 </Link>
                 <div className={styles.jobAction}>
+                    <BookmarkButton targetId={id} targetType="job" />
                     <a
                         href={externalLink}
                         target="_blank"

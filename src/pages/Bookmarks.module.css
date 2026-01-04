@@ -1,0 +1,61 @@
+.bookmarksPage {
+    padding: 2rem 0;
+    min-height: 80vh;
+}
+
+.title {
+    color: var(--text-light);
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.emptyState {
+    text-align: center;
+    padding: 4rem 1rem;
+    color: var(--text-muted);
+}
+
+.emptyState h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-light);
+}
+
+.emptyState p {
+    margin-bottom: 2rem;
+}
+
+.browseBtn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--primary);
+    color: white;
+    text-decoration: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+
+.browseBtn:hover {
+    background-color: var(--primary-hover);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+/* For artists cards we might want a grid if we reuse ArtistCard logic which is basically full width usually, 
+   but let's respect the page layout. Jobs are usually a list. Artists can be a grid. */
+
+/* If showing items */
+.itemsList {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 64rem;
+    margin: 0 auto;
+}

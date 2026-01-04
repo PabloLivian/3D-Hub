@@ -41,9 +41,12 @@ export const AuthProvider = ({ children }) => {
         return supabase.auth.signOut();
     };
 
-    const loginWithGoogle = () => {
+    const loginWithGoogle = (metaData = {}) => {
         return supabase.auth.signInWithOAuth({
             provider: 'google',
+            options: {
+                data: metaData
+            }
         });
     };
 

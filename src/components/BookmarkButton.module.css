@@ -1,0 +1,37 @@
+.bookmarkBtn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+}
+
+.bookmarkBtn:hover {
+    background-color: var(--background-hover);
+    color: var(--primary);
+}
+
+.bookmarkBtn.active {
+    color: var(--primary);
+}
+
+.bookmarkBtn.active svg {
+    fill: currentColor;
+}
+
+/* Logic disabled (User role mismatch) */
+.bookmarkBtn.disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+/* Loading state (Async operation) */
+.bookmarkBtn:disabled:not(.disabled) {
+    cursor: pointer;
+    opacity: 0.7;
+}

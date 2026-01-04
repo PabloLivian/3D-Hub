@@ -3,6 +3,8 @@ import { Suspense, lazy } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Loader from './components/Loader';
+// import CompleteProfile from './components/CompleteProfile';
+import { useAuth } from './hooks/useAuth';
 import './App.css';
 
 // Lazy loading pages
@@ -16,15 +18,19 @@ const JoinList = lazy(() => import('./pages/JoinList'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 const Login = lazy(() => import('./pages/Login'));
 const Register = lazy(() => import('./pages/Register'));
+const Profile = lazy(() => import('./pages/Profile'));
+const Bookmarks = lazy(() => import('./pages/Bookmarks'));
 
 import ScrollToTop from './components/ScrollToTop';
 import { AuthProvider } from './context/AuthContext';
+import RoleChecker from './components/RoleChecker';
 
 function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
         <ScrollToTop />
+        <RoleChecker />
         <div className="app-layout">
           <Navbar />
           <main className="main-content">
@@ -39,6 +45,8 @@ function App() {
                 <Route path="/join" element={<JoinList />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
+                <Route path="/profile" element={<Profile />} />
+                <Route path="/bookmarks" element={<Bookmarks />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>

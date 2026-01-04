@@ -33,10 +33,9 @@ const Register = () => {
     };
 
     const handleGoogleLogin = async () => {
-        // Note: Google login might not capture 'role' unless we handle it via a pre-step or prompt after login.
-        // For now, we will assume generic user or handle profile completion later.
         setError('');
-        const { error } = await loginWithGoogle();
+        // Pass the selected role as metadata to Google Login
+        const { error } = await loginWithGoogle({ role });
         if (error) setError(error.message);
     };
 

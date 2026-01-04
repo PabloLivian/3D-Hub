@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import styles from './Navbar.module.css';
 import ThemeToggle from './ThemeToggle';
 import { useAuth } from '../hooks/useAuth';
+import UserAvatar from './UserAvatar';
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -106,9 +107,12 @@ const Navbar = () => {
                         </div>
                         {/* Post Job button removed as per request */}
                         {user ? (
-                            <button onClick={handleLogout} className={`${styles.btn} ${styles.btnOutline}`}>
-                                Cerrar sesión
-                            </button>
+                            <>
+                                <button onClick={handleLogout} className={styles.textBtn}>
+                                    Cerrar sesión
+                                </button>
+                                <UserAvatar />
+                            </>
                         ) : (
                             <>
                                 <Link to="/register" className={styles.registerLink}>Registrarse</Link>
@@ -132,7 +136,11 @@ const Navbar = () => {
                     </div>
                     <div className={styles.mobileAuthActions}>
                         {user ? (
-                            <button onClick={handleLogout} className={styles.mobileAuthBtn}>Cerrar sesión</button>
+                            <>
+                                <Link to="/profile" className={styles.mobileAuthBtn} onClick={closeMenu}>Perfil</Link>
+                                <Link to="/bookmarks" className={styles.mobileAuthBtn} onClick={closeMenu}>Marcadores</Link>
+                                <button onClick={handleLogout} className={styles.mobileAuthBtn} style={{ border: 'none', marginTop: '0.5rem' }}>Cerrar sesión</button>
+                            </>
                         ) : (
                             <>
                                 <Link to="/login" className={styles.mobileAuthBtn} onClick={closeMenu}>Iniciar sesión</Link>

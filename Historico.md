@@ -706,7 +706,7 @@
 
 ---
 
-### [2026-01-01] UX Mejora: Cerrar Menú al Click Fuera
+### [2026-01-01 00:10] - UX Mejora: Cerrar Menú al Click Fuera
 - **Funcionalidad Solicitada:** Cerrar el menú hamburguesa móvil al hacer clic fuera del mismo.
 - **Implementación Técnica:**
     - Se añadieron `useRef` para el contenedor del menú y el botón de toggle.
@@ -716,7 +716,7 @@
 
 ---
 
-### [2026-01-01] UI Fix: Título Hero en Móvil
+### [2026-01-01 00:15] - UI Fix: Título Hero en Móvil
 - **Problema:** El título principal se rompía en 3 líneas en móviles debido al tamaño de fuente y un `<br>` forzado.
 - **Solución:** Se aplicó una regla CSS específica para móviles (`max-width: 768px`).
 - **Implementación:**
@@ -724,5 +724,28 @@
     - Aplicación de `text-wrap: balance` para equilibrar las líneas automáticamente.
     - Ligero ajuste de `font-size` a `2rem` para asegurar que quepa mejor.
 - **Resultado:** El título se muestra en 2 líneas equilibradas en móvil, manteniendo el comportamiento original en escritorio.
+
+---
+
+### [2026-01-04 20:40] - Implementación de Avatar de Usuario y Rutas de Perfil
+- **Funcionalidad**: Se creó el componente `UserAvatar` para mostrar la imagen del usuario logueado en la Navbar, con un menú desplegable.
+- **Detalles técnicos**:
+    - **UserAvatar.jsx**: Componente que obtiene la URL del avatar desde la tabla `profiles` de Supabase o usa la metadata de Google/Placeholder.
+    - **Dropdown**: Menú desplegable con opciones "Perfil" y "Marcadores", accesible al hacer clic en el avatar.
+    - **Navbar.jsx**: Integración del componente `UserAvatar` junto al botón (ahora de texto) "Cerrar sesión". En móvil, se añadieron enlaces directos al menú.
+    - **Rutas**: Se crearon las páginas `Profile.jsx` y `Bookmarks.jsx` (placeholders) y se configuraron las rutas `/profile` y `/bookmarks` en `App.jsx`.
+### [2026-01-04 22:50] - Implementación de Sistema de Marcadores y Roles
+- **Funcionalidad**: Se implementó la lógica para que los usuarios puedan guardar elementos (Bookmarks) según su rol.
+- **Reglas de Negocio**:
+    - **Artistas**: Pueden guardar OFERTAS de empleo.
+    - **Empresas**: Pueden guardar perfiles de ARTISTAS.
+- **Implementación Técnica**:
+    - **BookmarkButton.jsx**: Componente reutilizable que gestiona la visibilidad (según rol) y la interacción con la tabla `bookmarks` de Supabase.
+    - **Integración**: Se añadió el botón en `JobCard` y `ArtistCard` en la esquina superior derecha.
+    - **Página de Marcadores**: Se desarrolló `src/pages/Bookmarks.jsx` que recupera los IDs guardados y cruza la información con los archivos JSON locales (`jobs3D.json` y `artist.json`) para renderizar las tarjetas correspondientes.
+    - **Manejo de Estados**: Feedback visual inmediato (icono relleno) y reflexión persistente en base de datos.
+- **Tecnologías**: React, Supabase Database, CSS Modules.
+
+
 
 ---
