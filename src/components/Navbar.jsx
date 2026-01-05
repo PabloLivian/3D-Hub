@@ -109,14 +109,30 @@ const Navbar = () => {
                         {user ? (
                             <>
                                 <button onClick={handleLogout} className={styles.textBtn}>
-                                    Cerrar sesión
+                                    <span className={styles.logoutText}>Cerrar sesión</span>
+                                    <span className={styles.logoutIcon}>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24">
+                                            <title>Cerrar Sesión</title>
+                                            <path fill="currentColor" d="m17 8l-1.41 1.41L17.17 11H9v2h8.17l-1.58 1.58L17 16l4-4zM5 5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h7v-2H5z" />
+                                        </svg>
+                                    </span>
                                 </button>
                                 <UserAvatar />
                             </>
                         ) : (
                             <>
-                                <Link to="/register" className={styles.registerLink}>Registrarse</Link>
-                                <Link to="/login" className={`${styles.btn} ${styles.btnOutline}`}>Iniciar sesión</Link>
+                                <Link to="/register" className={styles.registerLink}>
+                                    <span className={styles.registerText}>Registrarse</span>
+                                    <span className={styles.registerIcon}>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><title>Registrarse</title><path fill="currentColor" d="M15 14c-2.67 0-8 1.33-8 4v2h16v-2c0-2.67-5.33-4-8-4m-9-4V7H4v3H1v2h3v3h2v-3h3v-2m6 2a4 4 0 0 0 4-4a4 4 0 0 0-4-4a4 4 0 0 0-4 4a4 4 0 0 0 4 4" /></svg>
+                                    </span>
+                                </Link>
+                                <Link to="/login" className={`${styles.btn} ${styles.btnOutline}`}>
+                                    <span className={styles.loginText}>Iniciar sesión</span>
+                                    <span className={styles.loginIcon}>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 24 24"><title>Iniciar sesión</title><path fill="currentColor" d="M11 7L9.6 8.4l2.6 2.6H2v2h10.2l-2.6 2.6L11 17l5-5zm9 12h-8v2h8c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-8v2h8z" /></svg>
+                                    </span>
+                                </Link>
                             </>
                         )}
                     </div>
@@ -134,20 +150,12 @@ const Navbar = () => {
                     <div style={{ padding: '1rem' }}>
                         <ThemeToggle />
                     </div>
-                    <div className={styles.mobileAuthActions}>
-                        {user ? (
-                            <>
-                                <Link to="/profile" className={styles.mobileAuthBtn} onClick={closeMenu}>Perfil</Link>
-                                <Link to="/bookmarks" className={styles.mobileAuthBtn} onClick={closeMenu}>Marcadores</Link>
-                                <button onClick={handleLogout} className={styles.mobileAuthBtn} style={{ border: 'none', marginTop: '0.5rem' }}>Cerrar sesión</button>
-                            </>
-                        ) : (
-                            <>
-                                <Link to="/login" className={styles.mobileAuthBtn} onClick={closeMenu}>Iniciar sesión</Link>
-                                <Link to="/register" className={styles.mobileAuthBtn} onClick={closeMenu}>Registrarse</Link>
-                            </>
-                        )}
-                    </div>
+                    {!user && (
+                        <div className={styles.mobileAuthActions}>
+                            <Link to="/login" className={styles.mobileAuthBtn} onClick={closeMenu}>Iniciar sesión</Link>
+                            <Link to="/register" className={styles.mobileAuthBtn} onClick={closeMenu}>Registrarse</Link>
+                        </div>
+                    )}
                 </div>
             </div>
         </header>

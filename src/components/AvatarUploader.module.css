@@ -1,0 +1,91 @@
+.avatarContainer {
+    position: relative;
+    border-radius: 50%;
+    background-color: var(--background-card);
+    /* border: 2px solid var(--primary); Removed for better centering */
+    box-shadow: 0 0 0 2px var(--primary);
+    overflow: visible;
+    /* Changed to visible so the button can slightly overlap if needed, though strictly it's inside */
+    flex-shrink: 0;
+}
+
+.avatarImage {
+    object-fit: cover;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.avatarPlaceholder {
+    background-color: var(--background-hover);
+    color: var(--text-muted);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    /* Ensure placeholder is round */
+}
+
+/* This overlay is for the whole image (creating a darkening effect) */
+.uploadOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: opacity 0.2s;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 5;
+}
+
+.avatarContainer:hover .uploadOverlay {
+    opacity: 1;
+}
+
+/* The camera button in bottom right */
+.editButton {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    background-color: transparent;
+    /* As requested, just the icon? Or icon on blue bg? User said "svg este super puesto... en azul tambien" likely means blue icon or blue bg */
+    /* Let's interpret: Blue outline (primary) on avatar. Small blue camera icon in corner. */
+    /* To make it visible over any image, a small background or stroke is good, but user asked for just SVG overlay? */
+    /* "este svg este super puesto abajo a la derecha en pequeño (en azul tambien)" */
+    color: var(--primary);
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    pointer-events: none;
+    /* Let clicks pass through to the label if it covers it, or handle click separately */
+    background-color: var(--background-card);
+    /* Tiny bg to ensure visibility vs image */
+    border-radius: 50%;
+    border: 1px solid var(--primary);
+    padding: 3px;
+}
+
+.editButton:hover {
+    transform: scale(1.1);
+}
+
+.srOnly {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}

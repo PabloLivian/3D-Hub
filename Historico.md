@@ -734,18 +734,77 @@
     - **Dropdown**: Menú desplegable con opciones "Perfil" y "Marcadores", accesible al hacer clic en el avatar.
     - **Navbar.jsx**: Integración del componente `UserAvatar` junto al botón (ahora de texto) "Cerrar sesión". En móvil, se añadieron enlaces directos al menú.
     - **Rutas**: Se crearon las páginas `Profile.jsx` y `Bookmarks.jsx` (placeholders) y se configuraron las rutas `/profile` y `/bookmarks` en `App.jsx`.
-### [2026-01-04 22:50] - Implementación de Sistema de Marcadores y Roles
-- **Funcionalidad**: Se implementó la lógica para que los usuarios puedan guardar elementos (Bookmarks) según su rol.
-- **Reglas de Negocio**:
-    - **Artistas**: Pueden guardar OFERTAS de empleo.
-    - **Empresas**: Pueden guardar perfiles de ARTISTAS.
-- **Implementación Técnica**:
-    - **BookmarkButton.jsx**: Componente reutilizable que gestiona la visibilidad (según rol) y la interacción con la tabla `bookmarks` de Supabase.
-    - **Integración**: Se añadió el botón en `JobCard` y `ArtistCard` en la esquina superior derecha.
-    - **Página de Marcadores**: Se desarrolló `src/pages/Bookmarks.jsx` que recupera los IDs guardados y cruza la información con los archivos JSON locales (`jobs3D.json` y `artist.json`) para renderizar las tarjetas correspondientes.
-    - **Manejo de Estados**: Feedback visual inmediato (icono relleno) y reflexión persistente en base de datos.
-- **Tecnologías**: React, Supabase Database, CSS Modules.
-
+- **Tecnologías**: React Hooks (`useState`, `useEffect`, `useRef`), Supabase Client, CSS Modules.
 
 
 ---
+
+### [2026-01-04] Estilizado de Página de Perfil
+- **Funcionalidad**: Ajustes visuales solicitados en la página `/profile`.
+- **Cambios UI**:
+    - **Bordes Redondeados**: Se implementaron variables globales CSS (`--radius-md`, `--radius-lg`) en `index.css` y se aplicaron en la tarjeta de perfil, inputs y botón de guardar.
+    - **Layout**: Se ajustaron los campos "Industrias" y "Software" para ocupar el 50% del ancho en escritorio (siguiendo el grid) en lugar de ancho completo, mejorando la estética del formulario.
+
+### [2026-01-04 23:58] Corrección de Errores (Profile)
+- **Bug Fix**: Se corrigió un error crítico en `Profile.jsx` donde se accedía a `formData.industrias` (propiedad inexistente) en lugar de `formData.industries`, lo que causaba que la aplicación fallara (pantalla azul/vacía) al intentar añadir un elemento.
+- **Base de Datos**: Se detectó que la tabla `profiles` faltaba la columna `updated_at`, lo que generaba errores al guardar. Se creó el script `fix_schema.sql` para añadirla.
+- **Bug Fix**: Se solucionó el error "violates not-null constraint" en la columna `role` añadiendo este campo al payload de guardado (tomado de `user_metadata`).
+
+### [2026-01-05 00:13] Mejora de Avatar Uploader
+- **UI Update**: Se añadió un borde azul (`var(--primary)`) al componente del avatar.
+- **Icono Cámara**: Se implementó una superposición (overlay) en la esquina inferior derecha con el icono de cámara solicitado (SVG) en color azul con fondo oscuro, indicando visualmente que la imagen es editable.
+
+### [2026-01-05 13:40] Mejora de Visibilidad en Filtros (Jobs y Artists)
+- **Funcionalidad Solicitada:** Cambiar el color del texto de los filtros por uno más visible y crear una variable CSS para control manual.
+- **Implementación Técnica:**
+    - **Variable CSS:** Se creó la variable `--text-filter` en `src/index.css` para gestionar centralizadamente este color.
+        - Dark Theme: `#e2e8f0` (Alta visibilidad, igual a `--text-light`).
+        - Light Theme: `#334155` (Gris oscuro).
+    - **Refactorización CSS Modules:**
+        - `Jobs.module.css`: Se reemplazó el color hardcodeado `#374151` por `var(--text-filter)` en `.filterSelect`.
+        - `Artists.module.css`: Se reemplazó el color hardcodeado `#334155` por `var(--text-filter)` en `.select`.
+### [2026-01-05 13:45] Unificación de Estilos en Dropdowns (JoinList)
+- **Funcionalidad Solicitada:** Aplicar el mismo diseño de colores de los filtros (Jobs/Artists) a los desplegables del formulario de unirse (`/join`).
+- **Implementación Técnica:**
+    - **CSS Refactor:** En `JoinList.module.css`, se desacopló la clase `.select` de los estilos compartidos con `.input`.
+    - **Variables:** Se aplicó `color: var(--text-filter)` para el texto.
+    - **Interacción:** Se añadieron los estados `:hover` y `:focus` con `background-color: var(--background-filter-hover)` y `border-color: var(--primary-hover)`, replicando la experiencia de usuario de la página de Artistas.
+
+### [2026-01-05 13:50] Fix Dropdown Options Background
+- **Bug Fix:** Se corrigió un problema visual donde las opciones del dropdown (especialmente "Selecciona...") mostraban un fondo gris claro por defecto en algunos navegadores.
+- **Solución:** Se añadió la regla `.select option { background-color: var(--background-card); color: var(--text-light); }` en `JoinList.module.css` para forzar el tema oscuro en el menú desplegable.
+
+### [2026-01-05 13:55] Global Theme Fix (Native Controls)
+- **Problem:** Los desplegables nativos (`<select>`) mostraban un fondo claro por defecto del sistema operativo, ignorando los estilos CSS en algunas situaciones.
+- **Solution:** Se aplicó la propiedad `color-scheme: dark` en `:root` y `color-scheme: light` en `[data-theme="light"]` dentro de `src/index.css`.
+- **Impacto:** Esto fuerza al navegador a renderizar todos los controles nativos (scrollbars, datepickers, dropdowns) coincidiendo con el tema activo de la aplicación, sin afectar a los estilos personalizados ya existentes.
+
+### [2026-01-05 14:00] Dropdown Rendering Optimization
+- **Problem:** Persistía un "flash" blanco de 1ms al cargar/interactuar con los dropdowns en `JoinList`.
+- **Solution 1 (Transitions):** Se eliminó `select` de la regla de transición global en `index.css`. Esto evita que el navegador interpole desde el estilo por defecto (blanco) al oscuro, lo cual causaba el parpadeo visual.
+- **Solution 2 (Direct Enforcement):** Se añadió explícitamente `color-scheme: dark` en la clase `.select` de `JoinList.module.css` para asegurar prioridad.
+- **Solution 3 (Meta Tag):** Se añadió `<meta name="color-scheme" content="dark light">` en `index.html` para informar al navegador antes de que cargue el CSS.
+
+### [2026-01-05 14:05] Stylization of Profile Dropdowns
+- **Funcionalidad Solicitada:** Aplicar el mismo diseño de los desplegables de `Jobs` y `JoinList` a la página de Perfil (`Profile.jsx`).
+- **Cambios:**
+    - **CSS Modular:** En `Profile.module.css`, se separó la clase `.select` de `.input`.
+    - **Uniformidad:** Se aplicaron las variables `--text-filter`, `--background-filter-hover` y el SVG de flecha personalizado.
+    - **Standards:** Se añadió `color-scheme: dark` para asegurar el fondo oscuro nativo en las opciones del dropdown.
+
+### [2026-01-05 14:15] Mobile Responsive Logout Icon
+- **Funcionalidad Solicitada:** Sustituir el texto "Cerrar sesión" por un icono SVG específico cuando se ve en dispositivos móviles (ancho < 768px).
+- **Implementación:**
+    - **Navbar.jsx:** Se añadió el SVG dentro del botón de logout. Se envolvieron el texto y el icono en spans con clases `.logoutText` y `.logoutIcon`.
+    - **Navbar.module.css:** Se utilizaron Media Queries para alternar la visibilidad (`display: none/block`) de cada elemento según el ancho de la pantalla (`max-width: 768px`).
+
+### [2026-01-05 14:20] Mobile Menu Cleanup
+- **Funcionalidad:** Eliminación de enlaces redundantes ("Perfil", "Marcadores", "Cerrar sesión") del menú hamburguesa cuando el usuario está logueado.
+- **Motivo:** Estas acciones ya están accesibles desde la barra de navegación superior (icono de logout y avatar de usuario), evitando duplicidad en la interfaz móvil.
+
+### [2026-01-05 14:25] Responsive Navbar Auth Icons
+- **Funcionalidad:** En la barra de navegación superior, los botones de "Registrarse" e "Iniciar sesión" ahora muestran iconos en lugar de texto cuando se visualiza en dispositivos móviles.
+- **Detalle:**
+    - "Registrarse" → Icono de registro (SVG).
+    - "Iniciar sesión" → Botón azul con icono de login (SVG).
+- **Técnica:** Se implementó la misma lógica de alternancia CSS (`display: none/block` en `@media (max-width: 768px)`) que con el botón de logout, asegurando una UI limpia en pantallas pequeñas sin perder funcionalidad.

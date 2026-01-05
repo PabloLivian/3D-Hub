@@ -77,7 +77,7 @@
     border-radius: 0.375rem;
     background-color: var(--background-search);
     font-size: 0.95rem;
-    color: #334155;
+    color: var(--text-filter);
     cursor: pointer;
     min-width: 130px;
     max-width: 200px;

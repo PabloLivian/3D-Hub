@@ -4,6 +4,10 @@
   --primary-hover: #0e5a9e;
   --primary-bg: rgba(17, 115, 212, 0.1);
 
+  /* BORDERS RADIUS */
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+
   /* BACKGROUNDS */
   --background-primary: #0a101c;
   --background-card: #151b26;
@@ -40,6 +44,7 @@
   --text-muted-dark: #94a3b8;
   --text-chip-blue: #1173d4;
   --text-placeholder: #94a3b8;
+  --text-filter: #94a3b8;
   --svg-muted: #94a3b8;
 
 
@@ -49,10 +54,14 @@
 
   /* FONTS */
   --font-display: 'Inter', system-ui, sans-serif;
+
+  /* NATIVE CONTROLS THEME */
+  color-scheme: dark;
 }
 
 /* LIGHT THEME */
 [data-theme="light"] {
+  color-scheme: light;
 
   /* BACKGROUNDS */
   --background-primary: #f8fafc;
@@ -76,6 +85,7 @@
   --text-muted-dark: #475569;
   --text-chip-blue: #1d4ed8;
   --text-placeholder: #64748b;
+  --text-filter: #334155;
   --svg-muted: #ccd5e0;
 }
 
@@ -106,7 +116,6 @@ h5,
 h6,
 input,
 button,
-select,
 textarea,
 a,
 li,

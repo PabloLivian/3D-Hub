@@ -106,7 +106,7 @@
     border: 1px solid var(--outline);
     background-color: var(--background-filter);
     /* gray-200/50 */
-    color: #374151;
+    color: var(--text-filter);
     /* gray-700 */
     font-size: 0.875rem;
     font-weight: 500;

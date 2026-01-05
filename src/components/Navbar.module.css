@@ -223,6 +223,23 @@
     color: var(--primary);
 }
 
+.logoutIcon {
+    display: none;
+    /* Hidden by default (Desktop) */
+}
+
+/* Mobile: Hide Text, Show Icon */
+@media (max-width: 768px) {
+    .logoutText {
+        display: none;
+    }
+
+    .logoutIcon {
+        display: flex;
+        align-items: center;
+    }
+}
+
 .btn {
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
@@ -263,6 +280,26 @@
     padding-top: 1rem;
     border-top: 1px solid var(--navbar-border);
     width: 80%;
+}
+
+.registerIcon,
+.loginIcon {
+    display: none;
+}
+
+@media (max-width: 768px) {
+
+    .registerText,
+    .loginText {
+        display: none;
+    }
+
+    .registerIcon,
+    .loginIcon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 }
 
 .mobileAuthBtn {
