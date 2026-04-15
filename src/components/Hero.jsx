@@ -1,51 +1,41 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 import styles from './Hero.module.css';
 
 const Hero = () => {
-    const [searchTerm, setSearchTerm] = useState('');
     const navigate = useNavigate();
-
-    const handleSearch = (e) => {
-        e.preventDefault();
-        const trimmedTerm = searchTerm.trim();
-        if (trimmedTerm) {
-            navigate(`/jobs?q=${encodeURIComponent(trimmedTerm)}`);
-        } else {
-            navigate('/jobs');
-        }
-    };
 
     return (
         <section className={styles.hero}>
-            <div className={`container ${styles.heroContainer}`}>
+            <div className={styles.heroBackground}>
+                <div className={styles.glowPrimary}></div>
+                <div className={styles.glowSecondary}></div>
+                <img
+                    className={styles.heroImage}
+                    alt="Abstract 3D rendered geometric shapes with metallic textures and neon blue lighting"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuClpxYJ3kwQfbBT_NQo742aSnsXfOJftS8iCYiko46-xS-PC6ekxMhT-vxOgfDIdn--lbI54rHwFW8JoF9wBLDADG79KGOTU-Nt9AZzWF4kD24by49jbFkveJEMKxPF4SiSadc8t4afUA7JZi5lI6zFYb8DxQ4p-VpHvn5KzeAsR4Z85NdVgSJcJ2H2ZY0-xdWSt9yJnD56ZYBrSBvr2C7V8CUhnQmxG05bfMHT3vDMWagSHeet46XGKdtwfi9L6O1tQJOMMU14w3pu"
+                />
+            </div>
+
+            <div className={styles.heroContent}>
                 <h1 className={styles.heroTitle}>
-                    Encuentra el estudio donde <br />
-                    dejarás tu <span className={styles.gradientText}>huella digital</span>
+                    ¿Qué es <span className={styles.gradientText}>3D HUB?</span>
                 </h1>
                 <p className={styles.heroSubtitle}>
-                    Únete a la comunidad emergente de la industria de 3D y encuentra tu próxima oportunidad.
+                    Es una plataforma donde los artistas pueden conectarse y ver todos los trabajos disponibles en la industria y las empresas tengan un acceso facil y ordenado para facilitar el siguimiento de los artistas.
                 </p>
 
-                <div className={styles.searchFormContainer}>
-                    <form className={styles.searchForm} onSubmit={handleSearch}>
-                        <span className={styles.searchIcon}>
-                            <svg fill="currentColor" height="24" viewBox="0 0 256 256" width="24"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z">
-                                </path>
-                            </svg>
-                        </span>
-                        <input
-                            className={styles.searchInput}
-                            placeholder="Buscar empleos por título, habilidad o empresa"
-                            type="text"
-                            value={searchTerm}
-                            onChange={(e) => setSearchTerm(e.target.value)}
-                        />
-                        <button className={styles.searchButton} type="submit">Buscar</button>
-                    </form>
+                <div className={styles.buttonGroup}>
+                    <button
+                        className={styles.primaryButton}
+                        onClick={() => navigate('/jobs')}
+                    >
+                        Explorar Oportunidades
+                        <span className="material-symbols-outlined">north_east</span>
+                    </button>
+                    <Link to="/artists" className={styles.secondaryButton}>
+                        Ver Artistas
+                    </Link>
                 </div>
             </div>
         </section>

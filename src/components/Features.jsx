@@ -1,54 +1,141 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styles from './Features.module.css';
+import jobsData from '../data/jobs3D.json';
+import tablaJoseImg from '../assets/TablaJose.png';
 
 const Features = () => {
+    // Get the first 6 jobs for the "Recent Job Postings" section
+    const recentJobs = jobsData.slice(0, 6);
+
     return (
-        <section className={styles.features}>
-            <div className="container">
-                <div className={styles.featuresHeader}>
-                    <h2 className={styles.featuresTitle}>¿Por qué 3D HUB?</h2>
-                    <p className={styles.featuresDescription}>
-                        3D HUB es la mejor bolsa de trabajo para artistas 3D.
-                        Conectamos a los artistas con las mejores empresas del mundo.
-                    </p>
+        <>
+            {/* Section 2: Split Perspective (Artists vs Companies) */}
+            <section className={styles.section}>
+                <div className={styles.container}>
+                    <div className={styles.splitGrid}>
+                        {/* Artists Side */}
+                        <div className={styles.splitCard}>
+                            <div className={styles.cardIconBg}>
+                                <span className={`material-symbols-outlined ${styles.bgIcon}`}>brush</span>
+                            </div>
+                            <div className={styles.cardContent}>
+                                <h3>Para Artistas</h3>
+                                <p>Escala tu carrera creativa. Encuentra oportunidades globales que encajen con tu stack técnico y estilo estético.</p>
+                                <Link to="/jobs" className={styles.cardLink}>
+                                    Encuentra tu próximo rol 
+                                    <span className="material-symbols-outlined">arrow_forward</span>
+                                </Link>
+                            </div>
+                            <div className={styles.cardImageBg}>
+                                <img 
+                                    alt="Close up of a 3D character design workspace" 
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3WtGUX9_69FJ-k--23-Br4fsd3WDkou1U4GP0G8ZTszedY0KkCxr-PV8vI3pqXWi8o5Nc59Y8D-r25RRqLJPzCxWWvyIByMn8bpcnbmRpGcvRsdHiCR__X_5EtA1f5ExU3JmFKZTM64XnIZHVR2gTvH26pifIdMHgXoM0k8ipmge3SPvo3xxzrtuWLdtcC6rV-DV0uMA5PZF5NCIhEqw5CnhoiPPpFv5Y4a5DKbpAcDuKepbBUUC3omXdsRb5De6ONoue4J2yP0Ng" 
+                                />
+                            </div>
+                        </div>
+
+                        {/* Companies Side */}
+                        <div className={styles.splitCard}>
+                            <div className={styles.cardIconBgLeft}>
+                                <span className={`material-symbols-outlined ${styles.bgIconTertiary}`}>apartment</span>
+                            </div>
+                            <div className={styles.cardContent}>
+                                <h3>Para Empresas</h3>
+                                <p>Asegura el mejor talento 3D de la industria. Accede a un grupo seleccionado de artistas listos para tu próxima producción.</p>
+                                <Link to="/artists" className={styles.cardLink}>
+                                    Busca a los mejores 
+                                    <span className="material-symbols-outlined">arrow_forward</span>
+                                </Link>
+                            </div>
+                            <div className={styles.cardImageBg}>
+                                <img 
+                                    alt="High tech studio environment" 
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTjerBfDWhRXc5y8g-cbatQKByAneVMaimUoLFDdBrzyEjno0RLzOk7RUHg3gZO4gs9KhrdfbXaFy-2a4VImofBfdWCFqV7YhvzQpYlW5RLTMsWlGTxH_ts89VwOX09A0TrpvfonJ62ZN5ZyjiqMG5dB2MYXmBDCc94zF0Tkvm_GPotIA2EP8FaQnZ7SYirWqZUWUkWWdsNQLR4R59AG9o4LYJfLuoUMYo8Mw0JQ064z_DE19FvMxT1mLYyPE6QbA10VCPQDuYlClu" 
+                                />
+                            </div>
+                        </div>
+                    </div>
                 </div>
+            </section>
 
-                <div className={styles.featuresGrid}>
-                    {/* Feature 1 */}
-                    <div className={styles.featureCard}>
-                        <div className={styles.featureIconWrapper}>
-                            <svg className={styles.featureIcon} fill="currentColor" height="32" viewBox="0 0 256 256" width="32" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M216,56H176V48a24,24,0,0,0-24-24H104A24,24,0,0,0,80,48v8H40A16,16,0,0,0,24,72V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V72A16,16,0,0,0,216,56ZM96,48a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96ZM216,72v41.61A184,184,0,0,1,128,136a184.07,184.07,0,0,1-88-22.38V72Zm0,128H40V131.64A200.19,200.19,0,0,0,128,152a200.25,200.25,0,0,0,88-20.37V200ZM104,112a8,8,0,0,1,8-8h32a8,8,0,0,1,0,16H112A8,8,0,0,1,104,112Z"></path>
-                            </svg>
-                        </div>
-                        <h3 className={styles.featureTitle}>Encuentra el estudio donde dejarás tu huella digital</h3>
-                        <p className={styles.featureText}>Busca miles de empleos de las mejores empresas de todo el mundo.</p>
+            {/* Section 3: Recent Job Postings */}
+            <section className={styles.section}>
+                <div className={styles.container}>
+                    <div className={styles.statsBadge}>
+                        <span className={styles.pulseDot}></span>
+                        <span className={styles.statsText}><strong>+24 artistas</strong> se han unido esta semana</span>
                     </div>
 
-                    {/* Feature 2 */}
-                    <div className={styles.featureCard}>
-                        <div className={styles.featureIconWrapper}>
-                            <svg className={styles.featureIcon} fill="currentColor" height="32" viewBox="0 0 256 256" width="32" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M117.25,157.92a60,60,0,1,0-66.5,0A95.83,95.83,0,0,0,3.53,195.63a8,8,0,1,0,13.4,8.74,80,80,0,0,1,134.14,0,8,8,0,0,0,13.4-8.74A95.83,95.83,0,0,0,117.25,157.92ZM40,108a44,44,0,1,1,44,44A44.05,44.05,0,0,1,40,108Zm210.14,98.7a8,8,0,0,1-11.07-2.33A79.83,79.83,0,0,0,172,168a8,8,0,0,1,0-16,44,44,0,1,0-16.34-84.87,8,8,0,1,1-5.94-14.85,60,60,0,0,1,55.53,105.64,95.83,95.83,0,0,1,47.22,37.71A8,8,0,0,1,250.14,206.7Z"></path>
-                            </svg>
+                    <div className={styles.jobsHeader}>
+                        <div>
+                            <h2>Ofertas de Empleo Recientes</h2>
+                            <p>Las últimas oportunidades en el ecosistema 3D.</p>
                         </div>
-                        <h3 className={styles.featureTitle}>Conecta con las mejores empresas</h3>
-                        <p className={styles.featureText}>Conecta con empresas que están contratando por tus habilidades.</p>
+                        <Link to="/jobs" className={styles.seeAllLink}>
+                            Ver Todas <span className="material-symbols-outlined">list</span>
+                        </Link>
                     </div>
 
-                    {/* Feature 3 */}
-                    <div className={styles.featureCard}>
-                        <div className={styles.featureIconWrapper}>
-                            <svg className={styles.featureIcon} fill="currentColor" height="32" viewBox="0 0 256 256" width="32" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M240,208H224V96a16,16,0,0,0-16-16H144V32a16,16,0,0,0-24.88-13.32L39.12,72A16,16,0,0,0,32,85.34V208H16a8,8,0,0,0,0,16H240a8,8,0,0,0,0-16ZM208,96V208H144V96ZM48,85.34,128,32V208H48ZM112,112v16a8,8,0,0,1-16,0V112a8,8,0,1,1,16,0Zm-32,0v16a8,8,0,0,1-16,0V112a8,8,0,1,1,16,0Zm0,56v16a8,8,0,0,1-16,0V168a8,8,0,0,1,16,0Zm32,0v16a8,8,0,0,1-16,0V168a8,8,0,0,1,16,0Z"></path>
-                            </svg>
-                        </div>
-                        <h3 className={styles.featureTitle}>Obtén el salario que mereces</h3>
-                        <p className={styles.featureText}>Obtén el salario que mereces con nuestra calculadora de salarios.</p>
+                    <div className={styles.jobsList}>
+                        {recentJobs.map((job) => {
+                            // Extract two tags (e.g., from Software_Programs)
+                            const softwareList = job.Software_Programs ? job.Software_Programs.split(',').map(s => s.trim()).filter(Boolean) : [];
+                            const tags = softwareList.slice(0, 2);
+
+                            return (
+                                <Link to={`/jobs/${job.ID}`} key={job.ID} className={styles.jobItem}>
+                                    <div className={styles.jobInfoLeft}>
+                                        <div className={styles.jobIconBox}>
+                                            <span className="material-symbols-outlined w-14">view_in_ar</span>
+                                        </div>
+                                        <div className={styles.jobMainInfo}>
+                                            <h4>{job.Job_Title}</h4>
+                                            <p>{job.Studio} • {job.City ? `${job.City}, ${job.Country}` : job.Country}</p>
+                                        </div>
+                                    </div>
+                                    <div className={styles.jobInfoRight}>
+                                        <div className={styles.jobMeta}>
+                                            <p className={styles.jobTime}>Nuevo</p>
+                                            <p className={styles.jobType}>{job.On_Site_Remote_Hybrid}</p>
+                                        </div>
+                                        <span className={`material-symbols-outlined ${styles.chevronIcon}`}>chevron_right</span>
+                                    </div>
+                                </Link>
+                            );
+                        })}
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+
+            {/* Section 4: Data Credits / Tracking Table */}
+            <section className={styles.creatorSection}>
+                <div className={styles.container}>
+                    <div className={styles.creatorPanel}>
+                        <div className={styles.creatorGrid}>
+                            <div className={styles.creatorImageContainer}>
+                                <div className={styles.creatorGlow}></div>
+                                <img 
+                                    className={styles.creatorImage} 
+                                    alt="Creative Industries Job Offers Tracking" 
+                                    src={tablaJoseImg} 
+                                />
+                            </div>
+                            <div className={styles.creatorText}>
+                                <h2>Basado en las tablas dinámicas de Jose A Rodriguez y el excel de Chris Mayne.</h2>
+                                <p>
+                                    Este proyecto es posible gracias a la recopilación y procesamiento de datos de ofertas de trabajo publicados por Chris Mayne en su comunidad. La visualización y estructura se apoyan en el trabajo continuo de seguimiento de la industria de animación, VFX y videojuegos.
+                                </p>
+                                <div className={styles.creatorSignoff}>
+                                    <div className={styles.creatorLine}></div>
+                                    <span className={styles.creatorName}>Colaboración con la Comunidad</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </>
     );
 };
 

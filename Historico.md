@@ -808,3 +808,26 @@
     - "Registrarse" → Icono de registro (SVG).
     - "Iniciar sesión" → Botón azul con icono de login (SVG).
 - **Técnica:** Se implementó la misma lógica de alternancia CSS (`display: none/block` en `@media (max-width: 768px)`) que con el botón de logout, asegurando una UI limpia en pantallas pequeñas sin perder funcionalidad.
+
+---
+
+### [2026-04-15 23:25] - Instalación de Skills y Clarificación de Documentación
+- **Actividad:** Instalación de la skill `vercel-react-best-practices` y consulta sobre archivos de configuración para el agente.
+- **Explicación técnica:**
+    - Se ha instalado la skill de mejores prácticas de React.
+    - Se ha definido que `GEMINI.md` (o las instrucciones globales del usuario) actúan como la guía principal de estilo, arquitectura y workflow del proyecto.
+    - El archivo `AGENTS.md` (asociado a la skill instalada) se utilizará como un manual técnico de optimización de rendimiento y buenas prácticas avanzadas en React/Next.js.
+- **Tecnologías/Librerías:** React Skills, Vercel React Best Practices.
+
+---
+
+### [2026-04-15 23:55] - Refactor Completo de la Página Principal (Stitch Design)
+- **Actividad:** Rediseño de la página de inicio (Componentes `Hero` y `Features`) replicando la estructura de maquetación del diseño generado por Google Stitch, manteniendo las variables CSS semánticas del modo oscuro original (`index.css`).
+- **Explicación técnica:**
+    - **Hero.jsx:** Se actualizó para incorporar los fondos radiantes (glows), la maquetación en una columna centrada, y los dos botones primario y secundario apuntando a `/jobs` y `/artists` respectivamente, omitiendo la barra de búsqueda anterior.
+    - **Features.jsx:** Se reescribió completamente dividiéndolo en 3 grandes secciones de acuerdo al nuevo diseño:
+        1. **Split Perspective ("Para Artistas" / "Para Empresas"):** Tarjetas redondeadas (`rounded-3xl` por seguridad) con iconos de fondo que escalan al hacer hover y links con animaciones CSS limpias en `arrow_forward`.
+        2. **Ofertas Recientes:** Se integró dinámicamente el archivo `src/data/jobs3D.json`. Se importan y extraen las primeras 4 ofertas y sus respectivos tags (del string original de Software), mapeándolos en un listado estilo "Bento".
+        3. **Mensaje del Creador:** Se implementó un panel con efecto *glassmorphism* (blur) y contorno radiante (glow primario) respetando fielmente el wireframe de Stitch.
+    - **CSS Modules:** Toda la maquetación estructural original de Stitch (en clases de Tailwind) fue traducida a módulos CSS (`Hero.module.css` y `Features.module.css`), respetando variables estrictas como `var(--background-card)`, `var(--primary)`, `var(--outline)` garantizando 0 problemas de especificidad y soporte íntegro del sistema de temas.
+- **Tecnologías/Librerías:** CSS Modules, Flexbox/Grid CSS, JSON data extraction (JS Arrays).
