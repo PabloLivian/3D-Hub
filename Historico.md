@@ -831,3 +831,61 @@
         3. **Mensaje del Creador:** Se implementó un panel con efecto *glassmorphism* (blur) y contorno radiante (glow primario) respetando fielmente el wireframe de Stitch.
     - **CSS Modules:** Toda la maquetación estructural original de Stitch (en clases de Tailwind) fue traducida a módulos CSS (`Hero.module.css` y `Features.module.css`), respetando variables estrictas como `var(--background-card)`, `var(--primary)`, `var(--outline)` garantizando 0 problemas de especificidad y soporte íntegro del sistema de temas.
 - **Tecnologías/Librerías:** CSS Modules, Flexbox/Grid CSS, JSON data extraction (JS Arrays).
+
+---
+
+### [2026-04-16 12:50] - Actualización de Imágenes de Fondo en Homepage
+- **Actividad:** Sustitución de las imágenes de fondo genéricas en las secciones "Para Artistas" y "Para Empresas" por activos locales personalizados (`Artist.png` y `Estudio.png`).
+- **Explicación técnica:**
+    - Se importaron `artistImg` y `estudioImg` en el componente `Features.jsx`.
+    - Se actualizaron las referencias de las etiquetas `<img>` para usar los nuevos activos locales.
+    - Se refinó el estilo en `Features.module.css`:
+        - Aumento de la opacidad base de `0.1` a `0.15` y en hover de `0.2` a `0.25`.
+        - Se añadió un **pseudo-elemento `::after` con un gradiente lineal** sobre las imágenes para asegurar que el contraste del texto sea óptimo independientemente del brillo de la imagen.
+        - Se incluyó una transición de escala (`transform: scale(1.05)`) en hover para una sensación más dinámica y premium.
+- **Tecnologías/Librerías:** React (Imports), CSS Modules (Pseudo-elements, Transitions, Gradients).
+
+---
+
+### [2026-04-16 13:05] - Inclusión de Enlaces de Fuentes en Homepage
+- **Actividad:** Sustitución del texto genérico de colaboración por enlaces directos a las fuentes de datos (Datastudio de Jose A Rodriguez y Google Sheets de Chris Mayne) en la sección final de la página de inicio.
+- **Explicación técnica:**
+    - Se eliminó el componente `creatorSignoff` y se reemplazó por una estructura de `sourceLinks` organizada por grupos.
+    - Se implementaron enlaces con `target="_blank"` y `rel="noopener noreferrer"` por seguridad.
+    - Se rediseñó el estilo en `Features.module.css`:
+        - Los enlaces cuentan con un efecto de `border-bottom` animado en hover.
+        - Se implementó un layout responsive que apila los grupos en móvil y los expande horizontalmente en escritorio (`flex-direction: row` en breakpoint 768px).
+- **Tecnologías/Librerías:** React (JSX), CSS Modules (Flexbox, Responsive Design).
+
+---
+
+### [2026-04-16 13:10] - Botón de Llamada a la Acción (CTA) en Stats Badge
+- **Actividad:** Integración de un botón "Join to the list" dentro del banner de estadísticas de la página de inicio para fomentar el registro de nuevos artistas.
+- **Explicación técnica:**
+    - Se modificó `Features.jsx` para encapsular las estadísticas en un contenedor `statsMain` y añadir el componente `Link` de React Router.
+    - Se aplicaron estilos avanzados en `Features.module.css`:
+        - El botón utiliza el color primario de la marca con una sombra proyectada (`box-shadow`) dinámica.
+        - Se implementaron efectos de transición suavizados (`cubic-bezier`) para el cambio de color y la elevación en hover.
+        - El contenedor `statsBadge` se ajustó para ser flexible (`flex-wrap`), garantizando que en pantallas pequeñas el botón y el texto se acomoden correctamente.
+- **Tecnologías/Librerías:** React Router (Link), CSS Transitions, Shadow DOM patterns.
+
+---
+
+### [2026-04-16 13:17] - Refinamiento de Etiquetas Temporales
+- **Actividad:** Actualización de la etiqueta de tiempo más reciente de "Hace 1 día" a "Hoy" en las ofertas de empleo.
+- **Explicación técnica:**
+    - Se simplificó la lógica condicional en `Features.jsx` para mostrar "Hoy" cuando el valor de `daysAgo` es 1.
+    - Para el resto de valores, se mantiene el formato "Hace X días".
+- **Tecnologías/Librerías:** React (JSX), Javascript.
+
+---
+
+### [2026-04-16 13:18] - Versión Estable: Homepage Refinada
+- **Actividad:** Commit y Push final de todas las mejoras visuales y funcionales aplicadas a la página de inicio.
+- **Detalle de cambios agrupados:**
+    - Sustitución de imágenes de fondo por activos locales.
+    - Actualización de enlaces de fuentes de datos oficiales.
+    - Integración de nuevo CTA "Join to the list" en el banner de estadísticas.
+    - Ordenación cronológica de ofertas con etiquetas relativas e identificación de ofertas del día ("Hoy").
+    - Ajustes de estilo para cohesión visual (gradientes, sombras y transiciones).
+- **Estado:** Commit realizado con mensaje descriptivo y despliegue a repositorio remoto ejecutado.

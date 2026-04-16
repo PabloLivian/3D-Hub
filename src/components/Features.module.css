@@ -119,18 +119,28 @@
     position: absolute;
     inset: 0;
     z-index: 0;
-    opacity: 0.1;
-    transition: opacity 0.3s;
+    opacity: 0.15;
+    transition: all 0.5s ease;
+}
+
+.cardImageBg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, var(--background-card) 0%, transparent 100%);
+    z-index: 1;
 }
 
 .cardImageBg img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
 }
 
 .splitCard:hover .cardImageBg {
-    opacity: 0.2;
+    opacity: 0.25;
+    transform: scale(1.05);
 }
 
 /* ------------------------------------- */
@@ -360,34 +370,94 @@
     margin-bottom: 2rem;
 }
 
-.creatorSignoff {
+.sourceLinks {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.sourceGroup {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.75rem;
+    font-size: 0.95rem;
 }
 
-.creatorLine {
-    height: 1px;
-    width: 3rem;
-    background-color: var(--primary);
+.sourceLabel {
+    color: var(--text-light);
+    font-weight: 600;
 }
 
-.creatorName {
-    font-weight: 700;
+.sourceGroup a {
     color: var(--primary);
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.2s ease;
+    border-bottom: 2px solid transparent;
+}
+
+.sourceGroup a:hover {
+    color: var(--text-light);
+    border-bottom-color: var(--primary);
+}
+
+.separator {
+    color: var(--text-muted);
+    opacity: 0.5;
+}
+
+@media screen and (min-width: 768px) {
+    .sourceLinks {
+        flex-direction: row;
+        gap: 3rem;
+    }
 }
 
 /* Stats Badge */
 .statsBadge {
     display: inline-flex;
+    flex-wrap: wrap;
     align-items: center;
-    gap: 1rem;
-    padding: 0.75rem 1.5rem;
+    gap: 1.5rem;
+    padding: 0.5rem 0.5rem 0.5rem 1.5rem; /* left-heavy padding for asymmetry */
     background-color: var(--background-card);
     border: 1px solid var(--outline);
     border-radius: 99px;
     margin-bottom: 2.5rem;
     animation: fadeIn 0.8s ease-out;
+}
+
+.statsMain {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.statsButton {
+    background-color: var(--primary);
+    color: white;
+    padding: 0.5rem 1.25rem;
+    border-radius: 99px;
+    font-weight: 700;
+    font-size: 0.875rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(var(--primary-rgb), 0.3);
+}
+
+.statsButton:hover {
+    background-color: var(--text-light);
+    color: var(--background-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.statsButton span {
+    font-size: 1.25rem;
 }
 
 .pulseDot {
